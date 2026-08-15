@@ -133,7 +133,7 @@ input[type=color]{width:100%;height:38px;background:var(--ink);border:1px solid 
 /* one physical title strip */
 .strip{position:relative;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.4);
   --bg:#f7c9d6; --banner:#ffffff; --ink:#7a1029; --accent:#e35c86; --bink:#111; --bord:#d24d78;
-  background:var(--bg);border:1px solid var(--bord);color:var(--ink);font-family:var(--stripfont,"Oswald"),sans-serif;
+  background:var(--bg);border:none;color:var(--ink);font-family:var(--stripfont,"Oswald"),sans-serif;
   font-style:var(--fstyle,normal)}
 .strip .seg-row{display:flex;align-items:center;justify-content:center;position:relative;text-align:center;padding:0 6%}
 .strip .t-title{font-weight:var(--fweight,700);line-height:1.02;text-transform:var(--case,uppercase);letter-spacing:.01em;white-space:nowrap;overflow:hidden;max-width:100%}
@@ -244,7 +244,9 @@ table.data .actions{display:flex;gap:5px;justify-content:flex-end}
 .sheet.a4mode{background:transparent}
 .a4page{width:210mm;height:297mm;background:#fff;box-shadow:0 6px 26px rgba(0,0,0,.4);padding:8mm;box-sizing:border-box;margin:0 auto 22px;position:relative;overflow:hidden}
 .a4grid{display:grid;align-content:start;justify-content:center}
-.a4cell{outline:.3mm dashed #cfcfcf;line-height:0}
+.a4cell{line-height:0}
+.a4cut .a4cell{outline:.25mm dashed #d2d2d2}
+.a4cut .strip{outline:.25mm dashed #d2d2d2}
 .a4cell .strip{box-shadow:none}
 /* central number index (jukebox print) */
 .jbNum{position:absolute;display:flex;align-items:center;font-family:"Oswald",sans-serif;font-weight:700;color:#111;line-height:1;white-space:nowrap}
@@ -628,15 +630,24 @@ body.mode-jukebox header.top,body.mode-jukebox nav.views,body.mode-jukebox .wrap
       <div>
         <div class="panel">
           <h3>Live voorbeeld</h3>
+          <div class="seg" id="prevSide" style="margin-bottom:12px"><button data-s="L" class="on">◀ Linkerlabel (hoog)</button><button data-s="R">Rechterlabel (laag)</button></div>
           <div class="stage" id="previewStage" style="cursor:zoom-in">
-            <span class="chrome-note">Voorbeeldstrook · klik om te vergroten 🔍</span>
+            <span class="chrome-note">Zo wordt het geprint · klik om te vergroten 🔍</span>
             <div id="previewHolder"></div>
           </div>
-          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center">
-            <select class="inp" id="previewPick" style="max-width:260px"></select>
+          <div class="row" style="flex-wrap:wrap;margin-top:12px">
+            <label class="fld" style="max-width:110px"><span>Nummer</span><input class="inp" id="pvNum" placeholder="bv. 001"></label>
+            <label class="fld"><span>Artiest</span><input class="inp" id="pvArtist" placeholder="bv. Scott McKenzie"></label>
+          </div>
+          <div class="row" style="flex-wrap:wrap">
+            <label class="fld"><span>A-kant (boven)</span><input class="inp" id="pvA" placeholder="A-kant titel"></label>
+            <label class="fld"><span>B-kant (onder)</span><input class="inp" id="pvB" placeholder="B-kant titel"></label>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;align-items:center">
+            <select class="inp" id="previewPick" style="max-width:230px"></select>
             <button class="btn ghost sm" id="btnResetDesign">Ontwerp herstellen</button>
           </div>
-          <div class="hint" style="margin-top:8px">Kies een plaatje om het ontwerp op echte tekst te bekijken. Het ontwerp geldt voor álle stroken.</div>
+          <div class="hint" style="margin-top:8px">Typ hier een nummer, artiest en titels om het echte label te zien. Met de knoppen bovenaan bekijk je 'm als linker- of rechterlabel — links ligt hoog, rechts laag, zodat het op dezelfde hoogte als het nummer valt (zoals op de jukebox). Het ontwerp geldt voor álle labels.</div>
         </div>
         <div class="panel">
           <h3>Alle stroken</h3>
@@ -734,12 +745,28 @@ body.mode-jukebox header.top,body.mode-jukebox nav.views,body.mode-jukebox .wrap
             <label class="fld slider" id="stagRow"><span>Fijn-afstellen stagger <b class="val" id="vStag">halve strook</b></span><input type="range" id="pStag" min="0" max="100" value="50"></label>
           </div>
           <label class="fld slider"><span>Ruimte tussen stroken <b class="val" id="vGap">3 mm</b></span><input type="range" id="pGap" min="0" max="12" value="3"></label>
+          <div class="toggle"><span>Snijlijnen tonen (om langs te knippen)</span><label class="switch"><input type="checkbox" id="pCut" checked><span class="track"></span><span class="thumb"></span></label></div>
         </div>
         <div>
-          <div class="hint" id="printHelp" style="margin-bottom:10px"><b>A4 om uit te knippen:</b> de labels worden zo groot mogelijk op echte A4-pagina’s gezet (op ware mm-grootte), met stippellijnen om langs te knippen. Hoeveel er per vel passen hangt af van de labelgrootte die je bij <b>Ontwerp</b> koos.</div>
-          <button class="btn primary" id="btnPrint" style="width:100%">🖨️ Nu afdrukken</button>
+          <div class="hint" id="printHelp" style="margin-bottom:10px"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" id="btnPrint" style="flex:1">🖨️ Afdrukken</button>
+            <button class="btn" id="btnPrintAll" style="flex:1">🖨️ Alles afdrukken</button>
+          </div>
           <div class="hint" style="margin-top:8px">Tip: zet in het printvenster marges op ‘geen/minimaal’ en schaal op 100% voor exacte mm-maten.</div>
         </div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft)">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px">
+          <b style="font-size:.92rem">Wat afdrukken? <span id="selCount" style="color:var(--gold);font-weight:600"></span></b>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn ghost sm" id="selAll">Alles selecteren</button>
+            <button class="btn ghost sm" id="selClear">Selectie wissen</button>
+          </div>
+        </div>
+        <div class="search" style="margin-bottom:10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="selSearch" placeholder="Zoek op nummer, artiest of titel om te selecteren…"></div>
+        <div id="selList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px;max-height:260px;overflow:auto"></div>
+        <div class="hint" style="margin-top:8px">Vink de labels aan die je wilt printen (bijv. op nummer of artiest). Niets aangevinkt = <b>alles</b> wordt geprint. Eén los label print je ook via de 🖨-knop bij <b>Plaatjes</b>.</div>
       </div>
     </div>
     <div id="printArea"><div class="sheet" id="sheet"></div></div>
@@ -1115,11 +1142,24 @@ function fit(el){ if(!el||!el.clientWidth)return;
   while(el.scrollWidth>el.clientWidth*pad && px>4 && guard++<60){ px*=0.94; el.style.fontSize=px+'px'; }
 }
 
-function renderPreview(){
-  const holder=$('#previewHolder'); holder.innerHTML='';
-  const rec=records.find(r=>r.id===previewId)||records[0]||{artist:'Artiest',sideA:'A-kant titel',sideB:'B-kant titel',catalog:'LABEL 0000'};
-  holder.appendChild(makeStrip(rec));
+let preview={num:'001',artist:'Artiest',sideA:'A-kant titel',sideB:'B-kant titel',col:'L'};
+function buildPreviewCell(rec){
+  const d=design, step=d.hmm+3, off=step/2;
+  const wrap=document.createElement('div'); wrap.style.cssText=`position:relative;width:${d.wmm+34}mm;height:${(d.hmm+off).toFixed(1)}mm;margin:0 auto`;
+  const s=makeStrip(rec); s.style.position='absolute'; s.style.left='0'; s.style.top=(rec.col==='L'?0:off).toFixed(1)+'mm';
+  wrap.appendChild(s);
+  const center=(rec.col==='L'?0:off)+d.hmm/2;
+  const num=document.createElement('div');
+  num.style.cssText=`position:absolute;left:${d.wmm+5}mm;top:${(center-d.hmm*0.19).toFixed(1)}mm;font-family:'Oswald',sans-serif;font-weight:700;font-size:${(d.hmm*0.36).toFixed(1)}mm;color:#e9b949;white-space:nowrap`;
+  num.innerHTML = rec.col==='L' ? ('\u25C0'+esc(rec.num||'')) : (esc(rec.num||'')+'\u25B6');
+  wrap.appendChild(num);
+  return wrap;
 }
+function renderPreview(){
+  const holder=$('#previewHolder'); if(!holder)return; holder.innerHTML='';
+  holder.appendChild(buildPreviewCell({num:preview.num,artist:preview.artist,sideA:preview.sideA,sideB:preview.sideB,col:preview.col,catalog:''}));
+}
+function loadPreviewInputs(){ if($('#pvNum')){ $('#pvNum').value=preview.num||''; $('#pvArtist').value=preview.artist||''; $('#pvA').value=preview.sideA||''; $('#pvB').value=preview.sideB||''; } $$('#prevSide button').forEach(b=>b.classList.toggle('on',b.dataset.s===preview.col)); }
 function renderAllLabels(){
   const box=$('#allLabels'); box.innerHTML='';
   if(!records.length){ box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="big">💿</div>Nog geen plaatjes. Voeg er een toe bij <b>Plaatjes</b>.</div>'; return; }
@@ -1134,9 +1174,9 @@ function renderAllLabels(){
   });
 }
 function fillPreviewPick(){
-  const sel=$('#previewPick'); sel.innerHTML='';
+  const sel=$('#previewPick'); if(!sel)return; sel.innerHTML='<option value="">— eigen tekst —</option>';
   records.forEach(r=>{ const o=document.createElement('option'); o.value=r.id; o.textContent=(r.num?r.num+' · ':'')+(r.artist||'—')+' — '+(r.sideA||'—'); sel.appendChild(o); });
-  if(records.length){ if(!previewId||!records.find(r=>r.id===previewId)) previewId=records[0].id; sel.value=previewId; }
+  if(records.length && previewId && records.find(r=>r.id===previewId)) sel.value=previewId;
 }
 
 /* =========================================================
@@ -1314,40 +1354,44 @@ $('#wishSearch').addEventListener('input',e=>{ wishQuery=e.target.value; renderW
 /* =========================================================
    AFDRUKKEN — jukebox-indeling met stagger + kniprijen
    ========================================================= */
+function recsToPrint(){ return (printSel && printSel.size) ? records.filter(r=>printSel.has(r.id)) : records; }
 function renderSheet(){
   const sheet=$('#sheet'); if(!sheet)return; sheet.innerHTML=''; sheet.classList.remove('a4mode');
   const d=design, gap=+($('#pGap')?.value ?? 3), showIx=$('#pIndex')?$('#pIndex').checked:true;
+  const cutLines=$('#pCut')?$('#pCut').checked:true;
   const jbOnly=$('#jbOnlyOpts'); if(jbOnly)jbOnly.style.display = (printMode==='jukebox')?'block':'none';
   const stagRow=$('#stagRow'); if(stagRow)stagRow.style.display = (printMode==='jukebox' && design.autoStagger===false)?'flex':'none';
   const help=$('#printHelp'); if(help)help.innerHTML = (printMode==='jukebox')
-    ? '<b>Jukebox-indeling:</b> zo ligt het op de jukebox zelf — de nummers in het midden, ◀ bij de linkerlabels en ▶ bij de rechter, met de linkerkolom een halve strook hoger. Dit is een <b>voorbeeld</b>; om echt te printen en te knippen gebruik je “A4 om uit te knippen”.'
-    : '<b>A4 om uit te knippen:</b> de labels worden zo groot mogelijk op echte A4-pagina’s gezet (ware mm-grootte), met stippellijnen om langs te knippen. Hoeveel er per vel passen hangt af van de labelgrootte die je bij <b>Ontwerp</b> koos.';
-  if(!records.length){ sheet.innerHTML='<div class="empty"><div class="big">🖨️</div>Geen plaatjes om te printen.</div>'; sheet.style.height='auto'; return; }
+    ? '<b>Jukebox-indeling:</b> één doorlopend beeld zoals het op de jukebox ligt — de nummers in het midden, ◀ bij de linkerlabels (hoog) en ▶ bij de rechter (laag).'
+    : '<b>A4 om uit te knippen:</b> de échte labels op A4 — links de linkerlabels (die hoger liggen), rechts de rechterlabels (die lager liggen), met de nummers ertussen. Knip elk label uit; zet snijlijnen aan/uit hiernaast.';
+  const list=recsToPrint();
+  if(!list.length){ sheet.innerHTML='<div class="empty"><div class="big">🖨️</div>Niets om te printen. Kies plaatjes of zet de selectie leeg voor alles.</div>'; sheet.style.height='auto'; return; }
 
   if(printMode==='cut'){
-    // A4-pagina's om uit te knippen
-    sheet.classList.add('a4mode'); sheet.style.height='auto'; sheet.style.width='auto';
-    const margin=8, pw=210-2*margin, ph=297-2*margin;
-    const cols=Math.max(1, Math.floor((pw+gap)/(d.wmm+gap)));
-    const rows=Math.max(1, Math.floor((ph+gap)/(d.hmm+gap)));
-    const per=Math.max(1, cols*rows), pages=Math.ceil(records.length/per);
+    // A4-pagina's — echte gestaggerde indeling (links hoog, rechts laag)
+    sheet.classList.add('a4mode'); sheet.classList.toggle('a4cut',cutLines); sheet.style.height='auto'; sheet.style.width='auto';
+    const margin=8, ph=297-2*margin, step=d.hmm+gap, off=(d.autoStagger!==false?step/2:0);
+    const rowsPerPage=Math.max(1, Math.floor((ph-off)/step));  // aantal L (en R) per pagina
+    const L=list.filter(r=>r.col==='L'), R=list.filter(r=>r.col==='R');
+    const nPages=Math.max(1, Math.ceil(Math.max(L.length,R.length)/rowsPerPage));
+    const per=rowsPerPage*2;
     const info=document.createElement('div'); info.className='noprint';
     info.style.cssText='text-align:center;color:var(--muted);font-size:.86rem;margin:2px 0 16px';
-    info.innerHTML=`<b style="color:var(--gold)">${cols} × ${rows} = ${per}</b> labels per A4 · ${pages} pagina${pages>1?'\u2019s':''} voor ${records.length} labels · labelgrootte ${d.wmm}×${d.hmm} mm`;
+    info.innerHTML=`± <b style="color:var(--gold)">${per}</b> labels per A4 (links & rechts) · ${nPages} pagina${nPages>1?'\u2019s':''} voor ${list.length} labels · labelgrootte ${d.wmm}×${d.hmm} mm`;
     sheet.appendChild(info);
-    let i=0;
-    while(i<records.length){
+    for(let pg=0; pg<nPages; pg++){
+      const pageL=L.slice(pg*rowsPerPage,(pg+1)*rowsPerPage), pageR=R.slice(pg*rowsPerPage,(pg+1)*rowsPerPage);
+      if(!pageL.length && !pageR.length) continue;
       const page=document.createElement('div'); page.className='a4page';
-      const grid=document.createElement('div'); grid.className='a4grid';
-      grid.style.gridTemplateColumns=`repeat(${cols}, ${d.wmm}mm)`; grid.style.gap=gap+'mm';
-      for(let k=0;k<per && i<records.length;k++,i++){ const cell=document.createElement('div'); cell.className='a4cell'; cell.appendChild(makeStrip(records[i])); grid.appendChild(cell); }
-      page.appendChild(grid); sheet.appendChild(page);
+      const block=buildJukebox(pageL.concat(pageR),{gap,showIx});
+      block.style.margin='0 auto';
+      page.appendChild(block); sheet.appendChild(page);
     }
     return;
   }
 
-  // jukebox layout via herbruikbare bouwer
-  const cont=buildJukebox(records,{gap,stagPct:+($('#pStag')?.value ?? 50),showIx});
+  // jukebox layout — doorlopend voorbeeld
+  const cont=buildJukebox(list,{gap,stagPct:+($('#pStag')?.value ?? 50),showIx});
   sheet.appendChild(cont);
 }
 /* Bouwt de gestaggerde jukebox-indeling (labels + centrale nummer-index) en geeft het element terug.
@@ -1385,11 +1429,33 @@ function buildJukebox(recs, opts){
 }
 $('#pGap')&&$('#pGap').addEventListener('input',e=>{ $('#vGap').textContent=e.target.value+' mm'; renderSheet(); });
 $('#pIndex')&&$('#pIndex').addEventListener('change',renderSheet);
+$('#pCut')&&$('#pCut').addEventListener('change',renderSheet);
 function stagLabel(v){ v=+v; if(v===0)return 'recht uitgelijnd'; if(v===50)return 'halve strook'; return v+'%'; }
 $('#pStag')&&$('#pStag').addEventListener('input',e=>{ $('#vStag').textContent=stagLabel(e.target.value); renderSheet(); });
 $$('#printMode button').forEach(b=>b.onclick=()=>{ $$('#printMode button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); printMode=b.dataset.m; renderSheet(); });
-$('#btnPrint').onclick=()=>{ renderSheet(); setTimeout(()=>window.print(),120); };
+$('#btnPrint').onclick=()=>{ renderSheet(); setTimeout(()=>window.print(),150); };
+$('#btnPrintAll')&&($('#btnPrintAll').onclick=()=>{ printSel.clear(); renderSelList(); renderSheet(); setTimeout(()=>window.print(),160); });
 $('#btnGoPrint').onclick=()=>go('print');
+
+/* ---- print-selectie ---- */
+let printSel=new Set(), selQuery='';
+function updSelCount(){ const c=$('#selCount'); if(c)c.textContent = printSel.size ? '('+printSel.size+' geselecteerd)' : '(leeg = alles)'; }
+function renderSelList(){
+  const box=$('#selList'); if(!box)return; box.innerHTML=''; updSelCount();
+  let list=records.slice().sort((a,b)=>(parseInt(a.num)||0)-(parseInt(b.num)||0));
+  const q=selQuery.trim().toLowerCase();
+  if(q) list=list.filter(r=>[r.num,r.artist,r.sideA,r.sideB].some(v=>(v||'').toLowerCase().includes(q)));
+  if(!list.length){ box.innerHTML='<div class="hint" style="padding:8px">Geen plaatjes gevonden.</div>'; return; }
+  list.forEach(r=>{ const lab=document.createElement('label');
+    lab.style.cssText='display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line-soft);border-radius:8px;cursor:pointer;font-size:.82rem';
+    lab.innerHTML=`<input type="checkbox" ${printSel.has(r.id)?'checked':''}><b style="color:var(--gold);font-family:var(--fm)">${esc(r.num||'—')}</b><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(r.artist||'—')} — ${esc(r.sideA||'—')}</span>`;
+    lab.querySelector('input').onchange=e=>{ if(e.target.checked)printSel.add(r.id); else printSel.delete(r.id); updSelCount(); renderSheet(); };
+    box.appendChild(lab);
+  });
+}
+$('#selSearch')&&$('#selSearch').addEventListener('input',e=>{ selQuery=e.target.value; renderSelList(); });
+$('#selAll')&&($('#selAll').onclick=()=>{ records.forEach(r=>printSel.add(r.id)); renderSelList(); renderSheet(); });
+$('#selClear')&&($('#selClear').onclick=()=>{ printSel.clear(); renderSelList(); renderSheet(); });
 
 /* =========================================================
    iTunes preview (JSONP) + speler
@@ -1606,17 +1672,21 @@ $('#btnLockStd')&&($('#btnLockStd').onclick=()=>{ store.set('jb_stdlabel', JSON.
 $('#btnUseStd')&&($('#btnUseStd').onclick=()=>{ try{ const s=store.get('jb_stdlabel'); if(!s){ toast('Nog geen standaard vastgelegd'); return; } design={...DEF_DESIGN,...JSON.parse(s)}; pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('↩ Terug naar standaardlabel'); }catch(e){ toast('Kon standaard niet laden'); } });
 $$('#shapeSeg button').forEach(b=>b.onclick=()=>{ $$('#shapeSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); design.shape=b.dataset.sh; saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); });
 $$('#themeSeg button').forEach(b=>b.onclick=()=>{ const t=b.dataset.th; design={...design,...THEMES[t],theme:t}; pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('Thema '+(THEME_LABELS[t]||t)+' toegepast'); });
-$('#previewPick').addEventListener('change',e=>{ previewId=e.target.value; renderPreview(); });
+$('#previewPick').addEventListener('change',e=>{ previewId=e.target.value; const r=records.find(x=>x.id===previewId);
+  if(r){ preview={num:r.num||'',artist:r.artist||'',sideA:r.sideA||'',sideB:r.sideB||'',col:r.col||'L'}; loadPreviewInputs(); renderPreview(); } });
+['pvNum','pvArtist','pvA','pvB'].forEach(id=>{ const el=$('#'+id); if(el)el.addEventListener('input',()=>{
+  preview.num=$('#pvNum').value; preview.artist=$('#pvArtist').value; preview.sideA=$('#pvA').value; preview.sideB=$('#pvB').value; renderPreview(); }); });
+$$('#prevSide button').forEach(b=>b.onclick=()=>{ $$('#prevSide button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); preview.col=b.dataset.s; renderPreview(); });
 /* ---- Live voorbeeld uitvergroten + luisteren ---- */
-function currentPreviewRec(){ return records.find(r=>r.id===previewId)||records[0]||null; }
+function currentPreviewRec(){ return {id:'preview',num:preview.num,artist:preview.artist,sideA:preview.sideA,sideB:preview.sideB,col:preview.col,catalog:''}; }
 function openPreviewModal(){ const rec=currentPreviewRec(); const h=$('#pmHolder'); h.innerHTML='';
-  h.appendChild(makeStrip(rec||{artist:'Artiest',sideA:'A-kant titel',sideB:'B-kant titel',catalog:'LABEL 0000'}));
-  $('#pmTitle').textContent=rec?((rec.num?rec.num+' · ':'')+(rec.artist||'—')):'Voorbeeld';
+  h.appendChild(makeStrip(rec));
+  $('#pmTitle').textContent=(rec.num?rec.num+' · ':'')+(rec.artist||'Voorbeeld');
   $('#previewModal').classList.add('open'); }
 $('#previewStage').onclick=openPreviewModal;
 $('#pmClose').onclick=()=>$('#previewModal').classList.remove('open');
 $('#previewModal').addEventListener('click',e=>{ if(e.target.id==='previewModal') $('#previewModal').classList.remove('open'); });
-$('#pmPlay').onclick=()=>{ const rec=currentPreviewRec(); if(rec) playRecord(rec); else toast('Geen plaatje geselecteerd'); };
+$('#pmPlay').onclick=()=>{ const rec=currentPreviewRec(); if(rec.artist||rec.sideA) playRecord(rec); else toast('Typ eerst een artiest/titel'); };
 
 /* ---- Eén losse label afdrukken ---- */
 function printStrip(rec){ const box=$('#printOne'); box.innerHTML='';
@@ -1634,7 +1704,8 @@ $('#btnResetDesign').onclick=()=>{ design={...DEF_DESIGN}; pushDesignToControls(
 /* toast */
 let toastT; function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2600); }
 
-function renderAll(){ pushDesignToControls(); fillPreviewPick(); renderPreview(); renderAllLabels(); renderTable(); renderWish(); renderSheet(); updateStats(); $('#vGap').textContent=($('#pGap').value)+' mm'; if($('#pStag'))$('#vStag').textContent=stagLabel($('#pStag').value); }
+function renderAll(){ if(records[0] && preview.artist==='Artiest'){ const r=records[0]; preview={num:r.num||'',artist:r.artist||'',sideA:r.sideA||'',sideB:r.sideB||'',col:r.col||'L'}; previewId=r.id; }
+  pushDesignToControls(); fillPreviewPick(); loadPreviewInputs(); renderPreview(); renderAllLabels(); renderTable(); renderWish(); renderSheet(); updateStats(); $('#vGap').textContent=($('#pGap').value)+' mm'; if($('#pStag'))$('#vStag').textContent=stagLabel($('#pStag').value); renderSelList&&renderSelList(); }
 
 /* boot */
 /* =========================================================
