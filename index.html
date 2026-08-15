@@ -1515,16 +1515,17 @@ function initYT(){ if(ytPlayer)return; try{ ytPlayer=new YT.Player('ytPlayerDiv'
     onError:()=>{ ytBoxShowVideo(false); ytErrCount++;
       if(ytErrCount<=5){ ytSkipping=true; try{ ytPlayer.nextVideo(); return; }catch(_){}}
       if(playingRec)fallbackItunes(playingRec,true); } } }); }catch(e){ ytReady=false; } }
+function scheduleAdvance(){ if(!autoAdvance)return; setTimeout(()=>{ if(autoAdvance)advanceNext(); }, 120); }
 function onYtState(e){ const S=window.YT&&YT.PlayerState; if(!S)return;
   if(e.data===S.PLAYING){
     let idx=0; try{ idx=ytPlayer.getPlaylistIndex?ytPlayer.getPlaylistIndex():0; }catch(_){}
     if(idx>0){
       if(ytSkipping){ ytSkipping=false; /* ander (toegestaan) zoekresultaat van hetzelfde nummer */ }
-      else if(ytStarted){ if(autoAdvance){ advanceNext(); return; } else { stopMusic(); return; } }
+      else if(ytStarted){ try{ ytPlayer.stopVideo(); }catch(_){}; if(autoAdvance){ scheduleAdvance(); } else { stopMusic(); } return; }
     }
     ytStarted=true; $('#plToggle').textContent='❚❚'; startProg(); ytBoxShowVideo(true); }
   else if(e.data===S.PAUSED){ $('#plToggle').textContent='▶'; }
-  else if(e.data===S.ENDED){ $('#plToggle').textContent='▶'; stopProg(); if(autoAdvance)advanceNext(); } }
+  else if(e.data===S.ENDED){ $('#plToggle').textContent='▶'; stopProg(); scheduleAdvance(); } }
 function waitYT(ms){ return new Promise(res=>{ const t0=Date.now(); (function chk(){ if(ytReady||Date.now()-t0>ms)return res(); setTimeout(chk,120); })(); }); }
 
 function ytBoxShowVideo(v){ const img=$('#plArtImg'), yt=$('#ytPlayerDiv'); if(img)img.style.display=v?'none':'block'; if(yt)yt.style.display=v?'block':'none'; }
