@@ -1512,11 +1512,16 @@ function initYT(){ if(ytPlayer)return; try{ ytPlayer=new YT.Player('ytPlayerDiv'
   playerVars:{autoplay:1,controls:0,disablekb:1,modestbranding:1,rel:0,playsinline:1,fs:0},
   events:{ onReady:()=>{ ytReady=true; try{ytPlayer.setVolume(+($('#plVol').value||80));}catch(e){} },
     onStateChange:onYtState,
-    onError:()=>{ if(playingRec)fallbackItunes(playingRec,true); } } }); }catch(e){ ytReady=false; } }
+    onError:()=>{ ytBoxShowVideo(false); ytErrCount++;
+      if(ytErrCount<=5){ ytSkipping=true; try{ ytPlayer.nextVideo(); return; }catch(_){}}
+      if(playingRec)fallbackItunes(playingRec,true); } } }); }catch(e){ ytReady=false; } }
 function onYtState(e){ const S=window.YT&&YT.PlayerState; if(!S)return;
   if(e.data===S.PLAYING){
     let idx=0; try{ idx=ytPlayer.getPlaylistIndex?ytPlayer.getPlaylistIndex():0; }catch(_){}
-    if(idx>0 && ytStarted){ if(autoAdvance){ advanceNext(); return; } else { stopMusic(); return; } }
+    if(idx>0){
+      if(ytSkipping){ ytSkipping=false; /* ander (toegestaan) zoekresultaat van hetzelfde nummer */ }
+      else if(ytStarted){ if(autoAdvance){ advanceNext(); return; } else { stopMusic(); return; } }
+    }
     ytStarted=true; $('#plToggle').textContent='❚❚'; startProg(); ytBoxShowVideo(true); }
   else if(e.data===S.PAUSED){ $('#plToggle').textContent='▶'; }
   else if(e.data===S.ENDED){ $('#plToggle').textContent='▶'; stopProg(); if(autoAdvance)advanceNext(); } }
@@ -1542,18 +1547,18 @@ function playRecord(rec){
   if(currentPlayingId===rec.id && isPlaying()){ stopMusic(); return; }
   const term=((rec.artist||'')+' '+(rec.sideA||'')).trim();
   if(!term){ toast('Geen titel om te zoeken'); return; }
-  currentPlayingId=rec.id; playingRec=rec; lastTerm=term; ytStarted=false;
+  currentPlayingId=rec.id; playingRec=rec; lastTerm=term; ytStarted=false; ytErrCount=0; ytSkipping=false;
   $('#plTitle').textContent=rec.sideA||term; $('#plArtist').textContent=rec.artist||''; showPlayer(); updOpenLinks();
   if(ytReady && ytPlayer && ytPlayer.loadPlaylist){
-    // Volledig nummer via YouTube — meteen afspelen
-    isFallback=false; ytBoxShowVideo(true);
+    // Volledig nummer via YouTube — video pas tonen als het echt speelt (verbergt eventueel foutvenster)
+    isFallback=false; ytBoxShowVideo(false);
     try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); if(ytPlayer.unMute)ytPlayer.unMute(); if(ytPlayer.setVolume)ytPlayer.setVolume(+($('#plVol').value||80)); if(ytPlayer.playVideo)ytPlayer.playVideo(); }
     catch(e){ fallbackItunes(rec); }
   } else {
     // YouTube nog niet geladen: speel meteen 30s (geen stilte) en upgrade naar volledig zodra YouTube klaar is
     fallbackItunes(rec);
     waitYT(6000).then(()=>{ if(currentPlayingId!==rec.id)return;
-      if(ytReady && ytPlayer && ytPlayer.loadPlaylist){ try{ isFallback=false; ytBoxShowVideo(true); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.unMute)ytPlayer.unMute(); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
+      if(ytReady && ytPlayer && ytPlayer.loadPlaylist){ try{ isFallback=false; ytErrCount=0; ytSkipping=false; ytBoxShowVideo(false); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.unMute)ytPlayer.unMute(); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
   }
   // artwork (niet-blokkerend)
   itunes(term).then(r=>{ const hit=r.find(x=>x.artworkUrl100)||r[0]; if(hit&&$('#plArtImg'))$('#plArtImg').src=hit.artworkUrl100||hit.artworkUrl60||''; }).catch(()=>{});
