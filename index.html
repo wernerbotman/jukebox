@@ -993,9 +993,11 @@ function load(){
   try{records=JSON.parse(store.get('jb_records')||'[]')}catch(e){records=[]}
   try{wishlist=JSON.parse(store.get('jb_wishlist')||'[]')}catch(e){wishlist=[]}
   try{design={...DEF_DESIGN,...(JSON.parse(store.get('jb_design')||'{}'))}}catch(e){design={...DEF_DESIGN}}
-  if(!records.length && !wishlist.length && store.get('jb_seeded_v2')!=='1'){ seed(); store.set('jb_seeded_v2','1'); }
+  // De ingebouwde lijst staat altijd klaar: is er geen eigen lijst én heb je niet
+  // bewust op 'Alles wissen' gedrukt, dan laden we de notitieboek-lijst automatisch.
+  if(!records.length && store.get('jb_wiped')!=='1'){ seed(); saveRecords(); saveWish(); }
 }
-function saveRecords(){store.set('jb_records',JSON.stringify(records))}
+function saveRecords(){ store.set('jb_records',JSON.stringify(records)); if(records.length)store.set('jb_wiped','0'); }
 function saveWish(){store.set('jb_wishlist',JSON.stringify(wishlist))}
 function saveDesign(){store.set('jb_design',JSON.stringify(design))}
 
@@ -1656,7 +1658,7 @@ let deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; const b=$('#btnInstall'); if(b)b.style.display='block'; });
 $('#btnInstall')&&($('#btnInstall').onclick=async()=>{ if(!deferredPrompt){ toast('Installeren kan alleen als de tool online (https) staat'); return; } deferredPrompt.prompt(); try{ await deferredPrompt.userChoice; }catch(e){} deferredPrompt=null; $('#btnInstall').style.display='none'; });
 window.addEventListener('appinstalled',()=>{ toast('Geïnstalleerd ✓'); });
-$('#btnLoadSeed')&&($('#btnLoadSeed').onclick=()=>{ if(confirm('De originele notitieboek-lijst laden? Dit vervangt de huidige plaatjes.')){ seed(); saveRecords(); saveWish(); renderAll(); toast('Notitieboek-lijst geladen'); } });
+$('#btnLoadSeed')&&($('#btnLoadSeed').onclick=()=>{ if(confirm('De originele notitieboek-lijst laden? Dit vervangt de huidige plaatjes.')){ store.set('jb_wiped','0'); seed(); saveRecords(); saveWish(); renderAll(); toast('Notitieboek-lijst geladen'); } });
 
 /* =========================================================
    BACK-UP / STATS / GENERATE
@@ -1681,7 +1683,7 @@ $('#fileImport').onchange=e=>{ const f=e.target.files[0]; if(!f)return;
     if(d.records)records=d.records; if(d.wishlist)wishlist=d.wishlist; if(d.design)design={...DEF_DESIGN,...d.design};
     saveRecords(); saveWish(); saveDesign(); pushDesignToControls(); renderAll(); toast('Back-up geïmporteerd');
   }catch(err){ toast('Ongeldig bestand'); } }; rd.readAsText(f); e.target.value=''; };
-$('#btnWipe').onclick=()=>{ if(confirm('Alles wissen? Dit verwijdert alle plaatjes en de wenslijst.')){ records=[];wishlist=[];design={...DEF_DESIGN}; saveRecords();saveWish();saveDesign(); pushDesignToControls(); renderAll(); toast('Alles gewist'); } };
+$('#btnWipe').onclick=()=>{ if(confirm('Alles wissen? Dit verwijdert alle plaatjes en de wenslijst.')){ records=[];wishlist=[];design={...DEF_DESIGN}; store.set('jb_wiped','1'); saveWish();saveDesign(); store.set('jb_records','[]'); pushDesignToControls(); renderAll(); toast('Alles gewist'); } };
 $('#btnGen').onclick=()=>{
   let from=parseInt($('#genFrom').value), to=parseInt($('#genTo').value);
   if(isNaN(from)||isNaN(to)||to<from){ toast('Vul een geldig bereik in'); return; }
