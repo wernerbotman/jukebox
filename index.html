@@ -187,7 +187,7 @@ table.data .actions{display:flex;gap:5px;justify-content:flex-end}
 .player{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:70;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);padding:10px 12px;display:none;align-items:center;gap:12px;max-width:min(680px,94vw);width:max-content}
 .player.show{display:flex;animation:pop .2s ease}
 @keyframes pop{from{transform:translate(-50%,10px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
-.player #ytBox{width:74px;height:46px;border-radius:8px;overflow:hidden;background:#000;flex:0 0 auto;position:relative}
+.player #ytBox{width:112px;height:63px;border-radius:8px;overflow:hidden;background:#000;flex:0 0 auto;position:relative}
 .player #ytBox img{width:100%;height:100%;object-fit:cover}
 .player #ytPlayerDiv{position:absolute;inset:0}
 .player #ytPlayerDiv iframe{width:100%;height:100%}
@@ -622,6 +622,7 @@ body.mode-jukebox header.top,body.mode-jukebox nav.views,body.mode-jukebox .wrap
         <div class="panel">
           <h3>Standaardlabel vastleggen</h3>
           <div class="toggle"><span>Links hoog · rechts laag (op de jukebox)</span><label class="switch"><input type="checkbox" id="dAutoStag" checked><span class="track"></span><span class="thumb"></span></label></div>
+          <label class="fld slider"><span>Hoogteverschil links/rechts <b class="val" id="vVShift">30%</b></span><input type="range" id="dVShift" min="0" max="50" value="30"></label>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
             <button class="btn" id="btnLockStd" style="flex:1">🔒 Vastleggen als standaard</button>
             <button class="btn ghost" id="btnUseStd" style="flex:1">↩ Terug naar standaard</button>
@@ -983,7 +984,7 @@ const THEME_LABELS={roze:'Roze (Sterling)',rozeInv:'Roze omgekeerd',rood:'Rood/w
 
 /* ---------- standaardontwerp ---------- */
 const DEF_DESIGN={wmm:76,hmm:21,rt:34,rm:32,rb:34,shape:'chevron',font:'Oswald',fs:100,accentLine:0,
-  italic:false,bold:false,autoStagger:true,quotes:true,upper:true,cat:true,caps:false,...THEMES.roze,theme:'roze'};
+  italic:false,bold:false,autoStagger:true,vShift:0.30,quotes:true,upper:true,cat:true,caps:false,...THEMES.roze,theme:'roze'};
 
 /* ---------- state ---------- */
 let records=[], wishlist=[], design={...DEF_DESIGN}, previewId=null, swapSource=null,
@@ -1081,6 +1082,7 @@ function readDesign(){
   design.font=$('#dFont').value; design.fs=+$('#dFS').value; design.accentLine=+$('#dAL').value;
   design.italic=$('#dItalic').checked; design.bold=$('#dBold').checked;
   if($('#dAutoStag'))design.autoStagger=$('#dAutoStag').checked;
+  if($('#dVShift')){ design.vShift=(+$('#dVShift').value)/100; $('#vVShift').textContent=(+$('#dVShift').value)+'%'; }
   design.quotes=$('#dQuotes').checked; design.upper=$('#dUpper').checked;
   design.cat=$('#dCat').checked; design.caps=$('#dCaps').checked;
   design.bg=$('#cBg').value; design.banner=$('#cBanner').value; design.ink=$('#cInk').value;
@@ -1096,6 +1098,7 @@ function pushDesignToControls(){
   $('#dFont').value=design.font; $('#dFS').value=design.fs; $('#dAL').value=design.accentLine;
   $('#dItalic').checked=!!design.italic; $('#dBold').checked=!!design.bold;
   if($('#dAutoStag'))$('#dAutoStag').checked=(design.autoStagger!==false);
+  if($('#dVShift')){ $('#dVShift').value=Math.round((design.vShift!=null?design.vShift:0.30)*100); $('#vVShift').textContent=$('#dVShift').value+'%'; }
   $('#dQuotes').checked=design.quotes; $('#dUpper').checked=design.upper;
   $('#dCat').checked=design.cat; $('#dCaps').checked=design.caps;
   $('#cBg').value=design.bg; $('#cBanner').value=design.banner; $('#cInk').value=design.ink;
@@ -1122,16 +1125,21 @@ function makeStrip(rec){
   el.style.setProperty('--fweight',d.bold?'800':'700');
   const tot=(d.rt+d.rm+d.rb)||1, f=d.fs/100;
   const empty=!(rec.artist||rec.sideA||rec.sideB);
-  const tSize=(d.hmm*0.30*f).toFixed(2), bSize=(d.hmm*0.22*f).toFixed(2), sSize=(d.hmm*0.26*f).toFixed(2);
+  // Tekst hoog (linkerlabel) of laag (rechterlabel): laat lege ruimte over
+  const useStag = (d.autoStagger!==false) && (rec.col==='L'||rec.col==='R');
+  const vShift = useStag ? (d.vShift!=null? +d.vShift : 0.30) : 0;
+  const hEff = d.hmm*(1-vShift);
+  el.style.justifyContent = (useStag && rec.col==='R') ? 'flex-end' : 'flex-start';
+  const tSize=(hEff*0.30*f).toFixed(2), bSize=(hEff*0.22*f).toFixed(2), sSize=(hEff*0.26*f).toFixed(2);
   // top: A-side
-  const top=document.createElement('div'); top.className='seg-row'; top.style.flex=d.rt;
+  const top=document.createElement('div'); top.className='seg-row'; top.style.flex='0 0 auto'; top.style.height=(hEff*(d.rt/tot)).toFixed(2)+'mm';
   top.innerHTML=`<div class="t-title" style="font-size:${tSize}mm">${esc(fmt(rec.sideA))||(empty?'<span style="opacity:.35">— leeg —</span>':'')}</div>`;
   // mid: artist banner
-  const mid=document.createElement('div'); mid.className='seg-row'; mid.style.flex=d.rm; mid.style.position='relative';
-  const bh=(d.hmm*(d.rm/tot)*0.78).toFixed(2);
+  const mid=document.createElement('div'); mid.className='seg-row'; mid.style.flex='0 0 auto'; mid.style.height=(hEff*(d.rm/tot)).toFixed(2)+'mm'; mid.style.position='relative';
+  const bh=(hEff*(d.rm/tot)*0.78).toFixed(2);
   mid.innerHTML=`${d.caps?'<span class="cap l">HIT</span>':''}<div class="banner ${d.shape}" style="font-size:${bSize}mm;height:${bh}mm">${esc(rec.artist||'')}</div>${d.caps?'<span class="cap r">POP</span>':''}`;
   // bottom: B-side + catalog
-  const bot=document.createElement('div'); bot.className='seg-row'; bot.style.flex=d.rb;
+  const bot=document.createElement('div'); bot.className='seg-row'; bot.style.flex='0 0 auto'; bot.style.height=(hEff*(d.rb/tot)).toFixed(2)+'mm';
   bot.innerHTML=`<div class="t-title t-sub" style="font-size:${sSize}mm">${esc(fmt(rec.sideB))}</div>`+
     (d.cat&&rec.catalog?`<div class="cat">${esc(rec.catalog)}</div>`:'');
   if(d.accentLine>0){ mid.style.borderTop=d.accentLine+'px solid '+d.accent; mid.style.borderBottom=d.accentLine+'px solid '+d.accent; }
@@ -1148,13 +1156,14 @@ function fit(el){ if(!el||!el.clientWidth)return;
 
 let preview={num:'001',artist:'Artiest',sideA:'A-kant titel',sideB:'B-kant titel',col:'L'};
 function buildPreviewCell(rec){
-  const d=design, step=d.hmm+3, off=step/2;
-  const wrap=document.createElement('div'); wrap.style.cssText=`position:relative;width:${d.wmm+34}mm;height:${(d.hmm+off).toFixed(1)}mm;margin:0 auto`;
-  const s=makeStrip(rec); s.style.position='absolute'; s.style.left='0'; s.style.top=(rec.col==='L'?0:off).toFixed(1)+'mm';
+  const d=design, vShift=(d.autoStagger!==false)?(d.vShift!=null?+d.vShift:0.30):0;
+  const hEff=d.hmm*(1-vShift), vMm=d.hmm*vShift;
+  const wrap=document.createElement('div'); wrap.style.cssText=`position:relative;width:${d.wmm+36}mm;height:${d.hmm}mm;margin:0 auto`;
+  const s=makeStrip(rec); s.style.position='absolute'; s.style.left='0'; s.style.top='0';
   wrap.appendChild(s);
-  const center=(rec.col==='L'?0:off)+d.hmm/2;
+  const center = (rec.col==='R') ? (vMm+hEff/2) : (hEff/2);
   const num=document.createElement('div');
-  num.style.cssText=`position:absolute;left:${d.wmm+5}mm;top:${(center-d.hmm*0.19).toFixed(1)}mm;font-family:'Oswald',sans-serif;font-weight:700;font-size:${(d.hmm*0.36).toFixed(1)}mm;color:#e9b949;white-space:nowrap`;
+  num.style.cssText=`position:absolute;left:${d.wmm+6}mm;top:${(center-d.hmm*0.19).toFixed(1)}mm;font-family:'Oswald',sans-serif;font-weight:700;font-size:${(d.hmm*0.36).toFixed(1)}mm;color:#e9b949;white-space:nowrap`;
   num.innerHTML = rec.col==='L' ? ('\u25C0'+esc(rec.num||'')) : (esc(rec.num||'')+'\u25B6');
   wrap.appendChild(num);
   return wrap;
@@ -1374,8 +1383,8 @@ function renderSheet(){
   if(printMode==='cut'){
     // A4-pagina's — echte gestaggerde indeling (links hoog, rechts laag)
     sheet.classList.add('a4mode'); sheet.classList.toggle('a4cut',cutLines); sheet.style.height='auto'; sheet.style.width='auto';
-    const margin=8, ph=297-2*margin, step=d.hmm+gap, off=(d.autoStagger!==false?step/2:0);
-    const rowsPerPage=Math.max(1, Math.floor((ph-off)/step));  // aantal L (en R) per pagina
+    const margin=8, ph=297-2*margin, step=d.hmm+gap;
+    const rowsPerPage=Math.max(1, Math.floor((ph+gap)/step));  // aantal L (en R) per pagina
     const L=list.filter(r=>r.col==='L'), R=list.filter(r=>r.col==='R');
     const nPages=Math.max(1, Math.ceil(Math.max(L.length,R.length)/rowsPerPage));
     const per=rowsPerPage*2;
@@ -1402,21 +1411,23 @@ function renderSheet(){
    opts: {gap, stagPct, showIx, clickable} */
 function buildJukebox(recs, opts){
   const d=design, gap=opts.gap ?? 3, showIx=opts.showIx!==false, clickable=!!opts.clickable;
-  const stagPct = (d.autoStagger!==false) ? 50 : (opts.stagPct ?? 0);
+  const useStag = (d.autoStagger!==false);
+  const vShift = useStag ? (d.vShift!=null? +d.vShift : 0.30) : 0;
   const L=recs.filter(r=>r.col==='L'), R=recs.filter(r=>r.col==='R');
-  const h=d.hmm, step=h+gap, colGap=3, stagOffset=step*stagPct/100;
+  const h=d.hmm, step=h+gap, colGap=3, hEff=h*(1-vShift), vMm=h*vShift;
   const ixW=showIx?26:5;
   const cont=document.createElement('div'); cont.style.position='relative';
   const leftX=0, ixX=d.wmm+colGap, rightX=d.wmm+colGap+ixW+colGap;
   cont.style.width=(rightX+d.wmm)+'mm';
-  const leftBottom=L.length?L.length*step-gap:0, rightBottom=R.length?stagOffset+R.length*step-gap:0;
-  cont.style.height=Math.max(leftBottom,rightBottom,h)+'mm';
+  const rows=Math.max(L.length,R.length);
+  cont.style.height=Math.max(rows*step-gap,h)+'mm';
   const place=(r,x,top)=>{ const s=makeStrip(r); s.style.position='absolute'; s.style.left=x+'mm'; s.style.top=top+'mm';
     if(clickable){ s.style.cursor='pointer'; s.title='Klik om te draaien ▶'; s.onclick=()=>playRecord(r); } cont.appendChild(s); };
+  // labels uitgelijnd in een raster; de tekst zelf staat hoog (links) of laag (rechts)
   L.forEach((r,i)=>place(r,leftX,i*step));
-  R.forEach((r,j)=>place(r,rightX,stagOffset+j*step));
+  R.forEach((r,j)=>place(r,rightX,j*step));
   if(showIx){
-    const ixFS=(h*0.32).toFixed(2), lineH=(h*0.44), halfW=ixW/2;
+    const ixFS=(hEff*0.36).toFixed(2), lineH=(hEff*0.5), halfW=ixW/2;
     const mk=(num,side,center)=>{ const e=document.createElement('div'); e.className='jbNum';
       e.style.top=(center-lineH/2).toFixed(2)+'mm'; e.style.height=lineH+'mm'; e.style.fontSize=ixFS+'mm';
       if(side==='L'){ e.style.left=ixX+'mm'; e.style.width=halfW+'mm'; e.style.justifyContent='flex-end'; e.style.paddingRight='1mm';
@@ -1425,8 +1436,9 @@ function buildJukebox(recs, opts){
         e.innerHTML=`${esc(num||'—')}<span class="ar">&#9654;</span>`; }
       cont.appendChild(e);
     };
-    L.forEach((r,i)=>mk(r.num,'L', i*step+h/2));
-    R.forEach((r,j)=>mk(r.num,'R', stagOffset+j*step+h/2));
+    // nummer op de hoogte van de tekst: links = hoog, rechts = laag
+    L.forEach((r,i)=>mk(r.num,'L', i*step + hEff/2));
+    R.forEach((r,j)=>mk(r.num,'R', j*step + vMm + hEff/2));
     const dv=document.createElement('div'); dv.style.cssText=`position:absolute;left:${(ixX+ixW/2)}mm;top:0;bottom:0;width:.35mm;background:#cbcbcb`; cont.appendChild(dv);
   }
   return cont;
@@ -1489,11 +1501,11 @@ function advanceNext(){ if(!autoAdvance||!currentPlayingId)return;
 let ytPlayer=null, ytReady=false, ytErrCount=0, ytSkipping=false, lastTerm='';
 (function loadYT(){ if(window.YT&&window.YT.Player){ initYT(); return; } const t=document.createElement('script'); t.src='https://www.youtube.com/iframe_api'; t.async=true; document.head.appendChild(t); })();
 window.onYouTubeIframeAPIReady=function(){ initYT(); };
-function initYT(){ if(ytPlayer)return; try{ ytPlayer=new YT.Player('ytPlayerDiv',{height:'46',width:'74',
+function initYT(){ if(ytPlayer)return; try{ ytPlayer=new YT.Player('ytPlayerDiv',{height:'63',width:'112',
   playerVars:{autoplay:1,controls:0,disablekb:1,modestbranding:1,rel:0,playsinline:1,fs:0},
   events:{ onReady:()=>{ ytReady=true; try{ytPlayer.setVolume(+($('#plVol').value||80));}catch(e){} },
     onStateChange:onYtState,
-    onError:()=>{ ytErrCount++; if(ytErrCount<=4){ ytSkipping=true; try{ ytPlayer.nextVideo(); return; }catch(_){}} if(playingRec)fallbackItunes(playingRec); } } }); }catch(e){ ytReady=false; } }
+    onError:()=>{ ytErrCount++; ytBoxShowVideo(false); if(ytErrCount<=6){ ytSkipping=true; try{ ytPlayer.nextVideo(); return; }catch(_){}} if(playingRec)fallbackItunes(playingRec,true); } } }); }catch(e){ ytReady=false; } }
 function onYtState(e){ const S=window.YT&&YT.PlayerState; if(!S)return;
   if(e.data===S.PLAYING){
     let idx=0; try{ idx=ytPlayer.getPlaylistIndex?ytPlayer.getPlaylistIndex():0; }catch(_){}
@@ -1528,22 +1540,23 @@ function playRecord(rec){
   $('#plTitle').textContent=rec.sideA||term; $('#plArtist').textContent=rec.artist||''; showPlayer(); updOpenLinks();
   if(ytReady && ytPlayer && ytPlayer.loadPlaylist){
     // Volledig nummer via YouTube — synchroon binnen de klik (nodig voor iPad/telefoon)
-    isFallback=false; ytBoxShowVideo(true);
+    isFallback=false; ytBoxShowVideo(false); // pas tonen als het echt speelt (verbergt foutvenster)
     try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); if(ytPlayer.setVolume)ytPlayer.setVolume(+($('#plVol').value||80)); if(ytPlayer.playVideo)ytPlayer.playVideo(); }
     catch(e){ fallbackItunes(rec); }
   } else {
     // YouTube nog niet geladen: eerst 30s, en zodra YouTube klaar is alsnog volledig
     fallbackItunes(rec);
     waitYT(5000).then(()=>{ if(ytReady && currentPlayingId===rec.id && ytPlayer && ytPlayer.loadPlaylist){
-      try{ isFallback=false; ytBoxShowVideo(true); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
+      try{ isFallback=false; ytBoxShowVideo(false); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
   }
   // artwork (niet-blokkerend)
   itunes(term).then(r=>{ const hit=r.find(x=>x.artworkUrl100)||r[0]; if(hit&&$('#plArtImg'))$('#plArtImg').src=hit.artworkUrl100||hit.artworkUrl60||''; }).catch(()=>{});
 }
-async function fallbackItunes(rec){ isFallback=true; ytBoxShowVideo(false);
+async function fallbackItunes(rec,fromError){ isFallback=true; ytBoxShowVideo(false);
   const term=((rec.artist||'')+' '+(rec.sideA||'')).trim();
   try{ const r=await itunes(term); const hit=r.find(x=>x.previewUrl)||r[0];
-    if(hit&&hit.previewUrl){ openPlayer(hit.previewUrl, rec.sideA||hit.trackName, rec.artist||hit.artistName, hit.artworkUrl100||hit.artworkUrl60); }
+    if(hit&&hit.previewUrl){ openPlayer(hit.previewUrl, rec.sideA||hit.trackName, rec.artist||hit.artistName, hit.artworkUrl100||hit.artworkUrl60);
+      if(fromError)toast('YouTube blokkeert dit nummer — 30s fragment. Tik op YT ↗ of Spotify ↗ voor het volledige nummer.'); }
     else noPreview(term);
   }catch(e){ noPreview(term); }
 }
@@ -1690,6 +1703,7 @@ $('#btnInvert').onclick=()=>{ const t=design.bg; design.bg=design.banner; design
   const t2=design.ink; design.ink=design.bink; design.bink=t2; design.theme='';
   pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('Kleuren omgekeerd'); };
 $('#dAutoStag')&&($('#dAutoStag').onchange=()=>{ design.autoStagger=$('#dAutoStag').checked; saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); if($('#view-overview')&&$('#view-overview').classList.contains('active'))renderOverview(); });
+$('#dVShift')&&$('#dVShift').addEventListener('input',()=>{ design.vShift=(+$('#dVShift').value)/100; $('#vVShift').textContent=(+$('#dVShift').value)+'%'; saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); if($('#view-overview')&&$('#view-overview').classList.contains('active'))renderOverview(); });
 $('#btnLockStd')&&($('#btnLockStd').onclick=()=>{ store.set('jb_stdlabel', JSON.stringify(design)); toast('🔒 Standaardlabel vastgelegd'); });
 $('#btnUseStd')&&($('#btnUseStd').onclick=()=>{ try{ const s=store.get('jb_stdlabel'); if(!s){ toast('Nog geen standaard vastgelegd'); return; } design={...DEF_DESIGN,...JSON.parse(s)}; pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('↩ Terug naar standaardlabel'); }catch(e){ toast('Kon standaard niet laden'); } });
 $$('#shapeSeg button').forEach(b=>b.onclick=()=>{ $$('#shapeSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); design.shape=b.dataset.sh; saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); });
