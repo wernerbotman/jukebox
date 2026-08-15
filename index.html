@@ -1489,6 +1489,13 @@ function itunes(term){
   });
 }
 const audio=$('#audio'); let currentPlayingId=null, playingRec=null, isFallback=false, seeking=false, progTimer=null, autoAdvance=true;
+/* Ontgrendel geluid bij de eerste aanraking/klik (nodig voor iPad/Safari-autoplay) */
+let mediaPrimed=false;
+const SILENT='data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
+function primeMedia(){ if(mediaPrimed)return; mediaPrimed=true;
+  try{ audio.src=SILENT; const pr=audio.play(); if(pr&&pr.then)pr.then(()=>{try{audio.pause();audio.currentTime=0;}catch(e){}}).catch(()=>{}); }catch(e){}
+}
+['pointerdown','touchstart','click','keydown'].forEach(ev=>document.addEventListener(ev,primeMedia,{passive:true}));
 
 function advanceNext(){ if(!autoAdvance||!currentPlayingId)return;
   const list=records.filter(r=>r.artist||r.sideA).sort((a,b)=>(parseInt(a.num)||0)-(parseInt(b.num)||0));
@@ -1541,13 +1548,13 @@ function playRecord(rec){
   if(ytReady && ytPlayer && ytPlayer.loadPlaylist){
     // Volledig nummer via YouTube — synchroon binnen de klik (nodig voor iPad/telefoon)
     isFallback=false; ytBoxShowVideo(false); // pas tonen als het echt speelt (verbergt foutvenster)
-    try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); if(ytPlayer.setVolume)ytPlayer.setVolume(+($('#plVol').value||80)); if(ytPlayer.playVideo)ytPlayer.playVideo(); }
+    try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); if(ytPlayer.unMute)ytPlayer.unMute(); if(ytPlayer.setVolume)ytPlayer.setVolume(+($('#plVol').value||80)); if(ytPlayer.playVideo)ytPlayer.playVideo(); }
     catch(e){ fallbackItunes(rec); }
   } else {
     // YouTube nog niet geladen: eerst 30s, en zodra YouTube klaar is alsnog volledig
     fallbackItunes(rec);
     waitYT(5000).then(()=>{ if(ytReady && currentPlayingId===rec.id && ytPlayer && ytPlayer.loadPlaylist){
-      try{ isFallback=false; ytBoxShowVideo(false); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
+      try{ isFallback=false; ytBoxShowVideo(false); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.unMute)ytPlayer.unMute(); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
   }
   // artwork (niet-blokkerend)
   itunes(term).then(r=>{ const hit=r.find(x=>x.artworkUrl100)||r[0]; if(hit&&$('#plArtImg'))$('#plArtImg').src=hit.artworkUrl100||hit.artworkUrl60||''; }).catch(()=>{});
