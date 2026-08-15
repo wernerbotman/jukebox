@@ -207,6 +207,9 @@ table.data .actions{display:flex;gap:5px;justify-content:flex-end}
 .player .plvol span{font-size:.85rem}
 #plVol{width:66px;flex:0 0 66px}
 .player .x{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);flex:0 0 auto}
+.player .pllink{flex:0 0 auto;font-size:.7rem;font-weight:700;text-decoration:none;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:5px 7px;white-space:nowrap}
+.player .pllink:hover{border-color:var(--gold);color:var(--gold)}
+.player .pllink.spot:hover{border-color:#1db954;color:#1db954}
 @media (max-width:560px){ .player{flex-wrap:wrap;justify-content:center} .player .plcenter{order:5;flex-basis:100%} #plSeek{min-width:100px} }
 
 /* toast */
@@ -838,6 +841,8 @@ body.mode-jukebox header.top,body.mode-jukebox nav.views,body.mode-jukebox .wrap
   </div>
   <button class="pbtn" id="plToggle">▶</button>
   <div class="plvol"><span id="plVolIco">🔊</span><input type="range" class="rng" id="plVol" min="0" max="100" value="80"></div>
+  <a class="pllink" id="plYT" target="_blank" rel="noopener" title="Open op YouTube">YT ↗</a>
+  <a class="pllink spot" id="plSpot" target="_blank" rel="noopener" title="Open in Spotify">Spotify ↗</a>
   <button class="x" id="plClose">✕</button>
   <audio id="audio"></audio>
 </div>
@@ -928,22 +933,21 @@ body.mode-jukebox header.top,body.mode-jukebox nav.views,body.mode-jukebox .wrap
   <div class="modal" style="max-width:560px">
     <div class="mh"><h3>📱 De jukebox op een iPad zetten</h3><button class="x" style="position:static" id="ipadClose">✕</button></div>
     <div class="mb">
-      <p style="margin:0 0 12px;color:var(--muted);font-size:.92rem">Zo helpt de ontvanger zichzelf — of doe het even samen. Er zijn twee manieren:</p>
+      <p style="margin:0 0 12px;color:var(--muted);font-size:.92rem">Stuur je ouders de <b>link</b> (niet een bestand). Zo helpen ze zichzelf — of doe stap B één keer even samen op hun iPad.</p>
       <div style="background:var(--ink);border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px;margin-bottom:12px">
         <b style="color:var(--gold)">A · Gewoon spelen (het makkelijkst)</b>
         <ol style="margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.92rem">
-          <li>Open het WhatsApp-bericht op de iPad.</li>
-          <li>Tik op het bestand <b>jukebox-titelstroken.html</b>.</li>
-          <li>De jukebox opent vanzelf — meteen spelen. Alle nummers staan er al in.</li>
+          <li>Open het WhatsApp-bericht op de iPad en tik op de <b>link</b>.</li>
+          <li>De jukebox opent in Safari — meteen spelen. Alle nummers staan er al in.</li>
         </ol>
       </div>
       <div style="background:var(--ink);border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px">
         <b style="color:var(--gold)">B · Vast icoontje op het startscherm</b>
         <ol style="margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.92rem">
-          <li>Open het bestand en tik rechtsboven op het deel-icoon (vierkantje met pijltje ⬆️).</li>
-          <li>Kies <b>“Zet op beginscherm”</b>. Er komt dan een <b>Jukebox</b>-icoontje op de iPad.</li>
+          <li>Open de link in <b>Safari</b> en tik onderaan (of rechtsboven) op het deel-icoon (vierkantje met pijltje ⬆️).</li>
+          <li>Kies <b>“Zet op beginscherm”</b> → er komt een <b>Jukebox</b>-icoontje op de iPad dat schermvullend opent.</li>
         </ol>
-        <div class="hint" style="margin-top:8px">Zie je “Zet op beginscherm” niet? Dan lukt dat alleen via een internet<b>link</b> in Safari. Vraag mij gerust om de tool online te zetten — dan stuur je één linkje en verschijnt de knop vanzelf.</div>
+        <div class="hint" style="margin-top:8px">Tip voor je ouders (75+): doe stap B <b>één keer zelf</b> op hun iPad. Daarna hoeven zij alleen nog op het Jukebox-icoontje te tikken.</div>
       </div>
     </div>
     <div class="mf"><button class="btn primary" id="ipadOk">Duidelijk</button></div>
@@ -1482,16 +1486,19 @@ function advanceNext(){ if(!autoAdvance||!currentPlayingId)return;
 }
 
 /* --- YouTube IFrame API (volledige nummers) --- */
-let ytPlayer=null, ytReady=false;
+let ytPlayer=null, ytReady=false, ytErrCount=0, ytSkipping=false, lastTerm='';
 (function loadYT(){ if(window.YT&&window.YT.Player){ initYT(); return; } const t=document.createElement('script'); t.src='https://www.youtube.com/iframe_api'; t.async=true; document.head.appendChild(t); })();
 window.onYouTubeIframeAPIReady=function(){ initYT(); };
 function initYT(){ if(ytPlayer)return; try{ ytPlayer=new YT.Player('ytPlayerDiv',{height:'46',width:'74',
-  playerVars:{autoplay:0,controls:0,disablekb:1,modestbranding:1,rel:0,playsinline:1,fs:0},
+  playerVars:{autoplay:1,controls:0,disablekb:1,modestbranding:1,rel:0,playsinline:1,fs:0},
   events:{ onReady:()=>{ ytReady=true; try{ytPlayer.setVolume(+($('#plVol').value||80));}catch(e){} },
-    onStateChange:onYtState, onError:()=>{ if(playingRec)fallbackItunes(playingRec); } } }); }catch(e){ ytReady=false; } }
+    onStateChange:onYtState,
+    onError:()=>{ ytErrCount++; if(ytErrCount<=4){ ytSkipping=true; try{ ytPlayer.nextVideo(); return; }catch(_){}} if(playingRec)fallbackItunes(playingRec); } } }); }catch(e){ ytReady=false; } }
 function onYtState(e){ const S=window.YT&&YT.PlayerState; if(!S)return;
   if(e.data===S.PLAYING){
-    try{ if(ytPlayer.getPlaylistIndex && ytPlayer.getPlaylistIndex()>0){ advanceNext(); return; } }catch(err){}
+    let idx=0; try{ idx=ytPlayer.getPlaylistIndex?ytPlayer.getPlaylistIndex():0; }catch(_){}
+    if(idx>0){ if(ytSkipping){ ytSkipping=false; /* alternatief zoekresultaat van hetzelfde nummer */ }
+      else if(autoAdvance){ advanceNext(); return; } else { stopMusic(); return; } }
     $('#plToggle').textContent='❚❚'; startProg(); ytBoxShowVideo(true); }
   else if(e.data===S.PAUSED){ $('#plToggle').textContent='▶'; }
   else if(e.data===S.ENDED){ $('#plToggle').textContent='▶'; stopProg(); advanceNext(); } }
@@ -1511,25 +1518,32 @@ function openPlayer(url,title,artist,art){ isFallback=true; ytBoxShowVideo(false
 function stopMusic(){ try{ audio.pause(); audio.currentTime=0; }catch(e){} try{ if(ytPlayer&&ytPlayer.stopVideo)ytPlayer.stopVideo(); }catch(e){}
   stopProg(); currentPlayingId=null; playingRec=null; $('#plToggle').textContent='▶'; $('#player').classList.remove('show'); }
 
-async function playRecord(rec){
+function updOpenLinks(){ const t=encodeURIComponent(lastTerm||''); const yt=$('#plYT'), sp=$('#plSpot');
+  if(yt)yt.href='https://www.youtube.com/results?search_query='+t; if(sp)sp.href='https://open.spotify.com/search/'+t; }
+function playRecord(rec){
   if(currentPlayingId===rec.id && isPlaying()){ stopMusic(); return; }
   const term=((rec.artist||'')+' '+(rec.sideA||'')).trim();
   if(!term){ toast('Geen titel om te zoeken'); return; }
-  currentPlayingId=rec.id; playingRec=rec;
-  $('#plTitle').textContent=rec.sideA||term; $('#plArtist').textContent=rec.artist||''; showPlayer();
-  // artwork via iTunes (los, niet blokkerend)
-  itunes(term).then(r=>{ const hit=r.find(x=>x.artworkUrl100)||r[0]; if(hit&&$('#plArtImg'))$('#plArtImg').src=hit.artworkUrl100||hit.artworkUrl60||''; }).catch(()=>{});
-  if(!ytReady) await waitYT(2600);
+  currentPlayingId=rec.id; playingRec=rec; lastTerm=term; ytErrCount=0; ytSkipping=false;
+  $('#plTitle').textContent=rec.sideA||term; $('#plArtist').textContent=rec.artist||''; showPlayer(); updOpenLinks();
   if(ytReady && ytPlayer && ytPlayer.loadPlaylist){
+    // Volledig nummer via YouTube — synchroon binnen de klik (nodig voor iPad/telefoon)
     isFallback=false; ytBoxShowVideo(true);
-    try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); try{ytPlayer.setVolume(+($('#plVol').value||80));}catch(e){} toast('▶ '+(rec.sideA||term)); }
+    try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); if(ytPlayer.setVolume)ytPlayer.setVolume(+($('#plVol').value||80)); if(ytPlayer.playVideo)ytPlayer.playVideo(); }
     catch(e){ fallbackItunes(rec); }
-  } else { fallbackItunes(rec); }
+  } else {
+    // YouTube nog niet geladen: eerst 30s, en zodra YouTube klaar is alsnog volledig
+    fallbackItunes(rec);
+    waitYT(5000).then(()=>{ if(ytReady && currentPlayingId===rec.id && ytPlayer && ytPlayer.loadPlaylist){
+      try{ isFallback=false; ytBoxShowVideo(true); ytPlayer.loadPlaylist({list:term,listType:'search',index:0}); if(ytPlayer.playVideo)ytPlayer.playVideo(); }catch(e){} } });
+  }
+  // artwork (niet-blokkerend)
+  itunes(term).then(r=>{ const hit=r.find(x=>x.artworkUrl100)||r[0]; if(hit&&$('#plArtImg'))$('#plArtImg').src=hit.artworkUrl100||hit.artworkUrl60||''; }).catch(()=>{});
 }
 async function fallbackItunes(rec){ isFallback=true; ytBoxShowVideo(false);
   const term=((rec.artist||'')+' '+(rec.sideA||'')).trim();
   try{ const r=await itunes(term); const hit=r.find(x=>x.previewUrl)||r[0];
-    if(hit&&hit.previewUrl){ openPlayer(hit.previewUrl, rec.sideA||hit.trackName, rec.artist||hit.artistName, hit.artworkUrl100||hit.artworkUrl60); toast('▶ fragment (30s) — volledige versie niet beschikbaar'); }
+    if(hit&&hit.previewUrl){ openPlayer(hit.previewUrl, rec.sideA||hit.trackName, rec.artist||hit.artistName, hit.artworkUrl100||hit.artworkUrl60); }
     else noPreview(term);
   }catch(e){ noPreview(term); }
 }
@@ -1590,17 +1604,25 @@ $('#ovStop')&&($('#ovStop').onclick=()=>{ stopMusic(); toast('Muziek uit'); });
    DELEN via WhatsApp / systeem
    ========================================================= */
 async function shareTool(){
-  const msg='🎵 Hier is de jukebox! Tik op het bestand hieronder — hij opent vanzelf en je kunt meteen muziek kiezen. Alle nummers staan er al in.';
-  // 1) probeer het bestand zelf te delen (ontvanger krijgt de werkende tool)
+  const hosted = location.protocol.indexOf('http')===0;
+  const url = location.href.split('#')[0];
+  if(hosted){
+    const msg='🎵 Hier is de jukebox! Tik op de link — hij opent meteen in de browser en je kunt direct muziek kiezen.';
+    try{ if(navigator.share){ await navigator.share({title:'Jukebox', text:msg, url}); return; } }catch(e){}
+    try{ window.open('https://wa.me/?text='+encodeURIComponent(msg+' '+url),'_blank'); return; }catch(e){}
+    try{ await navigator.clipboard.writeText(url); toast('Link gekopieerd — plak in WhatsApp'); return; }catch(e){}
+    toast('Kopieer de link uit de adresbalk en deel die');
+    return;
+  }
+  // lokaal bestand: deel het bestand zelf
+  const msg='🎵 Hier is de jukebox! Tik op het bestand — hij opent vanzelf. Alle nummers staan er al in.';
   try{
     const res=await fetch(location.href); const blob=await res.blob();
     const file=new File([blob],'jukebox-titelstroken.html',{type:'text/html'});
-    if(navigator.canShare && navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:'Jukebox Titelstroken',text:msg}); return; }
+    if(navigator.canShare && navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:'Jukebox',text:msg}); return; }
   }catch(e){}
-  // 2) deel een link via het systeem-menu (incl. WhatsApp)
-  try{ if(navigator.share){ await navigator.share({title:'Jukebox Titelstroken',text:msg,url:location.href}); return; } }catch(e){}
-  // 3) open WhatsApp direct
-  try{ window.open('https://wa.me/?text='+encodeURIComponent(msg+' '+location.href),'_blank'); return; }catch(e){}
+  try{ if(navigator.share){ await navigator.share({title:'Jukebox',text:msg}); return; } }catch(e){}
+  try{ window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'); return; }catch(e){}
   toast('Delen niet ondersteund op dit apparaat');
 }
 $('#btnShare')&&($('#btnShare').onclick=shareTool);
