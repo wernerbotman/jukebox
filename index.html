@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jukebox Titelstroken · Label-studio</title>
+<meta name="description" content="Maak, beheer en print titelstroken voor je Wurlitzer-jukebox. Met zoeken, wenslijst en 30-seconden previews." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<meta name="theme-color" content="#0e1726" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Jukebox" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<link rel="icon" href="data:image/png;base64,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" />
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Jukebox%20Titelstroken%22%2C%22short_name%22%3A%22Jukebox%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230e1726%22%2C%22theme_color%22%3A%22%230e1726%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAPpUlEQVR4nO2dvY8cSRmHfzNe%2BzDH2Xfyes05AAlhpGWDSYjIluwCIqOVCPkPiBEhIuY/IEQasRHRJeeM6JINhpXu0EkQ2Njek20QOnEn7xBM1251TX28VV3f8z7Sama6q7uqq555563q2d0ZCrN/9%2BG6dBuYeFy8eTorWX/2ylng3SK34FkqY4kZII/cSStgkRkdKcVOcmIWmaGQQuyoJ2SRmRBiih3lRCwyE4MYYs%2BnnoBlZmIRw6VJQrPMTGymOhUU4llkJgchKYh3hGaZmVyEuOYlNMvM5MbXObLQLDNTCh/3SEKzzExpqA5OXrZjmJpwCs3RmakFiotWoVlmpjZcThqFZpmZWrG5yTk00xVaoTk6M7VjcpQjNNMVW0JzdGZaQecqR2imK0ZCc3RmWkN1liM00xVXQnN0ZlpFdpcjNNMVLDTTFXOA0w2mfYTDHKGZrmChma5goZmumHH%2BzPQER2imK1hopitYaKYrWGimK1hopitYaKYrWGimK/ZKN6BHPv3hTXLZn/z9m4Qt2T34xkoEfAR2wYJPg4WeQEyRVVjsMFjoAFKKrMJi%2B8FCe5BTZBUWmwavchApKXMN9bcCC02gFplqaUfNsNAOapOotvbUBgvNdAULbaHWaFhru2qA7xQqrJaLq%2Bdf/eZvBVtiR27n0clZwZbUBS/bDciCAHXLLLj9%2Bx%2BPXrPYHKG3RG4ZcS27LPbOCt2TyCq7LPbOCd2zyCq7KPZOrXLskswyu3TdOzEpDB3QmieG6oSQSu/RuvsIvUvRiULv/dG10FMHLzQKpmZqu3qWustJYc8DFoteJ4zdRejYMtcWpWO3p7c3f1dCpxqcWqRO1Y6epO5ilWO1XDwA8Dx1PSVXPXK8qXpIP5oWehB5DuBZznpzil3g0%2BHB0clZ8uCQiiaFXi0XBwBmKCDzwYfXH8//%2BNWfktXz/T/%2B8ur5i2fZI%2BcDAOujk7MXuSueSlNCr5aLfWwkzi6zLLJKTLFlkVUyi/1geHx7dHJ2kbPiKTQhtCIyhsd/pa7XJrENH8FtAtvIJLeQeg3gsgWxqxdakhnYiJxc5lCRS5BB7Kakrlbo1XJxD9epBXAt8wwJU42WZBYklvq72MiM4fESm/z6y5SVhlKd0Kvl4n0AN7Ats3hMEp1bFFklodgPpOdXUmOTX79OVWkI1Qg9iCzyZPUHYJlJZJJaCC1%2BLmsRu4o7hRaZZVhmAgmvR16bVsdpPoxhcYpG6KETbBFZljrqYn9vIutIEK3VKA2MI/Uam/z6deyKqRQRerVc3IE5IqvPAZY5mIRSyxKrr0Ua8u/YlbvIKvRquXgP15M9isgzNCjzvZ/%2BgVz2y7/%2BOlk7BImk1sksP5dXRP4TuwEmsglNkNn0GE3oVDL7COwileCRpdYJrT6q0TqL1MmFlkQGxjKD8BjtuwQpZI4pskoKsSNLfQC70OJRza%2BTip1M6NVy8S7Gt6vVW9fiUZ74VS90SolNxJI7g9DiOSVi/zdmYwTRhV4tF7dxfWNElhnQi6wTGgBexmpTyzILKpX6/vCoCi0eXWK/PTo5%2Bypmg6IJPYis5sgCU3QGEgsdQ%2BaSIqvEEDui1C6h1Ufd5FFMHKOIHUXoQWbdZA/QR2fdI6TXLLOFyqTeV15T82r5uRD77dHJ2ddTGjNJ6NVy8Q42wppkNm3TPcr7qxC6RpkFU6UuILR4bovcl7iO2EFiB9/6lqKyLsUQ6LapqG8olpnA1PZFXPWRv05KCY4mT0S6OgdwY7Vc3AppjHeElqIysJ0b66IzNNvV5/K2yd%2B37V1mmUoitYjSpqisPnelIeK2une0Jgu9Wi5mAG5hLDNgF9eWVujKA4WFbklmwRSpIwptE9e03Sb2SGoA3xydnDlddQo9iHwT1x8JgPuLROo2H6EFQWLvmsyCQlLL%2BfMUocVz04rIpfTcKrY1h14tFzdAkzkU00cTsOksdcKRjJZlBrK2fx/bY2MbRx/UAKm7KXdz8FJ/Al2EHqLyHNu/OQK4l%2BHkxtkisCuv3morCBPGkAjduswyIZGaEKHvwyyqK1%2B27aPk15dSGTlSv8XmjuOonq0IPch8A9cyy/hGY9u7ldoR8vZ9bDr3vq7ALn0tNCaWfruP7fxYxncMXft0mOZlN7BZDRk5eRWhpagsPwJj6SnryrbtrqU9SqTW7X8JcHQWTIzSurt/OnxkppS15dW2bSJqXx6dnK1n%2B3cfrjUyA9upBrCdbsjPbbK68u1QqUdlDj5ceK1h9yizwEfqF8/O5E88SgQN%2BXR1lbWVudSU1aUil3sWmVWmTP7khujOI29Xn7vqviojD4yv3LuGIjHgL7L6mpKWhDLTnEfeNsdG6vkexukF4I6mJnSyim0mYU3Hq2V8xAZYbiMB0dhUzldm6oSRihr0AGA2e/7xR6borKYbvuvKrv02OX3ybhejskLuntMNgUg7AiU2lQ2Z/FFzbFsaotunbr/cg/mmSAim6KvbbyvrSjsoEVstC2A0uN1H7eFaQ6KfS2RTGd0%2Bn8mlL2oqMjOtKbvw/cgIXd7RzW5tZSisDx8/6V5mAAi4Tkofu/o8NLUITUNGn%2BZ78IvGrghsKxM68VP32yK27TxFOD893tp2%2BPhJgZYYoU7mfCMt5fiQiagVH6FjpBOuiR950qd5bSpXBJ3I6r6CYseSmHrclFzcpx2T/q2bbVXDtF9sB8ZSbkXfg/1Hr9QDX1x8/oHmHLrXal0w7E%2BCTWa1XCapp0ZXGMbjfd/zaLaHRm4ts%2Bcff3RTfi09Um6UqM9127xWMw72H722lAcwEtt0LuO2w8dPkv4ZWKrMMqmlPj89vqdsIkukE1llEDuFzKbVD3Xf1X7bt%2B18llcojXKWo8gMGDtZt4yj25aMEJmnHOeJd/9QZB7KvdbUZWqDq4y63yuCx/hPstR8GZZyONh/5PV30A72H70yRGq5PoHuTlM25AicSV4VaiC6giqzVP7Ni4vP7zjqN712bSejRmjKhevKTJpk%2BMosHUft9OSR2iSqmk6Y0ovEontdu6/M0nG6cZySilCi%2BKiM65dkXZVTpdZ9zMWiWOR1YZK3smU7mZhj4zPuPjJb20fJoWNIrdsXlGqoDPnbWvlhaGz1G3UeY2IYT2pUVvf5yKwts4ftHNiUE5sqoH75SG6E7oslMdHl0Iz/8l3O%2BrzzfF1ZU4RWT07NqbVLKYZjYqcdro%2B07NHblBcXmBjm7huf8Vef245xnn8uFXCdyPdjw3UMZX8IRdIP6mSPOnlMSOn0LMQVcjnbsp0ujXClE6Ff0p%2BKfJGuu4XZKbRUJ1MisLjqmCKzsfzcUcg3x7GlHbnEKhaBQqNsgVWP3H1kShcoqYn63DphpPxtu5DEPfQCUjAavPPTY9PifxR85cxw2/sOyr3JpwS4oAmjmkNb7deU9Zn4pRS7eFohQ5W0svXomGPiEtnXG8B9DKDk0K482ZYjk36JVfM6tdTFluuErJV%2BH7p0zux7DElmYHsdOpXUcsUp1qBt7VXJKnlD8qYKLqH1e8sM6HNoSvqh%2BzihfmSlyuOoeeL6/PT4vQT1V4fjOlPn1aE%2BkMdReQRw/W07NcK5IrV6jPocluPUBqXCdP5du2tYYn4Rkl7I26gTxq2oPtcU8jn5lOS/FGtsovR3SjckJcP1Vdv/hm0UZ4wyA%2Bavj%2BoOpoR/XdlaxWa2STlONpEpddvKXr3W3Sk0pR%2B6fbqTmlIPaioSQvHJX4PkCjK21ILaDlv50eu5poAoZDoJJVpTInbsWbV6XnXbVn29ph2a6zL1hbOPAjGdz3cRwdtD15eTXGL6Nsb67ooIeQDPT4/fTdSGIgzXk1NeCr4ii3K649V9o2N0N1Z0J7alIDAcp6tc96cLYqBeIHVNukd8rjN1n1DzY90x1Nej7WrKYXr3UNMIFyHv1BB00chY1/np8bcTtSMrluvw6o8IhNQT6thouynloKQgPpWaGpE7ahoHtnWph/bnFtdETJGheW3aTlqHdjWA2qiaEfn07dINCWFod0v9DdBF9gmu2nVoqpg%2BYufI1aLU05rUEdqbM5rr6gkR2Xi863cKQyoIaWRMJn/stiK1ZztLpiMxHCGlIq4/Y0BNQ1wNTB21Kec0Daj2mNqlNrTP6xoNx8XCZ%2BwpY0cqPyf8/%2BSQynX7fd8gPsjnnjqgVz/np8ffitS%2BqAztCom2NuFjCk11JsQlaxvnAECUOlRsStSOhW2QggaxNqkJ7aFIm0JiWzso23VlXNtGHJ2cXd9YEVKr/5lTc1LA/w%2BMm8qk6kxb/SrO35w5Pz1%2BBwAOHz/5X8xG%2BSDaQCBXn9oI%2BSQ2lXEeKwfkrRyaEK1FJSEfIdQyOSFHMg%2BponJ%2BenzLo501McUH0vWovmr/LgcxWotKAfvfwqBE7amY2hGb9SAXAODw8ZOvU1Uk15OJFOMRsp/UDlPgtf596ACxAbPcOb7OaeqMJHUL6WKKnUHkklE8OK0QuDII0h889xAboOXLsQVzvWlcOfQkVAl9BE8kcIi0KSeHk%2BsjpsJ%2Bf8HfU2yAlpLEJCRC%2B7SFdN0VSZryPKF1JBFZEPQvKeRKJkbtWOSK0LVNukzUFKG9z%2B0rsczk/7EyIWqnQHfumL99XvLXunJO2oqcf4rIghj/NAhAUNTOhauTOEIXJIbEMtGElikg9xrh0XMXI3TJOqJLLJNEaJmMcudYsmsm8jnIfh0pJZZJLrRMobQk6ZJdxRR/8%2BWSWCar0DLiYl9%2B8ijG6UKjs2%2BH95RyJJOthMiCYkJnIuaEkHK%2BmmiprdHoXWh88dmrnRxYGz/40QfdplrdCs0imxF906PYXQit5mx/%2Bd33SjWlKb747NX657/952hbpDlNMSj/NKgpWGY/euuv%2BcWbp9187PQ2OLnopd8u3jyddRehmd2mG6F7iTKl6KX/igt9/2d/Lno8M6b18ZgDm9yjaCsYZiLC4eIRGgh/V5eOBr3S8nhUITTg3xk1dF7PtDoeV0LXkHZQO6WWzuudVsZDdre6O4Wic15%2B8gvjPiYfrY3HSOiLN09n%2B3cfVvEdiBo7a5epdTzUzKKaHJphYrAldA25NMNQ0LnKEZrpCq3QHKWZ2jE5yhGa6Qqj0K1FafWL6owfLfWfzU1rhG5NaqZ/XE46U46WpG4pytREK/1GcbG7HLqVwamF3vqLJHRLURrob5BS0VI/UR30ErWW2%2BI%2B9PKbGDFpSWTAL6B6R94WpWbaxTc78M6hW0s/mHYJcW2SnBytmRRMCZqTVjk4WjOxmerU5GU7lpqJRQyXosrIKQgTQsygmCS6stgMhRSf7knTBRab0ZEyTc2S/7LYDJBnvpV9Qsdy7xa5Fw2Kr1Cw4H1RetXr/y2kg%2BvcxMa8AAAAAElFTkSuQmCC%22%2C%22sizes%22%3A%22180x180%22%2C%22type%22%3A%22image/png%22%7D%5D%7D" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Oswald:wght@500;600;700&family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0e1726; --ink-2:#14213a; --ink-3:#1c2c4a;
+  --line:#26365a; --line-soft:#1f2d4d; --line-strong:#31456e;
+  --text:#e8edf6; --muted:#8a99b8; --faint:#5f6f93;
+  --gold:#e9b949; --gold-soft:#caa23e;
+  --up:#3fcf8e; --up-deep:#2fae74; --down:#f06a6a; --blue:#5aa9ff;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --shadow-lg:0 30px 80px rgba(0,0,0,.6);
+  --r:14px; --r-sm:9px;
+  --fd:"Space Grotesk",Inter,sans-serif;
+  --fb:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --fm:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{max-width:100%}
+body{margin:0;font-family:var(--fb);color:var(--text);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1100px 500px at 82% -10%,rgba(233,185,73,.08),transparent 60%),radial-gradient(900px 500px at -5% 0%,rgba(90,169,255,.06),transparent 55%),var(--ink)}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:600;line-height:1.16;letter-spacing:-.01em;margin:0}
+a{color:var(--gold)} button{font-family:inherit;cursor:pointer} img{display:block;max-width:100%}
+input,textarea,select{font-family:inherit}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(233,185,73,.35);border-radius:6px}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px;border:3px solid var(--ink)}
+
+/* ---- Top bar ---- */
+header.top{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(14,23,38,.95),rgba(14,23,38,.82));backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.top-inner{max-width:1280px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.brand .mark{width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:grid;place-items:center;
+  background:radial-gradient(circle at 32% 28%,#ffe9a8,var(--gold) 55%,var(--gold-soft));
+  box-shadow:0 0 20px rgba(233,185,73,.4),inset 0 0 0 1px rgba(255,255,255,.25)}
+.brand .mark svg{width:22px;height:22px}
+.brand b{font-family:var(--fd);font-weight:700;font-size:1.24rem;letter-spacing:-.02em;color:var(--text);display:block;line-height:1}
+.brand small{display:block;font-weight:600;font-size:.62rem;color:var(--faint);letter-spacing:.16em;text-transform:uppercase;margin-top:3px}
+.top-spacer{flex:1}
+.stat-chip{display:flex;flex-direction:column;align-items:flex-end;padding:0 12px;border-right:1px solid var(--line-soft)}
+.stat-chip:last-of-type{border-right:none}
+.stat-chip .n{font-family:var(--fm);font-weight:700;font-size:1.05rem;color:var(--gold)}
+.stat-chip .l{font-size:.6rem;color:var(--faint);text-transform:uppercase;letter-spacing:.12em}
+.pill{border:1px solid var(--line);background:var(--ink-2);color:var(--text);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.83rem;display:inline-flex;gap:7px;align-items:center;transition:.15s;white-space:nowrap}
+.pill:hover{border-color:var(--gold)}
+.pill.accent{border-color:rgba(233,185,73,.4);background:rgba(233,185,73,.1);color:var(--gold)}
+.pill.accent:hover{background:var(--gold);color:var(--ink)}
+
+/* ---- Nav ---- */
+nav.views{max-width:1280px;margin:0 auto;padding:8px 20px 4px;display:flex;gap:5px;flex-wrap:wrap}
+nav.views button{border:1px solid transparent;background:none;padding:9px 15px;font-weight:500;font-size:.92rem;color:var(--muted);border-radius:999px;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.15s}
+nav.views button:hover{color:var(--text);background:var(--ink-2)}
+nav.views button[aria-selected="true"]{color:var(--ink);background:var(--gold);font-weight:600}
+nav.views .ico{font-size:1.05rem;line-height:1}
+
+.wrap{max-width:1280px;margin:0 auto;padding:20px}
+.view{display:none} .view.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.panel{background:var(--ink-2);border:1px solid var(--line-soft);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+.panel > h3, .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-soft);font-family:var(--fb);font-weight:600;margin:0 0 12px}
+.grid2{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:22px;align-items:start}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+
+/* ---- Form controls ---- */
+label.fld{display:block;margin-bottom:12px}
+label.fld > span{display:block;font-size:.74rem;color:var(--muted);font-weight:600;margin-bottom:5px;letter-spacing:.02em}
+.inp,select.inp,textarea.inp{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:var(--r-sm);padding:9px 12px;color:var(--text);font-size:.92rem;outline:none;transition:border .15s}
+.inp:focus{border-color:var(--gold)}
+textarea.inp{resize:vertical;min-height:60px}
+.row{display:flex;gap:10px}.row > *{flex:1;min-width:0}
+.search{display:flex;align-items:center;gap:9px;background:var(--ink);border:1px solid var(--line);border-radius:999px;padding:9px 15px}
+.search svg{flex:0 0 auto;opacity:.5}
+.search input{border:none;background:none;outline:none;width:100%;font-size:.95rem;color:var(--text)}
+.search input::placeholder{color:var(--faint)}
+.slider .val{font-family:var(--fm);font-size:.82rem;color:var(--gold);font-weight:600;float:right}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;background:var(--ink-3);border:1px solid var(--line);border-radius:99px;padding:0;margin:6px 0 2px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#ffe9a8,var(--gold) 60%);border:2px solid var(--ink);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--gold);border:2px solid var(--ink);cursor:pointer}
+input[type=color]{width:100%;height:38px;background:var(--ink);border:1px solid var(--line);border-radius:var(--r-sm);padding:3px;cursor:pointer}
+.seg{display:flex;background:var(--ink);border:1px solid var(--line);border-radius:var(--r-sm);padding:3px;gap:3px}
+.seg button{flex:1;border:none;background:none;color:var(--muted);padding:7px 6px;border-radius:6px;font-size:.82rem;font-weight:600;transition:.12s}
+.seg button.on{background:var(--gold);color:var(--ink)}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0}
+.toggle span{font-size:.88rem;font-weight:500}
+.switch{position:relative;width:44px;height:25px;flex:0 0 auto}
+.switch input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.switch .track{position:absolute;inset:0;background:var(--line);border-radius:999px;transition:background .18s}
+.switch .thumb{position:absolute;top:3px;left:3px;width:19px;height:19px;background:#fff;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.4);transition:transform .18s}
+.switch input:checked + .track{background:var(--gold)}
+.switch input:checked + .track + .thumb{transform:translateX(19px)}
+
+.btn{border-radius:var(--r-sm);padding:10px 15px;font-weight:600;font-size:.9rem;border:1px solid var(--line);background:var(--ink-3);color:var(--text);display:inline-flex;align-items:center;gap:8px;transition:.15s}
+.btn:hover{border-color:var(--gold)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.ghost{background:none}
+.btn.danger:hover{border-color:var(--down);color:var(--down)}
+.btn.sm{padding:6px 11px;font-size:.82rem}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.iconbtn{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--ink-3);color:var(--text);display:grid;place-items:center;font-size:1rem;transition:.13s;flex:0 0 auto}
+.iconbtn:hover{border-color:var(--gold);color:var(--gold)}
+.iconbtn.on{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.divider{height:1px;background:var(--line-soft);margin:16px 0}
+.hint{font-size:.78rem;color:var(--faint);line-height:1.5}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+.badge.L{background:rgba(90,169,255,.16);color:var(--blue)}
+.badge.R{background:rgba(233,185,73,.16);color:var(--gold)}
+.badge.empty{background:rgba(240,106,106,.14);color:var(--down)}
+
+/* ---- Label preview (the signature) ---- */
+.stage{background:
+  repeating-linear-gradient(45deg,#0b1220 0 14px,#0d1526 14px 28px);
+  border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;place-items:center;min-height:220px;position:relative;overflow:auto}
+.stage .chrome-note{position:absolute;top:10px;left:14px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* one physical title strip */
+.strip{position:relative;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.4);
+  --bg:#f7c9d6; --banner:#ffffff; --ink:#7a1029; --accent:#e35c86; --bink:#111; --bord:#d24d78;
+  background:var(--bg);border:1px solid var(--bord);color:var(--ink);font-family:var(--stripfont,"Oswald"),sans-serif;
+  font-style:var(--fstyle,normal)}
+.strip .seg-row{display:flex;align-items:center;justify-content:center;position:relative;text-align:center;padding:0 6%}
+.strip .t-title{font-weight:var(--fweight,700);line-height:1.02;text-transform:var(--case,uppercase);letter-spacing:.01em;white-space:nowrap;overflow:hidden;max-width:100%}
+.strip .t-sub{position:relative}
+.strip .cat{position:absolute;right:5%;bottom:6%;font-size:.5em;font-weight:600;opacity:.85;font-family:var(--fm);font-style:normal}
+.strip .banner{display:flex;align-items:center;justify-content:center;width:88%;margin:0 auto;background:var(--banner);color:var(--bink);
+  font-weight:var(--fweight,700);line-height:1;text-transform:var(--case,uppercase);box-shadow:0 1px 2px rgba(0,0,0,.25);white-space:nowrap;overflow:hidden}
+.strip .banner.chevron{clip-path:polygon(0% 50%,5% 0%,95% 0%,100% 50%,95% 100%,5% 100%)}
+.strip .banner.notch{clip-path:polygon(0 0,95% 0,100% 50%,95% 100%,0 100%,5% 50%)}
+.strip .banner.arrowL{clip-path:polygon(5% 0,100% 0,95% 50%,100% 100%,5% 100%,0 50%)}
+.strip .banner.round{border-radius:999px;width:82%}
+.strip .cap{position:absolute;top:50%;transform:translateY(-50%);font-weight:800;font-size:.62em;color:var(--accent);font-family:var(--fb)}
+.strip .cap.l{left:3%} .strip .cap.r{right:3%}
+.strip .accent-line{height:var(--al,0px);background:var(--accent);width:100%}
+
+/* clickable overlay on preview labels in grid */
+.lblcard{position:relative;cursor:pointer;transition:transform .14s}
+.lblcard:hover{transform:translateY(-3px)}
+.lblcard .play-fab{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(14,23,38,.82);color:#fff;display:grid;place-items:center;font-size:.7rem;opacity:0;transition:.15s;border:1px solid rgba(255,255,255,.3)}
+.lblcard:hover .play-fab{opacity:1}
+
+/* ---- Table ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line-soft);border-radius:var(--r)}
+table.data{width:100%;border-collapse:collapse;font-size:.9rem;min-width:760px}
+table.data th{text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);font-weight:700;padding:11px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--ink-2);cursor:pointer;white-space:nowrap;user-select:none}
+table.data th:hover{color:var(--gold)}
+table.data td{padding:9px 12px;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+table.data tr:hover td{background:rgba(90,169,255,.05)}
+table.data tr.dragover td{border-top:2px solid var(--gold)}
+table.data .num{font-family:var(--fm);font-weight:700;color:var(--gold)}
+table.data .drag{cursor:grab;color:var(--faint);width:22px;text-align:center}
+table.data .actions{display:flex;gap:5px;justify-content:flex-end}
+.cellinp{width:100%;background:transparent;border:1px solid transparent;border-radius:6px;color:var(--text);padding:5px 7px;font-size:.9rem;font-family:inherit}
+.cellinp:hover{border-color:var(--line-soft)}
+.cellinp:focus{border-color:var(--gold);background:var(--ink);outline:none}
+.cellinp.n{font-family:var(--fm);font-weight:700;color:var(--gold);max-width:70px}
+.empty{text-align:center;padding:48px 20px;color:var(--faint)}
+.empty .big{font-size:2.6rem;margin-bottom:8px}
+
+/* wishlist cards */
+.wishgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.wishcard{background:var(--ink-2);border:1px solid var(--line-soft);border-radius:var(--r);padding:14px;position:relative}
+.wishcard .prio{position:absolute;top:12px;right:12px;font-size:.66rem;font-weight:700;padding:3px 8px;border-radius:999px}
+.prio.hi{background:rgba(240,106,106,.16);color:var(--down)} .prio.mid{background:rgba(233,185,73,.16);color:var(--gold)} .prio.lo{background:rgba(90,169,255,.14);color:var(--blue)}
+.wishcard h4{font-size:1rem;margin-bottom:4px;padding-right:60px}
+.wishcard .b{font-size:.84rem;color:var(--muted)}
+.wishcard .note{font-size:.8rem;color:var(--faint);margin-top:8px;font-style:italic}
+.wishcard .wa{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+
+/* player bar */
+.player{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:70;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);padding:10px 12px;display:none;align-items:center;gap:12px;max-width:min(680px,94vw);width:max-content}
+.player.show{display:flex;animation:pop .2s ease}
+@keyframes pop{from{transform:translate(-50%,10px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+.player #ytBox{width:74px;height:46px;border-radius:8px;overflow:hidden;background:#000;flex:0 0 auto;position:relative}
+.player #ytBox img{width:100%;height:100%;object-fit:cover}
+.player #ytPlayerDiv{position:absolute;inset:0}
+.player #ytPlayerDiv iframe{width:100%;height:100%}
+.player .plcenter{min-width:0;flex:1 1 auto;display:flex;flex-direction:column;gap:5px}
+.player .plhead{min-width:0}
+.player .plhead b{display:block;font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .plhead span{font-size:.72rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.player .plseekrow{display:flex;align-items:center;gap:8px}
+.player .pltime{font-family:var(--fm);font-size:.68rem;color:var(--faint);flex:0 0 auto;min-width:30px}
+.player .pltime.r{text-align:right}
+.rng{-webkit-appearance:none;appearance:none;height:5px;border-radius:5px;background:var(--line);outline:none;cursor:pointer}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 0 0 3px rgba(233,185,73,.18)}
+.rng::-moz-range-thumb{width:13px;height:13px;border:none;border-radius:50%;background:var(--gold);cursor:pointer}
+#plSeek{flex:1 1 auto;min-width:120px}
+.player .pbtn{width:42px;height:42px;border-radius:50%;border:none;background:var(--gold);color:var(--ink);display:grid;place-items:center;font-size:1rem;flex:0 0 auto}
+.player .plvol{display:flex;align-items:center;gap:5px;flex:0 0 auto}
+.player .plvol span{font-size:.85rem}
+#plVol{width:66px;flex:0 0 66px}
+.player .x{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);flex:0 0 auto}
+@media (max-width:560px){ .player{flex-wrap:wrap;justify-content:center} .player .plcenter{order:5;flex-basis:100%} #plSeek{min-width:100px} }
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(20px);background:var(--ink-3);border:1px solid var(--line-strong);color:var(--text);padding:11px 18px;border-radius:999px;font-size:.88rem;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(8,13,24,.8);backdrop-filter:blur(6px);z-index:80;display:none;padding:20px;overflow-y:auto}
+.overlay.open{display:block}
+.modal{max-width:560px;margin:40px auto;background:var(--ink-2);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;animation:pop2 .22s ease}
+@keyframes pop2{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.modal .mh{padding:18px 22px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between}
+.modal .mh h3{font-size:1.15rem}
+.modal .mb{padding:20px 22px}
+.modal .mf{padding:14px 22px;border-top:1px solid var(--line-soft);display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.searchres{display:flex;flex-direction:column;gap:6px;max-height:280px;overflow-y:auto;margin-top:12px}
+.sr{display:flex;align-items:center;gap:11px;padding:8px;border:1px solid var(--line-soft);border-radius:var(--r-sm);cursor:pointer;transition:.12s}
+.sr:hover{border-color:var(--gold);background:var(--ink)}
+.sr img{width:44px;height:44px;border-radius:6px;flex:0 0 auto;background:var(--ink-3)}
+.sr .srm{min-width:0;flex:1}
+.sr .srm b{display:block;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr .srm span{font-size:.75rem;color:var(--muted)}
+
+/* ---- Print sheet ---- */
+#printArea{background:#fff;color:#000;border-radius:var(--r);padding:14px;overflow:auto}
+.sheet{background:#fff;margin:0 auto;position:relative}
+.jb-cols{display:grid;grid-template-columns:1fr auto 1fr;align-items:start}
+.jb-index{display:flex;flex-direction:column;align-items:center;font-family:"Oswald",sans-serif;font-weight:700;color:#111;padding:0 2px}
+.jb-index .ix{display:flex;align-items:center;gap:3px;justify-content:center;width:100%}
+.jb-index .ix.l{justify-content:flex-start} .jb-index .ix.r{justify-content:flex-end}
+.jb-index .arrow{font-size:.9em}
+.cut{display:grid;gap:10px}
+.cut .strip{box-shadow:none;border:1px dashed #bbb}
+/* A4 om uit te knippen */
+.sheet.a4mode{background:transparent}
+.a4page{width:210mm;height:297mm;background:#fff;box-shadow:0 6px 26px rgba(0,0,0,.4);padding:8mm;box-sizing:border-box;margin:0 auto 22px;position:relative;overflow:hidden}
+.a4grid{display:grid;align-content:start;justify-content:center}
+.a4cell{outline:.3mm dashed #cfcfcf;line-height:0}
+.a4cell .strip{box-shadow:none}
+/* central number index (jukebox print) */
+.jbNum{position:absolute;display:flex;align-items:center;font-family:"Oswald",sans-serif;font-weight:700;color:#111;line-height:1;white-space:nowrap}
+.jbNum.l{justify-content:flex-start} .jbNum.r{justify-content:flex-end}
+.jbNum .ar{font-size:1.05em;margin:0 .12em}
+#printOne{display:none}
+
+@media print{
+  body{background:#fff !important}
+  header.top,nav.views,.player,#toast,.noprint,.overlay{display:none !important}
+  .wrap{max-width:none;padding:0;margin:0}
+  .view{display:none !important}
+  #view-print{display:block !important}
+  #printArea{padding:0;border-radius:0;background:#fff}
+  .panel.noprint{display:none}
+  .strip{box-shadow:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .jbNum{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:0}
+  .sheet:not(.a4mode){padding:8mm}
+  .a4page{box-shadow:none !important;margin:0 !important;page-break-after:always;break-after:page}
+  .a4page:last-child{page-break-after:auto;break-after:auto}
+  .a4cell{outline:none}
+  /* single-label print */
+  body.printone .wrap,body.printone header.top{display:none !important}
+  body.printone #printOne{display:grid !important;place-items:center;min-height:100vh}
+  body.printone #printOne .strip{box-shadow:none !important}
+}
+/* preview enlarge modal */
+#previewModal .modal{max-width:min(92vw,720px);width:auto}
+#previewModal .bigstage{background:repeating-linear-gradient(45deg,#0c1424,#0c1424 12px,#0e1830 12px,#0e1830 24px);border-radius:12px;padding:34px;display:flex;justify-content:center;align-items:center}
+#previewModal .bigstage .strip{transform:scale(2.1);transform-origin:center}
+.spk{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--ink-2);color:var(--gold);font-size:1.1rem;display:grid;place-items:center}
+.spk:hover{border-color:var(--gold);background:rgba(233,185,73,.12)}
+/* =======================================================
+   WURLITZER 1015 START-/BEDIENSCHERM
+   ======================================================= */
+#jukeboxScreen{position:fixed;inset:0;z-index:60;display:none;overflow:auto;
+  background:radial-gradient(1200px 760px at 50% 22%, #2a1d12 0%, #140f14 48%, #08070c 82%)}
+body.mode-jukebox #jukeboxScreen{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:14px 10px 40px}
+body.mode-jukebox header.top,body.mode-jukebox nav.views,body.mode-jukebox .wrap{display:none !important}
+.jbScaler{transform-origin:top center;flex:0 0 auto}
+.jbCabinet{position:relative;width:600px;height:980px;filter:drop-shadow(0 40px 70px rgba(0,0,0,.65))}
+.jbCabinet svg{position:absolute;inset:0;width:600px;height:980px}
+.tubeColor{animation:tubeHue 11s linear infinite}
+@keyframes tubeHue{to{filter:hue-rotate(360deg)}}
+.jb-ovl{position:absolute;pointer-events:none}
+.bubble{position:absolute;width:15px;height:15px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 34% 30%, rgba(255,255,255,.95), rgba(255,255,255,.35) 45%, rgba(255,255,255,0) 72%)}
+.arch-bubbles{position:absolute;inset:0}
+.arch-bubbles .bubble{offset-path:path("M114,430 A186,186 0 0 1 486,430");offset-rotate:0deg;animation:archmove linear infinite}
+@keyframes archmove{0%{offset-distance:0%;opacity:0}8%{opacity:.95}92%{opacity:.95}100%{offset-distance:100%;opacity:0}}
+.pilaster{position:absolute;overflow:hidden}
+.pilaster .bubble{left:50%;margin-left:-7px;animation:rise linear infinite}
+@keyframes rise{0%{bottom:-18px;opacity:0}10%{opacity:.9}90%{opacity:.9}100%{bottom:100%;opacity:0}}
+
+/* interactief titelstrip-display op de kast */
+.jb-display{position:absolute;left:175px;top:420px;width:250px;height:148px;overflow-y:auto;overflow-x:hidden;
+  background:linear-gradient(#241708,#160d05);border-radius:5px;padding:5px 6px;box-shadow:inset 0 0 12px rgba(0,0,0,.8);
+  scrollbar-width:thin}
+.jb-display::-webkit-scrollbar{width:6px}.jb-display::-webkit-scrollbar-thumb{background:#5a4020;border-radius:6px;border:0}
+.jb-strip{display:flex;align-items:center;gap:5px;background:linear-gradient(#fbf3dd,#f0e4c4);color:#2c2010;
+  border-radius:2px;margin-bottom:3px;padding:2px 5px;cursor:pointer;line-height:1.15;border-left:3px solid #d23b2b;transition:.1s}
+.jb-strip:hover{background:#fff;transform:translateX(1px)}
+.jb-strip.playing{background:#fff3c4;border-left-color:#1f9e4e;box-shadow:0 0 0 1px #1f9e4e}
+.jb-strip .num{font-family:'Oswald',sans-serif;font-weight:700;color:#c11f1f;font-size:11px;min-width:26px}
+.jb-strip .ttl{font-size:9.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.jb-strip .ar{font-size:8px;color:#c11f1f;font-weight:700}
+
+/* bedienbalk onder de kast */
+.jbControls{width:min(600px,94vw);margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.jbPanel{background:rgba(20,16,26,.72);border:1px solid #3a2f22;border-radius:14px;padding:14px 16px;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.jbPanel h4{margin:0 0 9px;font-family:var(--fd);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#e9b949}
+.jbRow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.jbInp{background:#0f0b14;border:1px solid #3a2f22;color:#f4ecd8;border-radius:9px;padding:10px 12px;font-size:.95rem;font-family:inherit}
+.jbInp:focus{outline:none;border-color:#e9b949}
+.jbBtn{border:1px solid #4a3a22;background:linear-gradient(#2a2016,#1c150d);color:#f4ecd8;border-radius:10px;padding:10px 15px;font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:7px;transition:.15s;white-space:nowrap}
+.jbBtn:hover{border-color:#e9b949;color:#fff}
+.jbBtn.gold{background:linear-gradient(#f6d06a,#e0a92e);color:#241708;border-color:#c8901e;font-weight:800}
+.jbBtn.gold:hover{filter:brightness(1.07);color:#241708}
+.jbHint{font-size:.76rem;color:#a89372;margin-top:8px}
+.jbNumpad{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;max-width:340px}
+.jbNumpad button{aspect-ratio:1.3/1;border:1px solid #4a3a22;background:#161019;color:#f4ecd8;border-radius:9px;font-weight:700;font-size:1.05rem;font-family:'Oswald',sans-serif}
+.jbNumpad button:hover{border-color:#e9b949;background:#211829}
+.jbNumpad button.wide{grid-column:span 2;aspect-ratio:auto;font-size:.85rem}
+.jbDialShow{font-family:'Oswald',sans-serif;font-size:1.5rem;letter-spacing:.14em;color:#ffcf5a;background:#0c0a0f;border:1px solid #3a2f22;border-radius:9px;padding:6px 0;width:132px;flex:0 0 132px;text-align:center;box-shadow:inset 0 0 10px rgba(0,0,0,.7);font-variant-numeric:tabular-nums;white-space:nowrap}
+.jbTopbar{width:min(600px,94vw);display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:10px}
+.jbTopbar .lbl{font-family:var(--fd);font-weight:700;letter-spacing:.02em;color:#f4ecd8;font-size:1.05rem;display:flex;align-items:center;gap:9px}
+.jbTopbar .dot{width:10px;height:10px;border-radius:50%;background:#e23b2b;box-shadow:0 0 10px #e23b2b;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.4}}
+@media (prefers-reduced-motion: reduce){.bubble,.tubeColor,.jbTopbar .dot{animation:none!important}}
+
+/* knop terug naar jukebox in de studio-header */
+#btnToJukebox{border-color:rgba(233,185,73,.4);background:rgba(233,185,73,.1);color:var(--gold)}
+#btnToJukebox:hover{background:var(--gold);color:var(--ink)}
+#jbDispZoom{position:absolute;left:396px;top:420px;width:26px;height:26px;border-radius:7px;border:1px solid #5a4020;background:rgba(20,13,5,.85);color:#ffcf5a;font-size:13px;display:grid;place-items:center;cursor:pointer;z-index:3}
+#jbDispZoom:hover{background:#2a1c0a;border-color:#e9b949}
+.jbBigList{display:flex;flex-direction:column;gap:6px;max-height:min(60vh,520px);overflow-y:auto}
+.jbBigRow{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line-soft);border-radius:10px;cursor:pointer;transition:.12s}
+.jbBigRow:hover{border-color:var(--gold);background:var(--ink-2)}
+.jbBigRow.playing{border-color:var(--up);background:rgba(63,207,142,.09)}
+.jbBigRow .bn{font-family:'Oswald',sans-serif;font-weight:700;color:var(--gold);font-size:1.15rem;min-width:46px}
+.jbBigRow .bi{min-width:0;flex:1}
+.jbBigRow .bi b{display:block;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jbBigRow .bi span{font-size:.82rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.jbBigRow .bp{width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--ink);border:none;font-size:.95rem;flex:0 0 auto;cursor:pointer}
+</style>
+</head>
+<body class="mode-jukebox">
+<!-- =========================================================
+     WURLITZER 1015 — start-/bedienscherm
+     ========================================================= -->
+<div id="jukeboxScreen">
+  <div class="jbTopbar">
+    <div class="lbl"><span class="dot"></span> The Real Wurlitzer</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="jbBtn" id="jbZoom">🔍 Vergroot scherm</button>
+      <button class="jbBtn gold" id="jbToStudio">🎛️ Labels maken / bewerken →</button>
+    </div>
+  </div>
+  <div class="jbScaler" id="jbScaler">
+    <div class="jbCabinet" id="jbCabinet">
+      <svg viewBox="0 0 600 980" xmlns="http://www.w3.org/2000/svg" aria-label="Wurlitzer 1015 jukebox">
+        <defs>
+          <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7a5330"/><stop offset=".5" stop-color="#5c3c20"/><stop offset="1" stop-color="#3f2812"/>
+          </linearGradient>
+          <linearGradient id="woodEdge" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#3a2410"/><stop offset=".5" stop-color="#8a6238"/><stop offset="1" stop-color="#3a2410"/>
+          </linearGradient>
+          <linearGradient id="cream" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff2c4"/><stop offset=".55" stop-color="#f7cf72"/><stop offset="1" stop-color="#eaa63a"/>
+          </linearGradient>
+          <linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ff7a4a"/><stop offset=".5" stop-color="#e0331f"/><stop offset="1" stop-color="#8a0f0f"/>
+          </linearGradient>
+          <radialGradient id="glass" cx=".5" cy=".35" r=".8">
+            <stop offset="0" stop-color="#3a2a16"/><stop offset=".6" stop-color="#1c1207"/><stop offset="1" stop-color="#0c0804"/>
+          </radialGradient>
+          <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fbfbfb"/><stop offset=".28" stop-color="#c9d0d8"/><stop offset=".5" stop-color="#8a94a0"/><stop offset=".72" stop-color="#d3d9df"/><stop offset="1" stop-color="#6a7280"/>
+          </linearGradient>
+          <linearGradient id="nameAmber" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#e0a52a"/>
+          </linearGradient>
+          <radialGradient id="starG" cx=".5" cy=".5" r=".5">
+            <stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#ff8a2a"/><stop offset="1" stop-color="#d21f1f"/>
+          </radialGradient>
+          <radialGradient id="grilleGlow" cx=".5" cy=".4" r=".7">
+            <stop offset="0" stop-color="#f7d78a"/><stop offset="1" stop-color="#b07a2e"/>
+          </radialGradient>
+          <pattern id="diamond" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+            <rect width="30" height="30" fill="#c79338"/>
+            <path d="M15,-1 L31,15 L15,31 L-1,15 Z" fill="none" stroke="#7a5216" stroke-width="2.4"/>
+          </pattern>
+          <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+          <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- cabinet body -->
+        <path d="M78,946 L78,430 A222,222 0 0 1 522,430 L522,946 Q522,968 500,968 L100,968 Q78,968 78,946 Z" fill="url(#wood)" stroke="#241609" stroke-width="3"/>
+        <!-- glow behind arch -->
+        <path d="M150,440 A150,150 0 0 1 450,440 Z" fill="#3a2a14" opacity=".5" filter="url(#soft)"/>
+
+        <!-- arch cream band + colour tube -->
+        <path d="M100,432 A200,200 0 0 1 500,432" fill="none" stroke="url(#cream)" stroke-width="66" stroke-linecap="round" filter="url(#soft)"/>
+        <path d="M100,432 A200,200 0 0 1 500,432" fill="none" stroke="url(#cream)" stroke-width="60" stroke-linecap="round"/>
+        <path class="tubeColor" d="M114,432 A186,186 0 0 1 486,432" fill="none" stroke="#ffcf5a" stroke-width="15" stroke-linecap="round" opacity=".92" filter="url(#glow)"/>
+
+        <!-- inner glass window w/ mechanism hint -->
+        <path d="M150,440 A150,150 0 0 1 450,440 L450,440 L150,440 Z" fill="url(#glass)"/>
+        <path d="M150,440 A150,150 0 0 1 450,440 Z" fill="url(#glass)"/>
+        <g opacity=".55" stroke="#c99a4e" stroke-width="2">
+          <ellipse cx="300" cy="360" rx="86" ry="20" fill="none"/>
+          <ellipse cx="300" cy="372" rx="78" ry="17" fill="none"/>
+          <ellipse cx="300" cy="384" rx="70" ry="14" fill="none"/>
+        </g>
+        <g stroke="#b98a3a" stroke-width="1.5" opacity=".5">
+          <path d="M250,300 v70 M262,296 v76 M274,293 v80 M286,291 v82 M298,290 v84 M310,291 v82 M322,293 v80 M334,296 v76 M346,300 v70"/>
+        </g>
+        <text x="360" y="315" fill="#e9c884" font-family="Georgia,serif" font-style="italic" font-size="15" opacity=".7" transform="rotate(-8 360 315)">the real Wurlitzer</text>
+
+        <!-- top crown -->
+        <ellipse cx="300" cy="196" rx="66" ry="34" fill="url(#red)" filter="url(#glow)"/>
+        <path d="M256,168 q44,-30 88,0 q-14,10 -20,26 q-24,-14 -48,0 q-6,-16 -20,-26 Z" fill="url(#chrome)" stroke="#5a6270" stroke-width="1"/>
+
+        <!-- shoulder chrome clasps -->
+        <g>
+          <g transform="translate(96,392)">
+            <rect x="0" y="0" width="86" height="70" rx="12" fill="url(#chrome)" stroke="#5a6270" stroke-width="1.5"/>
+            <rect x="10" y="12" width="66" height="9" rx="4" fill="#c62b1e"/><rect x="10" y="30" width="66" height="9" rx="4" fill="#c62b1e"/><rect x="10" y="48" width="66" height="9" rx="4" fill="#c62b1e"/>
+          </g>
+          <g transform="translate(418,392)">
+            <rect x="0" y="0" width="86" height="70" rx="12" fill="url(#chrome)" stroke="#5a6270" stroke-width="1.5"/>
+            <rect x="10" y="12" width="66" height="9" rx="4" fill="#c62b1e"/><rect x="10" y="30" width="66" height="9" rx="4" fill="#c62b1e"/><rect x="10" y="48" width="66" height="9" rx="4" fill="#c62b1e"/>
+          </g>
+        </g>
+
+        <!-- display housing -->
+        <rect x="168" y="412" width="264" height="164" rx="10" fill="#120b05" stroke="#3a2a16" stroke-width="2"/>
+
+        <!-- nameplate housing -->
+        <rect x="196" y="586" width="208" height="58" rx="9" fill="url(#chrome)" stroke="#5a6270" stroke-width="1.5"/>
+        <rect x="214" y="596" width="172" height="38" rx="6" fill="url(#nameAmber)" stroke="#8a5a10" stroke-width="1.5"/>
+        <text x="300" y="622" text-anchor="middle" fill="#b81f1f" font-family="Georgia,serif" font-weight="bold" font-style="italic" font-size="22" letter-spacing="1">Wurlitzer</text>
+        <!-- coin housing -->
+        <rect x="150" y="590" width="40" height="52" rx="6" fill="url(#chrome)" stroke="#5a6270"/>
+        <rect x="410" y="590" width="40" height="52" rx="6" fill="#0d3a2a" stroke="#5a6270"/>
+        <!-- keyboard bar -->
+        <g>
+          <rect x="205" y="650" width="190" height="26" rx="5" fill="#1a1109" stroke="#3a2a16"/>
+          <g fill="#c62b1e"><rect x="212" y="655" width="7" height="16"/><rect x="224" y="655" width="7" height="16"/><rect x="236" y="655" width="7" height="16"/><rect x="248" y="655" width="7" height="16"/><rect x="260" y="655" width="7" height="16"/><rect x="272" y="655" width="7" height="16"/><rect x="284" y="655" width="7" height="16"/><rect x="296" y="655" width="7" height="16"/><rect x="308" y="655" width="7" height="16"/><rect x="320" y="655" width="7" height="16"/><rect x="332" y="655" width="7" height="16"/><rect x="344" y="655" width="7" height="16"/><rect x="356" y="655" width="7" height="16"/><rect x="368" y="655" width="7" height="16"/><rect x="380" y="655" width="7" height="16"/></g>
+        </g>
+
+        <!-- pilaster tubes -->
+        <rect x="86" y="470" width="52" height="264" rx="26" fill="url(#cream)" stroke="#c88a2e" stroke-width="1"/>
+        <rect x="462" y="470" width="52" height="264" rx="26" fill="url(#cream)" stroke="#c88a2e" stroke-width="1"/>
+        <rect class="tubeColor" x="100" y="482" width="24" height="240" rx="12" fill="#ffcf5a" opacity=".8" filter="url(#glow)"/>
+        <rect class="tubeColor" x="476" y="482" width="24" height="240" rx="12" fill="#ffcf5a" opacity=".8" filter="url(#glow)"/>
+
+        <!-- bottom grille -->
+        <path d="M150,690 h300 q16,0 16,16 v96 q0,60 -60,74 q-106,26 -212,0 q-60,-14 -60,-74 v-96 q0,-16 16,-16 Z" fill="url(#grilleGlow)" filter="url(#glow)"/>
+        <path d="M162,700 h276 q10,0 10,12 v90 q0,50 -52,62 q-96,22 -192,0 q-52,-12 -52,-62 v-90 q0,-12 10,-12 Z" fill="url(#diamond)"/>
+        <!-- starburst -->
+        <g transform="translate(300,772)" filter="url(#glow)">
+          <circle r="40" fill="url(#chrome)"/><circle r="30" fill="#1a0f08"/>
+          <circle r="24" fill="url(#starG)"/>
+          <g fill="#fff2c4"><path d="M0,-22 L5,-5 L22,0 L5,5 L0,22 L-5,5 L-22,0 L-5,-5 Z"/></g>
+        </g>
+        <!-- base -->
+        <rect x="96" y="900" width="408" height="66" rx="10" fill="url(#woodEdge)"/>
+      </svg>
+
+      <!-- animated bubble overlays -->
+      <div class="arch-bubbles" id="jbArchBub"></div>
+      <div class="pilaster" id="jbPilL" style="left:100px;top:482px;width:24px;height:240px;border-radius:12px"></div>
+      <div class="pilaster" id="jbPilR" style="left:476px;top:482px;width:24px;height:240px;border-radius:12px"></div>
+
+      <!-- interactive title-strip display -->
+      <div class="jb-display" id="jbDisplay"></div>
+      <button id="jbDispZoom" title="Vergroot het scherm">🔍</button>
+    </div>
+  </div>
+
+  <!-- control bar -->
+  <div class="jbControls">
+    <div class="jbPanel">
+      <h4>🔢 Kies een nummer</h4>
+      <div class="jbRow" style="align-items:center">
+        <div class="jbDialShow" id="jbDialShow">— — —</div>
+        <div class="jbNumpad" id="jbNumpad">
+          <button data-d="1">1</button><button data-d="2">2</button><button data-d="3">3</button><button data-d="4">4</button><button data-d="5">5</button>
+          <button data-d="6">6</button><button data-d="7">7</button><button data-d="8">8</button><button data-d="9">9</button><button data-d="0">0</button>
+          <button class="wide" id="jbClear">Wis</button><button class="wide" id="jbPlayNum">▶ Speel</button><button id="jbStop2">■</button>
+        </div>
+      </div>
+      <div class="jbHint">Tik een nummer (bv. 001) en druk op ▶ Speel — of klik direct op een titelstrook in het display hierboven.</div>
+      <label style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:.84rem;color:#d8c7a0;cursor:pointer"><input type="checkbox" id="jbAuto" checked> 🔁 Doorspelen naar het volgende nummer (zoals een echte jukebox)</label>
+    </div>
+    <div class="jbPanel">
+      <h4>🔎 Nummer koppelen (zoeken &amp; keuzelijst)</h4>
+      <div class="jbRow">
+        <input class="jbInp" id="jbAddQ" placeholder="artiest + titel (bv. Abba Waterloo)" style="flex:1;min-width:180px">
+        <button class="jbBtn" id="jbAddBtn">🔎 Zoeken</button>
+      </div>
+      <div class="jbHint">Je krijgt een keuzelijst met fragmenten. Kies er één en bepaal of je het <b>toevoegt</b> op een vrij nummer of een <b>bestaand</b> nummer <b>vervangt</b>.</div>
+    </div>
+  </div>
+</div>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h12a2 2 0 0 1 2 2v10a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V5a2 2 0 0 1 2-2Z" stroke="#0e1726" stroke-width="1.6"/><circle cx="9" cy="14" r="2.4" fill="#0e1726"/><circle cx="15" cy="14" r="2.4" fill="#0e1726"/><path d="M7 7h10" stroke="#0e1726" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div><b>Titelstroken</b><small>Jukebox label-studio</small></div>
+    </div>
+    <div class="top-spacer"></div>
+    <div class="stat-chip"><span class="n" id="stFilled">0</span><span class="l">plaatjes</span></div>
+    <div class="stat-chip"><span class="n" id="stWish">0</span><span class="l">wenslijst</span></div>
+    <button class="pill" id="btnToJukebox" title="Terug naar de jukebox">🎵 Jukebox</button>
+    <button class="pill" id="btnShuffle" title="Speel een willekeurig plaatje">🎲 Shuffle</button>
+    <button class="pill" id="btnShareTop" title="Stuur deze tool naar iemand">📲 Delen</button>
+    <button class="pill accent" id="btnGoPrint">🖨️ Printen</button>
+  </div>
+  <nav class="views" id="nav">
+    <button data-v="design" aria-selected="true"><span class="ico">🎨</span> Ontwerp</button>
+    <button data-v="records"><span class="ico">💿</span> Plaatjes</button>
+    <button data-v="overview"><span class="ico">🗄️</span> Overzicht</button>
+    <button data-v="wishlist"><span class="ico">⭐</span> Wenslijst</button>
+    <button data-v="print"><span class="ico">🖨️</span> Afdrukken</button>
+    <button data-v="backup"><span class="ico">💾</span> Back-up &amp; info</button>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- ===================== ONTWERP ===================== -->
+  <section class="view active" id="view-design">
+    <div class="grid2">
+      <div>
+        <div class="panel">
+          <h3>Thema</h3>
+          <div class="seg" id="themeSeg" style="flex-wrap:wrap">
+            <button data-th="roze" class="on">Roze (Sterling)</button>
+            <button data-th="rozeInv">Roze omgekeerd</button>
+            <button data-th="rood">Rood/wit (Star)</button>
+            <button data-th="blauw">Blauw</button>
+            <button data-th="goud">Zwart/goud</button>
+            <button data-th="groen">Groen</button>
+            <button data-th="creme">Crème/bruin</button>
+            <button data-th="zww">Zwart/wit</button>
+          </div>
+          <div class="hint" style="margin-top:8px">Een thema zet in één klik alle kleuren. Daaronder kun je alles los bijstellen.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Afmetingen</h3>
+          <label class="fld slider"><span>Breedte <b class="val" id="vW">76 mm</b></span><input type="range" id="dW" min="40" max="120" step="1" value="76"></label>
+          <label class="fld slider"><span>Hoogte <b class="val" id="vH">21 mm</b></span><input type="range" id="dH" min="10" max="45" step="1" value="21"></label>
+          <div class="hint">Standaard 45-toeren titelstrook is ± 76 × 21 mm. Meet je strookhouder na voor een perfecte pasvorm.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Indeling van de 3 regels</h3>
+          <label class="fld slider"><span>Hoogte A-kant (boven) <b class="val" id="vRT">34%</b></span><input type="range" id="dRT" min="15" max="55" value="34"></label>
+          <label class="fld slider"><span>Hoogte artiest (midden) <b class="val" id="vRM">32%</b></span><input type="range" id="dRM" min="15" max="55" value="32"></label>
+          <label class="fld slider"><span>Hoogte B-kant (onder) <b class="val" id="vRB">34%</b></span><input type="range" id="dRB" min="15" max="55" value="34"></label>
+          <div class="hint">De drie percentages worden automatisch geschaald naar 100%.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Vorm &amp; stijl</h3>
+          <label class="fld"><span>Vorm van de artiest-balk</span>
+            <div class="seg" id="shapeSeg" style="flex-wrap:wrap">
+              <button data-sh="chevron" class="on">Lint ⬖</button>
+              <button data-sh="notch">Pijl ▶ rechts</button>
+              <button data-sh="arrowL">Pijl ◀ links</button>
+              <button data-sh="rect">Recht ▭</button>
+              <button data-sh="round">Pil ⬭</button>
+            </div>
+          </label>
+          <label class="fld"><span>Label-lettertype</span>
+            <select class="inp" id="dFont">
+              <option value="Oswald">Oswald (condensed)</option>
+              <option value="Anton">Anton (vet)</option>
+              <option value="Bebas Neue">Bebas Neue</option>
+              <option value="Space Grotesk">Space Grotesk</option>
+              <option value="Arial">Arial</option>
+              <option value="Georgia">Georgia (serif)</option>
+            </select>
+          </label>
+          <label class="fld slider"><span>Tekstgrootte <b class="val" id="vFS">100%</b></span><input type="range" id="dFS" min="70" max="140" value="100"></label>
+          <label class="fld slider"><span>Dikte accentlijn <b class="val" id="vAL">0 px</b></span><input type="range" id="dAL" min="0" max="8" value="0"></label>
+          <div class="toggle"><span>Cursief (schuin)</span><label class="switch"><input type="checkbox" id="dItalic"><span class="track"></span><span class="thumb"></span></label></div>
+          <div class="toggle"><span>Extra vet</span><label class="switch"><input type="checkbox" id="dBold"><span class="track"></span><span class="thumb"></span></label></div>
+          <div class="toggle"><span>Titels tussen aanhalingstekens</span><label class="switch"><input type="checkbox" id="dQuotes" checked><span class="track"></span><span class="thumb"></span></label></div>
+          <div class="toggle"><span>Hoofdletters (uppercase)</span><label class="switch"><input type="checkbox" id="dUpper" checked><span class="track"></span><span class="thumb"></span></label></div>
+          <div class="toggle"><span>Catalogusnummer tonen</span><label class="switch"><input type="checkbox" id="dCat" checked><span class="track"></span><span class="thumb"></span></label></div>
+          <div class="toggle"><span>HIT / POP randtekst op balk</span><label class="switch"><input type="checkbox" id="dCaps"><span class="track"></span><span class="thumb"></span></label></div>
+        </div>
+
+        <div class="panel">
+          <h3>Kleuren</h3>
+          <div class="row"><label class="fld"><span>Achtergrond</span><input type="color" id="cBg" value="#f7c9d6"></label><label class="fld"><span>Artiest-balk</span><input type="color" id="cBanner" value="#ffffff"></label></div>
+          <div class="row"><label class="fld"><span>Titeltekst</span><input type="color" id="cInk" value="#7a1029"></label><label class="fld"><span>Balk-tekst</span><input type="color" id="cBink" value="#111111"></label></div>
+          <div class="row"><label class="fld"><span>Accent / rand</span><input type="color" id="cAccent" value="#e35c86"></label><label class="fld"><span>Randlijn</span><input type="color" id="cBord" value="#d24d78"></label></div>
+          <button class="btn ghost sm" id="btnInvert" style="width:100%;margin-top:6px">🔄 Kleuren omkeren (achtergrond ⇄ balk)</button>
+          <div class="hint" style="margin-top:6px">Handig om van roze-op-wit naar wit-op-roze te wisselen.</div>
+        </div>
+
+        <div class="panel">
+          <h3>Standaardlabel vastleggen</h3>
+          <div class="toggle"><span>Links hoog · rechts laag (op de jukebox)</span><label class="switch"><input type="checkbox" id="dAutoStag" checked><span class="track"></span><span class="thumb"></span></label></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+            <button class="btn" id="btnLockStd" style="flex:1">🔒 Vastleggen als standaard</button>
+            <button class="btn ghost" id="btnUseStd" style="flex:1">↩ Terug naar standaard</button>
+          </div>
+          <div class="hint" style="margin-top:8px">Leg je vormgeving (grootte, indeling, vorm, lettertype en kleuren) vast als vaste standaard voor <b>alle</b> labels — links én rechts. Met “links hoog · rechts laag” staan de linkerlabels een halve strook hoger en de rechter een halve strook lager, zodat de drie regels precies op dezelfde hoogte met de nummers liggen (net als op de jukebox).</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel">
+          <h3>Live voorbeeld</h3>
+          <div class="stage" id="previewStage" style="cursor:zoom-in">
+            <span class="chrome-note">Voorbeeldstrook · klik om te vergroten 🔍</span>
+            <div id="previewHolder"></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;align-items:center">
+            <select class="inp" id="previewPick" style="max-width:260px"></select>
+            <button class="btn ghost sm" id="btnResetDesign">Ontwerp herstellen</button>
+          </div>
+          <div class="hint" style="margin-top:8px">Kies een plaatje om het ontwerp op echte tekst te bekijken. Het ontwerp geldt voor álle stroken.</div>
+        </div>
+        <div class="panel">
+          <h3>Alle stroken</h3>
+          <div id="allLabels" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PLAATJES ===================== -->
+  <section class="view" id="view-records">
+    <div class="panel">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <div class="search" style="flex:1;min-width:220px"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="recSearch" placeholder="Zoek op nummer, artiest, titel of catalogusnr…"></div>
+        <div class="seg" id="colFilter" style="width:auto"><button data-c="all" class="on">Alle</button><button data-c="L">Links</button><button data-c="R">Rechts</button><button data-c="empty">Leeg</button></div>
+        <button class="btn primary" id="btnAdd">＋ Plaatje toevoegen</button>
+      </div>
+    </div>
+    <div class="panel" style="padding:0;overflow:hidden">
+      <div class="tablewrap">
+        <table class="data" id="recTable">
+          <thead><tr>
+            <th style="width:22px"></th>
+            <th data-sort="num">Nr</th>
+            <th data-sort="col">Kolom</th>
+            <th data-sort="sideA">A-kant</th>
+            <th data-sort="artist">Artiest</th>
+            <th data-sort="sideB">B-kant</th>
+            <th data-sort="catalog">Cat.nr</th>
+            <th style="text-align:right">Acties</th>
+          </tr></thead>
+          <tbody id="recBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="hint noprint" style="padding:0 4px">Sleep aan het greepje ⠿ om de volgorde te wijzigen. Klik op ⇄ om twee plaatjes van nummer te wisselen. Klik op ▶ om een preview te horen. Klik in een cel om direct te typen.</div>
+  </section>
+
+  <!-- ===================== OVERZICHT ===================== -->
+  <section class="view" id="view-overview">
+    <div class="panel noprint">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <h3 style="margin:0 0 3px">Overzicht — heel de jukebox in één beeld</h3>
+          <div class="hint" style="margin:0">Ingedeeld als je Wurlitzer: panelen met de nummers in het midden. Klik op een label om het nummer te draaien (afspelen).</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <label class="fld slider" style="min-width:180px;margin:0"><span style="font-size:.8rem">Labels per paneel <b class="val" id="vPer">20</b></span><input type="range" id="ovPer" min="8" max="24" step="2" value="20"></label>
+          <button class="btn ghost sm" id="ovStop">🔇 Muziek uit</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel" style="overflow:auto">
+      <div id="ovBoard" style="display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;justify-content:center"></div>
+    </div>
+  </section>
+
+  <!-- ===================== WENSLIJST ===================== -->
+  <section class="view" id="view-wishlist">
+    <div class="panel">
+      <h3>Nieuw plaatje op de wenslijst</h3>
+      <div class="row" style="flex-wrap:wrap">
+        <label class="fld"><span>Artiest</span><input class="inp" id="wArtist" placeholder="bv. Fleetwood Mac"></label>
+        <label class="fld"><span>A-kant</span><input class="inp" id="wA" placeholder="bv. Dreams"></label>
+        <label class="fld"><span>B-kant</span><input class="inp" id="wB" placeholder="optioneel"></label>
+      </div>
+      <div class="row" style="flex-wrap:wrap;align-items:flex-end">
+        <label class="fld" style="max-width:160px"><span>Prioriteit</span>
+          <select class="inp" id="wPrio"><option value="hi">Hoog</option><option value="mid" selected>Middel</option><option value="lo">Laag</option></select>
+        </label>
+        <label class="fld"><span>Notitie</span><input class="inp" id="wNote" placeholder="bv. tweedehands zoeken / verjaardag"></label>
+        <div class="fld" style="flex:0 0 auto"><span>&nbsp;</span><button class="btn primary" id="btnWAdd">＋ Toevoegen</button></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+        <h3 style="margin:0">Nog te scoren</h3>
+        <div class="search" style="max-width:280px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="wishSearch" placeholder="Zoek in wenslijst…"></div>
+      </div>
+      <div class="wishgrid" id="wishBody"></div>
+    </div>
+  </section>
+
+  <!-- ===================== AFDRUKKEN ===================== -->
+  <section class="view" id="view-print">
+    <div class="panel noprint">
+      <h3>Afdrukopties</h3>
+      <div class="grid2">
+        <div>
+          <label class="fld"><span>Weergave</span>
+            <div class="seg" id="printMode"><button data-m="cut" class="on">✂️ A4 om uit te knippen</button><button data-m="jukebox">🎵 Jukebox-indeling (voorbeeld)</button></div>
+          </label>
+          <div id="jbOnlyOpts" style="display:none">
+            <div class="toggle"><span>Nummer-index in het midden tonen</span><label class="switch"><input type="checkbox" id="pIndex" checked><span class="track"></span><span class="thumb"></span></label></div>
+            <label class="fld slider" id="stagRow"><span>Fijn-afstellen stagger <b class="val" id="vStag">halve strook</b></span><input type="range" id="pStag" min="0" max="100" value="50"></label>
+          </div>
+          <label class="fld slider"><span>Ruimte tussen stroken <b class="val" id="vGap">3 mm</b></span><input type="range" id="pGap" min="0" max="12" value="3"></label>
+        </div>
+        <div>
+          <div class="hint" id="printHelp" style="margin-bottom:10px"><b>A4 om uit te knippen:</b> de labels worden zo groot mogelijk op echte A4-pagina’s gezet (op ware mm-grootte), met stippellijnen om langs te knippen. Hoeveel er per vel passen hangt af van de labelgrootte die je bij <b>Ontwerp</b> koos.</div>
+          <button class="btn primary" id="btnPrint" style="width:100%">🖨️ Nu afdrukken</button>
+          <div class="hint" style="margin-top:8px">Tip: zet in het printvenster marges op ‘geen/minimaal’ en schaal op 100% voor exacte mm-maten.</div>
+        </div>
+      </div>
+    </div>
+    <div id="printArea"><div class="sheet" id="sheet"></div></div>
+  </section>
+
+  <!-- ===================== BACK-UP ===================== -->
+  <section class="view" id="view-backup">
+    <div class="grid2">
+      <div>
+        <div class="panel">
+          <h3>Opslaan &amp; delen</h3>
+          <p class="hint" style="margin-bottom:12px">Alles wordt automatisch bewaard in deze browser. Exporteer een back-up om te bewaren of op een ander apparaat te openen.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn" id="btnExport">⬇️ Back-up exporteren</button>
+            <button class="btn" id="btnImport">⬆️ Back-up importeren</button>
+            <button class="btn danger ghost" id="btnWipe">Alles wissen</button>
+          </div>
+          <input type="file" id="fileImport" accept="application/json" style="display:none">
+          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft)">
+            <button class="btn primary" id="btnShare" style="width:100%">📲 Stuur deze tool via WhatsApp</button>
+            <button class="btn" id="btnInstall" style="display:none;width:100%;margin-top:8px">📥 Installeren op dit apparaat</button>
+            <button class="btn ghost" id="btnIpadHelp" style="width:100%;margin-top:8px">📱 Hoe zet ik het makkelijk op een iPad?</button>
+            <div class="hint" style="margin-top:8px">Op je telefoon opent het deelmenu (met WhatsApp). De ander tikt op het bestand en de jukebox opent meteen — met alle nummers er al in.</div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Mijn notitieboek-lijst</h3>
+          <p class="hint" style="margin-bottom:10px">Je handgeschreven collectie staat al ingeladen. Iets kwijtgeraakt? Laad de originele lijst opnieuw (dit vervangt de huidige plaatjes).</p>
+          <button class="btn" id="btnLoadSeed">↻ Notitieboek-lijst opnieuw laden</button>
+        </div>
+        <div class="panel">
+          <h3>Snel starten</h3>
+          <p class="hint" style="margin-bottom:10px">Nummerreeks automatisch aanmaken (lege posities die je later invult).</p>
+          <div class="row" style="align-items:flex-end;flex-wrap:wrap">
+            <label class="fld"><span>Van nr</span><input class="inp" id="genFrom" value="101"></label>
+            <label class="fld"><span>Tot nr</span><input class="inp" id="genTo" value="120"></label>
+            <div class="fld" style="flex:0 0 auto"><span>&nbsp;</span><button class="btn" id="btnGen">Aanmaken</button></div>
+          </div>
+          <div class="hint">Oneven ⟶ links, even ⟶ rechts (kun je later per plaatje aanpassen).</div>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h3>Overzicht</h3>
+          <div id="statsBox" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
+        </div>
+        <div class="panel">
+          <h3>Hoe werkt het?</h3>
+          <ul class="hint" style="line-height:1.7;padding-left:18px;margin:0">
+            <li><b>🎵 Jukebox</b>: het startscherm is een werkende Wurlitzer 1015. Klik op een titelstrook of tik een nummer om te draaien. Met <b>Labels maken</b> ga je naar de studio; met <b>🎵 Jukebox</b> in de balk kom je terug.</li>
+            <li><b>Plaatjes</b>: hier voer je elk singletje in — nummer, artiest, A- en B-kant. Sleep om te sorteren, ⇄ om te ruilen.</li>
+            <li><b>Ontwerp</b>: bepaal maat, indeling, vorm en kleuren van de stroken. Geldt voor alle labels tegelijk.</li>
+            <li><b>Wenslijst</b>: houd bij wat je nog zoekt. ‘In jukebox’ zet een wens om in een echt plaatje op een vrij nummer.</li>
+            <li><b>Afdrukken</b>: print in jukebox-indeling (met stagger) of als kniprijen.</li>
+            <li><b>▶ preview</b>: haalt een 30-sec fragment op via iTunes. Geen fragment? Dan verschijnen zoek-links naar YouTube/Spotify.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Player -->
+<div class="player" id="player">
+  <div id="ytBox"><img id="plArtImg" alt=""><div id="ytPlayerDiv"></div></div>
+  <div class="plcenter">
+    <div class="plhead"><b id="plTitle">—</b><span id="plArtist"></span></div>
+    <div class="plseekrow"><span class="pltime" id="plCur">0:00</span><input type="range" class="rng" id="plSeek" min="0" max="1000" value="0"><span class="pltime r" id="plDur">0:00</span></div>
+  </div>
+  <button class="pbtn" id="plToggle">▶</button>
+  <div class="plvol"><span id="plVolIco">🔊</span><input type="range" class="rng" id="plVol" min="0" max="100" value="80"></div>
+  <button class="x" id="plClose">✕</button>
+  <audio id="audio"></audio>
+</div>
+
+<!-- Record modal -->
+<div class="overlay" id="recModal">
+  <div class="modal">
+    <div class="mh"><h3 id="rmTitle">Plaatje toevoegen</h3><button class="x" style="position:static" id="rmClose">✕</button></div>
+    <div class="mb">
+      <div class="row" style="flex-wrap:wrap">
+        <label class="fld" style="max-width:110px"><span>Nummer</span><input class="inp" id="rmNum" placeholder="801"></label>
+        <label class="fld" style="max-width:140px"><span>Kolom</span>
+          <div class="seg" id="rmCol"><button data-c="L">Links ◀</button><button data-c="R" class="on">Rechts ▶</button></div>
+        </label>
+      </div>
+      <label class="fld"><span>Artiest</span><input class="inp" id="rmArtist" placeholder="bv. Billy Joel"></label>
+      <div class="row" style="flex-wrap:wrap">
+        <label class="fld"><span>A-kant (boven)</span><input class="inp" id="rmA" placeholder="bv. This Is The Time"></label>
+        <label class="fld"><span>B-kant (onder)</span><input class="inp" id="rmB" placeholder="bv. Code Of Silence"></label>
+      </div>
+      <label class="fld"><span>Catalogusnummer</span><input class="inp" id="rmCat" placeholder="bv. COLUMBIA 6526"></label>
+      <button class="btn ghost sm" id="rmSearch" style="width:100%">🔎 Zoek op iTunes &amp; vul aan (met preview)</button>
+      <div class="searchres" id="rmResults"></div>
+    </div>
+    <div class="mf">
+      <button class="btn danger ghost" id="rmDelete" style="display:none;margin-right:auto">Verwijderen</button>
+      <button class="btn ghost" id="rmCancel">Annuleren</button>
+      <button class="btn primary" id="rmSave">Opslaan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Preview enlarge modal -->
+<div class="overlay" id="previewModal">
+  <div class="modal">
+    <div class="mh"><h3 id="pmTitle">Voorbeeld</h3><button class="x" style="position:static" id="pmClose">✕</button></div>
+    <div class="mb">
+      <div class="bigstage"><div id="pmHolder"></div></div>
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;margin-top:16px">
+        <button class="spk" id="pmPlay" title="Luister het nummer">🔊</button>
+        <div style="font-size:.85rem;color:var(--muted)">Klik op de luidspreker om het nummer te horen</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- single-label print target -->
+<div id="printOne"></div>
+
+<!-- Nummer koppelen (zoeken → keuzelijst → toevoegen/vervangen) -->
+<div class="overlay" id="koppelModal">
+  <div class="modal" style="max-width:600px">
+    <div class="mh"><h3>🔎 Nummer koppelen</h3><button class="x" style="position:static" id="kpClose">✕</button></div>
+    <div class="mb">
+      <div class="row" style="flex-wrap:nowrap"><input class="inp" id="kpQuery" placeholder="artiest + titel (bv. Abba Waterloo)" style="flex:1"><button class="btn primary" id="kpSearch" style="flex:0 0 auto">Zoek</button></div>
+      <div class="hint" style="margin-top:6px">Kies daarna een resultaat uit de lijst en bepaal op welk nummer het komt.</div>
+      <div class="searchres" id="kpResults"></div>
+      <div id="kpAction" style="display:none;margin-top:14px;border-top:1px solid var(--line-soft);padding-top:14px">
+        <div style="margin-bottom:10px">Gekozen: <b id="kpChosen" style="color:var(--gold)"></b></div>
+        <div class="row" style="align-items:flex-end;flex-wrap:wrap">
+          <label class="fld" style="max-width:130px"><span>Nummer</span><input class="inp" id="kpNum" inputmode="numeric" placeholder="bv. 205"></label>
+          <label class="fld"><span>…of kies een bestaand nummer</span><select class="inp" id="kpExist"></select></label>
+        </div>
+        <div id="kpStatus" class="hint" style="margin-top:8px"></div>
+      </div>
+    </div>
+    <div class="mf">
+      <button class="btn ghost" id="kpCancel">Annuleren</button>
+      <button class="btn" id="kpAdd" disabled>➕ Toevoegen</button>
+      <button class="btn primary" id="kpRep" disabled>♻ Vervangen</button>
+    </div>
+  </div>
+</div>
+
+<!-- Groot leesbaar keuzescherm (vergroot) -->
+<div class="overlay" id="jbBigModal">
+  <div class="modal" style="max-width:660px">
+    <div class="mh"><h3>🎵 Kies een nummer</h3><button class="x" style="position:static" id="jbBigClose">✕</button></div>
+    <div class="mb">
+      <div class="search" style="margin-bottom:12px"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input id="jbBigSearch" placeholder="Zoek op nummer, artiest of titel…"></div>
+      <div id="jbBigList" class="jbBigList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- iPad-hulp -->
+<div class="overlay" id="ipadModal">
+  <div class="modal" style="max-width:560px">
+    <div class="mh"><h3>📱 De jukebox op een iPad zetten</h3><button class="x" style="position:static" id="ipadClose">✕</button></div>
+    <div class="mb">
+      <p style="margin:0 0 12px;color:var(--muted);font-size:.92rem">Zo helpt de ontvanger zichzelf — of doe het even samen. Er zijn twee manieren:</p>
+      <div style="background:var(--ink);border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px;margin-bottom:12px">
+        <b style="color:var(--gold)">A · Gewoon spelen (het makkelijkst)</b>
+        <ol style="margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.92rem">
+          <li>Open het WhatsApp-bericht op de iPad.</li>
+          <li>Tik op het bestand <b>jukebox-titelstroken.html</b>.</li>
+          <li>De jukebox opent vanzelf — meteen spelen. Alle nummers staan er al in.</li>
+        </ol>
+      </div>
+      <div style="background:var(--ink);border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px">
+        <b style="color:var(--gold)">B · Vast icoontje op het startscherm</b>
+        <ol style="margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.92rem">
+          <li>Open het bestand en tik rechtsboven op het deel-icoon (vierkantje met pijltje ⬆️).</li>
+          <li>Kies <b>“Zet op beginscherm”</b>. Er komt dan een <b>Jukebox</b>-icoontje op de iPad.</li>
+        </ol>
+        <div class="hint" style="margin-top:8px">Zie je “Zet op beginscherm” niet? Dan lukt dat alleen via een internet<b>link</b> in Safari. Vraag mij gerust om de tool online te zetten — dan stuur je één linkje en verschijnt de knop vanzelf.</div>
+      </div>
+    </div>
+    <div class="mf"><button class="btn primary" id="ipadOk">Duidelijk</button></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+"use strict";
+/* ---------- opslag (valt terug op geheugen als localStorage geblokkeerd is) ---------- */
+const mem={};
+const store={
+  get(k){try{const v=localStorage.getItem(k);return v==null?(k in mem?mem[k]:null):v}catch(e){return k in mem?mem[k]:null}},
+  set(k,v){mem[k]=v;try{localStorage.setItem(k,v)}catch(e){}}
+};
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>(s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- thema's ---------- */
+const THEMES={
+  roze:{bg:'#f7c9d6',banner:'#ffffff',ink:'#7a1029',bink:'#111111',accent:'#e35c86',bord:'#d24d78'},
+  rozeInv:{bg:'#ffffff',banner:'#f5aec2',ink:'#7a1029',bink:'#7a1029',accent:'#e35c86',bord:'#e35c86'},
+  rood:{bg:'#ffffff',banner:'#ffffff',ink:'#c81d3b',bink:'#c81d3b',accent:'#e01f3d',bord:'#e01f3d'},
+  blauw:{bg:'#d6e6f7',banner:'#ffffff',ink:'#123a6b',bink:'#123a6b',accent:'#2f6fb0',bord:'#2f6fb0'},
+  goud:{bg:'#171717',banner:'#e9b949',ink:'#e9b949',bink:'#171717',accent:'#e9b949',bord:'#c8a23a'},
+  groen:{bg:'#e2f2df',banner:'#ffffff',ink:'#17572f',bink:'#17572f',accent:'#2f9e58',bord:'#2f9e58'},
+  creme:{bg:'#f4ecd8',banner:'#3a3222',ink:'#4a3d22',bink:'#f4ecd8',accent:'#b8892e',bord:'#c8a25a'},
+  zww:{bg:'#ffffff',banner:'#111111',ink:'#111111',bink:'#ffffff',accent:'#111111',bord:'#111111'}
+};
+const THEME_LABELS={roze:'Roze (Sterling)',rozeInv:'Roze omgekeerd',rood:'Rood/wit (Star)',blauw:'Blauw',goud:'Zwart/goud',groen:'Groen',creme:'Crème/bruin',zww:'Zwart/wit'};
+
+/* ---------- standaardontwerp ---------- */
+const DEF_DESIGN={wmm:76,hmm:21,rt:34,rm:32,rb:34,shape:'chevron',font:'Oswald',fs:100,accentLine:0,
+  italic:false,bold:false,autoStagger:true,quotes:true,upper:true,cat:true,caps:false,...THEMES.roze,theme:'roze'};
+
+/* ---------- state ---------- */
+let records=[], wishlist=[], design={...DEF_DESIGN}, previewId=null, swapSource=null,
+    sortKey=null, sortDir=1, recFilter='all', recQuery='', wishQuery='', editId=null,
+    printMode='cut';
+
+function load(){
+  try{records=JSON.parse(store.get('jb_records')||'[]')}catch(e){records=[]}
+  try{wishlist=JSON.parse(store.get('jb_wishlist')||'[]')}catch(e){wishlist=[]}
+  try{design={...DEF_DESIGN,...(JSON.parse(store.get('jb_design')||'{}'))}}catch(e){design={...DEF_DESIGN}}
+  if(!records.length && !wishlist.length && store.get('jb_seeded_v2')!=='1'){ seed(); store.set('jb_seeded_v2','1'); }
+}
+function saveRecords(){store.set('jb_records',JSON.stringify(records))}
+function saveWish(){store.set('jb_wishlist',JSON.stringify(wishlist))}
+function saveDesign(){store.set('jb_design',JSON.stringify(design))}
+
+function seed(){
+  // Ingevoerd vanaf de handgeschreven lijst. num = A-kant (oneven), numB = B-kant.
+  const raw=[
+    ['001','Scott McKenzie','San Francisco',"What's The Difference"],
+    ['003','Lenny Kuhr','Visite','Een Woord'],
+    ['005','The Drifters','Save The Last Dance For Me','Nobody But Me'],
+    ['007','The Everly Brothers','Wake Up Little Susie','Maybe Tomorrow'],
+    ['009','The Blue Diamonds','Down By The Riverside','Have I Told You Lately That I Love You'],
+    ['011','Canyon','Mooi Volendam','Ik Wil Niet Meer'],
+    ['013','Suzi Quatro',"If You Can't Give Me Love",'Cream Dream'],
+    ['015','Adamo','Vous Permettez Monsieur','Dans Le Vent De Ses Yeux'],
+    ['101','Boudewijn de Groot','Land Van Maas En Waal','Testament'],
+    ['103','Johnny Jordaan','Geef Mij Maar Amsterdam','De Zon Schijnt Voor Iedereen'],
+    ['105','Lucille Starr','The French Song','Sit Down And Write A Letter To Me'],
+    ['107','Roy Orbison','Oh Pretty Woman','Yo Te Amo Maria'],
+    ['109','Guy Mitchell','Heartaches By The Number','Two'],
+    ['111','Pat Boone','Bernadine','Love Letters In The Sand'],
+    ['113','The Outsiders','The Summer Is Here','Teach Me To Forget You'],
+    ['115','Lucille Starr','Colinda','Crazy Arms'],
+    ['201','Little Eva','The Loco-Motion','He Is The Boy'],
+    ['203','B2N','Mon Amour','Memories'],
+    ['205','Bucks Fizz','Making Your Mind Up',"Don't Stop"],
+    ['207','Cliff Richard','Do You Want To Dance',"I'm Looking Out The Window"],
+    ['209','Elaine Paige & Barbara Dickson','I Know Him So Well',''],
+    ['211','Neil Sedaka','Oh! Carol','One Way Ticket'],
+    ['213','Del Shannon','Runaway','Jody'],
+    ['215','Lidia','Send Me The Pillow','Heart Beat'],
+    ['301','Bruce Springsteen','Dancing In The Dark','Pink Cadillac'],
+    ['303','Bill Haley','Rock Around The Clock','A.B.C. Boogie'],
+    ['305','Don McLean','Crying','Genesis'],
+    ['307','Jennifer Rush','The Power Of Love','I See A Shadow'],
+    ['309','Bellamy Brothers','If I Said You Had A Beautiful Body','Make Me Ooh'],
+    ['311','Lucille Starr','Jolie Jacqueline','Dominique'],
+    ['313','Alvin Stardust','Pretend','Goose Bumps'],
+    ['315','Ricky Nelson','Hello Mary Lou',"Travelin' Man"],
+    ['401','Tammy Wynette','D.I.V.O.R.C.E.','Almost Persuaded'],
+    ['403','Fats Domino','Jambalaya',"Won't You Come On Back"],
+    ['405','Eddie Hodges',"I'm Gonna Knock On Your Door","Ain't Gonna Wash For A Week"],
+    ['407','Chubby Checker',"Let's Twist Again","Everything's Gonna Be All Right"],
+    ['409','Connie Francis',"Everybody's Somebody's Fool",'Jealous Of You'],
+    ['411','Nicole','Een Beetje Vrede','Dank Je Merci Danke'],
+    ['413','Bobby Darin','Things','Jailer Bring Me Water'],
+    ['415','Chris Montez',"Let's Dance","You're The One"],
+    ['501','Chris Andrews','To Whom It Concerns',"It's All Up To Now"],
+    ['503','The Cats','The End Of The Show','Irish'],
+    ['505','Cliff Richard','The Young Ones','We Say Yeah'],
+    ['507','Drukwerk','Mariannetje','Tegen Beter Weten In'],
+    ['509','The Scorpions','Hello Josephine','Just Like Me'],
+    ['511','Paul Anka','Diana',"Don't Gamble With Love"],
+    ['513',"Shakin' Stevens",'This Ole House','Let Me Show You How'],
+    ['515','Anne Murray','Walk Right Back','Wintery Feeling'],
+    ['601','Bruce Springsteen',"I'm On Fire",'Johnny Bye Bye'],
+    ['603','Dave Dee Dozy Beaky Mick & Tich','The Legend Of Xanadu','Please'],
+    ['605','Dave Dee Dozy Beaky Mick & Tich','Bend It',"She's So Good"],
+    ['607','Connie Francis','Lipstick On Your Collar',"Who's Sorry Now"],
+    ['609','Robert Long',"Iedereen Doet 't",'Honderd Keer'],
+    ['611','Johnny Cash',"It Ain't Me Babe",'Time And Time Again'],
+    ['701','Suzi Quatro & Chris Norman',"Stumblin' In",'A Stranger With You'],
+    ['707','The Blue Diamonds','Ramona','All Of Me'],
+    ['711','Roy Orbison','Only The Lonely','Pretty Paper'],
+    ['715','Tammy Wynette','Stand By Your Man',"Your Good Girl's Gonna Go Bad"],
+    ['811',"Shakin' Stevens",'You Drive Me Crazy',"Baby You're A Child"],
+    ['907','The Allisons','Are You Sure',"There's One Thing More"],
+    ['911','Feargal Sharkey','A Good Heart','Anger Is']
+  ];
+  records=raw.map((r,i)=>({id:uid(),num:r[0],numB:String(+r[0]+1).padStart(3,'0'),col:i%2?'R':'L',artist:r[1],sideA:r[2],sideB:r[3],catalog:''}));
+  wishlist=[
+    {id:uid(),artist:'Fleetwood Mac',sideA:'Dreams',sideB:'Songbird',note:'Tweedehands zoeken',prio:'hi'},
+    {id:uid(),artist:'Prince',sideA:'Kiss',sideB:'\u2665 Or $',note:'',prio:'mid'}
+  ];
+}
+
+/* =========================================================
+   ONTWERP: lezen, toepassen, strook renderen
+   ========================================================= */
+function readDesign(){
+  design.wmm=+$('#dW').value; design.hmm=+$('#dH').value;
+  design.rt=+$('#dRT').value; design.rm=+$('#dRM').value; design.rb=+$('#dRB').value;
+  design.font=$('#dFont').value; design.fs=+$('#dFS').value; design.accentLine=+$('#dAL').value;
+  design.italic=$('#dItalic').checked; design.bold=$('#dBold').checked;
+  if($('#dAutoStag'))design.autoStagger=$('#dAutoStag').checked;
+  design.quotes=$('#dQuotes').checked; design.upper=$('#dUpper').checked;
+  design.cat=$('#dCat').checked; design.caps=$('#dCaps').checked;
+  design.bg=$('#cBg').value; design.banner=$('#cBanner').value; design.ink=$('#cInk').value;
+  design.bink=$('#cBink').value; design.accent=$('#cAccent').value; design.bord=$('#cBord').value;
+  $('#vW').textContent=design.wmm+' mm'; $('#vH').textContent=design.hmm+' mm';
+  $('#vRT').textContent=design.rt+'%'; $('#vRM').textContent=design.rm+'%'; $('#vRB').textContent=design.rb+'%';
+  $('#vFS').textContent=design.fs+'%'; $('#vAL').textContent=design.accentLine+' px';
+  saveDesign(); renderPreview(); renderAllLabels(); renderSheet();
+}
+function pushDesignToControls(){
+  $('#dW').value=design.wmm; $('#dH').value=design.hmm;
+  $('#dRT').value=design.rt; $('#dRM').value=design.rm; $('#dRB').value=design.rb;
+  $('#dFont').value=design.font; $('#dFS').value=design.fs; $('#dAL').value=design.accentLine;
+  $('#dItalic').checked=!!design.italic; $('#dBold').checked=!!design.bold;
+  if($('#dAutoStag'))$('#dAutoStag').checked=(design.autoStagger!==false);
+  $('#dQuotes').checked=design.quotes; $('#dUpper').checked=design.upper;
+  $('#dCat').checked=design.cat; $('#dCaps').checked=design.caps;
+  $('#cBg').value=design.bg; $('#cBanner').value=design.banner; $('#cInk').value=design.ink;
+  $('#cBink').value=design.bink; $('#cAccent').value=design.accent; $('#cBord').value=design.bord;
+  $('#vW').textContent=design.wmm+' mm'; $('#vH').textContent=design.hmm+' mm';
+  $('#vRT').textContent=design.rt+'%'; $('#vRM').textContent=design.rm+'%'; $('#vRB').textContent=design.rb+'%';
+  $('#vFS').textContent=design.fs+'%'; $('#vAL').textContent=design.accentLine+' px';
+  $$('#shapeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.sh===design.shape));
+  $$('#themeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.th===design.theme));
+}
+const q=s=>s?'\u201C'+s+'\u201D':s; // curly quotes
+function fmt(s){ if(s==null)return ''; return design.quotes&&s? q(s):s; }
+
+function makeStrip(rec){
+  const d=design, mm=n=>n+'mm';
+  const el=document.createElement('div'); el.className='strip';
+  el.style.width=mm(d.wmm); el.style.height=mm(d.hmm);
+  el.style.setProperty('--bg',d.bg); el.style.setProperty('--banner',d.banner);
+  el.style.setProperty('--ink',d.ink); el.style.setProperty('--bink',d.bink);
+  el.style.setProperty('--accent',d.accent); el.style.setProperty('--bord',d.bord);
+  el.style.setProperty('--stripfont',"'"+d.font+"'");
+  el.style.setProperty('--case',d.upper?'uppercase':'none');
+  el.style.setProperty('--fstyle',d.italic?'italic':'normal');
+  el.style.setProperty('--fweight',d.bold?'800':'700');
+  const tot=(d.rt+d.rm+d.rb)||1, f=d.fs/100;
+  const empty=!(rec.artist||rec.sideA||rec.sideB);
+  const tSize=(d.hmm*0.30*f).toFixed(2), bSize=(d.hmm*0.22*f).toFixed(2), sSize=(d.hmm*0.26*f).toFixed(2);
+  // top: A-side
+  const top=document.createElement('div'); top.className='seg-row'; top.style.flex=d.rt;
+  top.innerHTML=`<div class="t-title" style="font-size:${tSize}mm">${esc(fmt(rec.sideA))||(empty?'<span style="opacity:.35">— leeg —</span>':'')}</div>`;
+  // mid: artist banner
+  const mid=document.createElement('div'); mid.className='seg-row'; mid.style.flex=d.rm; mid.style.position='relative';
+  const bh=(d.hmm*(d.rm/tot)*0.78).toFixed(2);
+  mid.innerHTML=`${d.caps?'<span class="cap l">HIT</span>':''}<div class="banner ${d.shape}" style="font-size:${bSize}mm;height:${bh}mm">${esc(rec.artist||'')}</div>${d.caps?'<span class="cap r">POP</span>':''}`;
+  // bottom: B-side + catalog
+  const bot=document.createElement('div'); bot.className='seg-row'; bot.style.flex=d.rb;
+  bot.innerHTML=`<div class="t-title t-sub" style="font-size:${sSize}mm">${esc(fmt(rec.sideB))}</div>`+
+    (d.cat&&rec.catalog?`<div class="cat">${esc(rec.catalog)}</div>`:'');
+  if(d.accentLine>0){ mid.style.borderTop=d.accentLine+'px solid '+d.accent; mid.style.borderBottom=d.accentLine+'px solid '+d.accent; }
+  el.append(top,mid,bot);
+  // fit text to width after in DOM
+  requestAnimationFrame(()=>{ fit(top.querySelector('.t-title')); fit(mid.querySelector('.banner')); fit(bot.querySelector('.t-title')); });
+  return el;
+}
+function fit(el){ if(!el||!el.clientWidth)return;
+  let guard=0, px=parseFloat(getComputedStyle(el).fontSize);
+  const pad=el.classList.contains('banner')?0.82:0.99; // banner-punten happen wat ruimte
+  while(el.scrollWidth>el.clientWidth*pad && px>4 && guard++<60){ px*=0.94; el.style.fontSize=px+'px'; }
+}
+
+function renderPreview(){
+  const holder=$('#previewHolder'); holder.innerHTML='';
+  const rec=records.find(r=>r.id===previewId)||records[0]||{artist:'Artiest',sideA:'A-kant titel',sideB:'B-kant titel',catalog:'LABEL 0000'};
+  holder.appendChild(makeStrip(rec));
+}
+function renderAllLabels(){
+  const box=$('#allLabels'); box.innerHTML='';
+  if(!records.length){ box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="big">💿</div>Nog geen plaatjes. Voeg er een toe bij <b>Plaatjes</b>.</div>'; return; }
+  records.forEach(rec=>{
+    const card=document.createElement('div'); card.className='lblcard'; card.title='Klik om preview te horen';
+    card.appendChild(makeStrip(rec));
+    const fab=document.createElement('div'); fab.className='play-fab'; fab.textContent='▶'; card.appendChild(fab);
+    const tag=document.createElement('div'); tag.style.cssText='text-align:center;font-family:var(--fm);font-size:.7rem;color:var(--gold);margin-top:5px;font-weight:700'; tag.textContent=(rec.col==='L'?'◀ ':'')+ (rec.num||'—') +(rec.col==='R'?' ▶':'');
+    const wrap=document.createElement('div'); wrap.append(card,tag);
+    card.onclick=()=>playRecord(rec);
+    box.appendChild(wrap);
+  });
+}
+function fillPreviewPick(){
+  const sel=$('#previewPick'); sel.innerHTML='';
+  records.forEach(r=>{ const o=document.createElement('option'); o.value=r.id; o.textContent=(r.num?r.num+' · ':'')+(r.artist||'—')+' — '+(r.sideA||'—'); sel.appendChild(o); });
+  if(records.length){ if(!previewId||!records.find(r=>r.id===previewId)) previewId=records[0].id; sel.value=previewId; }
+}
+
+/* =========================================================
+   PLAATJES-TABEL
+   ========================================================= */
+function filtered(){
+  let list=records.slice();
+  const qy=recQuery.trim().toLowerCase();
+  if(qy) list=list.filter(r=>[r.num,r.artist,r.sideA,r.sideB,r.catalog].some(v=>(v||'').toLowerCase().includes(qy)));
+  if(recFilter==='L') list=list.filter(r=>r.col==='L');
+  else if(recFilter==='R') list=list.filter(r=>r.col==='R');
+  else if(recFilter==='empty') list=list.filter(r=>!(r.artist||r.sideA||r.sideB));
+  if(sortKey){ list.sort((a,b)=>{ let x=a[sortKey]||'',y=b[sortKey]||'';
+    if(sortKey==='num'){ x=parseInt(x)||0;y=parseInt(y)||0; return (x-y)*sortDir; }
+    return String(x).localeCompare(String(y),'nl')*sortDir; }); }
+  return list;
+}
+function renderTable(){
+  const body=$('#recBody'); body.innerHTML='';
+  const list=filtered();
+  if(!list.length){ body.innerHTML='<tr><td colspan="8"><div class="empty"><div class="big">🔍</div>Geen plaatjes gevonden.</div></td></tr>'; return; }
+  list.forEach(rec=>{
+    const tr=document.createElement('tr'); tr.dataset.id=rec.id; tr.draggable=true;
+    const empty=!(rec.artist||rec.sideA||rec.sideB);
+    tr.innerHTML=`
+      <td class="drag" title="Sleep om te verplaatsen">⠿</td>
+      <td><input class="cellinp n" data-k="num" value="${esc(rec.num)}"></td>
+      <td><select class="cellinp" data-k="col" style="min-width:96px"><option value="L"${rec.col==='L'?' selected':''}>◀ Links</option><option value="R"${rec.col==='R'?' selected':''}>Rechts ▶</option></select></td>
+      <td><input class="cellinp" data-k="sideA" value="${esc(rec.sideA)}" placeholder="A-kant"></td>
+      <td><input class="cellinp" data-k="artist" value="${esc(rec.artist)}" placeholder="artiest"></td>
+      <td><input class="cellinp" data-k="sideB" value="${esc(rec.sideB)}" placeholder="B-kant"></td>
+      <td><input class="cellinp" data-k="catalog" value="${esc(rec.catalog)}" placeholder="cat.nr"></td>
+      <td><div class="actions">
+        <button class="iconbtn" data-a="play" title="Preview horen">▶</button>
+        <button class="iconbtn" data-a="print" title="Deze label afdrukken">🖨</button>
+        <button class="iconbtn${swapSource===rec.id?' on':''}" data-a="swap" title="Ruil van nummer met…">⇄</button>
+        <button class="iconbtn" data-a="edit" title="Bewerken">✎</button>
+        <button class="iconbtn" data-a="del" title="Verwijderen">🗑</button>
+      </div></td>`;
+    if(empty) tr.querySelector('input[data-k="sideA"]').style.opacity=.6;
+    body.appendChild(tr);
+  });
+}
+function updateField(id,k,v){ const r=records.find(x=>x.id===id); if(!r)return; r[k]=v; saveRecords(); refreshLight(); }
+function refreshLight(){ renderPreview(); renderAllLabels(); renderSheet(); updateStats(); fillPreviewPick(); if($('#view-overview')&&$('#view-overview').classList.contains('active'))renderOverview(); }
+
+/* table events (delegated) */
+$('#recBody').addEventListener('input',e=>{ const inp=e.target.closest('.cellinp'); if(!inp)return;
+  const id=inp.closest('tr').dataset.id; updateField(id,inp.dataset.k,inp.value); });
+$('#recBody').addEventListener('change',e=>{ const s=e.target.closest('select.cellinp'); if(!s)return;
+  const id=s.closest('tr').dataset.id; updateField(id,'col',s.value); });
+$('#recBody').addEventListener('click',e=>{
+  const btn=e.target.closest('.iconbtn'); if(!btn)return;
+  const id=btn.closest('tr').dataset.id, rec=records.find(r=>r.id===id); if(!rec)return;
+  const a=btn.dataset.a;
+  if(a==='play') playRecord(rec);
+  else if(a==='print') printStrip(rec);
+  else if(a==='edit') openModal(id);
+  else if(a==='del'){ if(confirm('Dit plaatje verwijderen?')){ records=records.filter(r=>r.id!==id); saveRecords(); renderTable(); refreshLight(); toast('Verwijderd'); } }
+  else if(a==='swap') doSwap(id);
+});
+function doSwap(id){
+  if(!swapSource){ swapSource=id; toast('Kies nu het plaatje om mee te ruilen'); renderTable(); return; }
+  if(swapSource===id){ swapSource=null; renderTable(); toast('Ruilen geannuleerd'); return; }
+  const a=records.find(r=>r.id===swapSource), b=records.find(r=>r.id===id);
+  if(a&&b){ const tn=a.num,tc=a.col; a.num=b.num;a.col=b.col; b.num=tn;b.col=tc; saveRecords();
+    toast(`Nummers geruild: ${a.num} ⇄ ${b.num}`); }
+  swapSource=null; renderTable(); refreshLight();
+}
+/* drag reorder */
+let dragId=null;
+$('#recBody').addEventListener('dragstart',e=>{ const tr=e.target.closest('tr'); if(!tr)return; dragId=tr.dataset.id; e.dataTransfer.effectAllowed='move'; });
+$('#recBody').addEventListener('dragover',e=>{ e.preventDefault(); const tr=e.target.closest('tr'); $$('#recBody tr').forEach(t=>t.classList.remove('dragover')); if(tr)tr.classList.add('dragover'); });
+$('#recBody').addEventListener('drop',e=>{ e.preventDefault(); const tr=e.target.closest('tr'); $$('#recBody tr').forEach(t=>t.classList.remove('dragover'));
+  if(!tr||!dragId)return; const targetId=tr.dataset.id; if(targetId===dragId)return;
+  const from=records.findIndex(r=>r.id===dragId), to=records.findIndex(r=>r.id===targetId);
+  const [m]=records.splice(from,1); records.splice(to,0,m); dragId=null; sortKey=null;
+  saveRecords(); renderTable(); refreshLight(); });
+
+$('#recTable').addEventListener('click',e=>{ const th=e.target.closest('th[data-sort]'); if(!th)return;
+  const k=th.dataset.sort; if(sortKey===k)sortDir*=-1; else{sortKey=k;sortDir=1;} renderTable(); });
+$('#recSearch').addEventListener('input',e=>{ recQuery=e.target.value; renderTable(); });
+$$('#colFilter button').forEach(b=>b.onclick=()=>{ $$('#colFilter button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); recFilter=b.dataset.c; renderTable(); });
+
+/* =========================================================
+   MODAL toevoegen/bewerken
+   ========================================================= */
+function openModal(id){
+  editId=id||null; const rec=id?records.find(r=>r.id===id):null;
+  $('#rmTitle').textContent=id?'Plaatje bewerken':'Plaatje toevoegen';
+  $('#rmNum').value=rec?rec.num:''; $('#rmArtist').value=rec?rec.artist:'';
+  $('#rmA').value=rec?rec.sideA:''; $('#rmB').value=rec?rec.sideB:''; $('#rmCat').value=rec?rec.catalog:'';
+  const col=rec?rec.col:'R'; $$('#rmCol button').forEach(b=>b.classList.toggle('on',b.dataset.c===col));
+  $('#rmDelete').style.display=id?'inline-flex':'none';
+  $('#rmResults').innerHTML='';
+  $('#recModal').classList.add('open');
+}
+function closeModal(){ $('#recModal').classList.remove('open'); editId=null; }
+$('#btnAdd').onclick=()=>openModal(null);
+$('#rmClose').onclick=$('#rmCancel').onclick=closeModal;
+$('#recModal').addEventListener('click',e=>{ if(e.target.id==='recModal')closeModal(); });
+$$('#rmCol button').forEach(b=>b.onclick=()=>{ $$('#rmCol button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); });
+$('#rmSave').onclick=()=>{
+  const col=$('#rmCol button.on').dataset.c;
+  const data={num:$('#rmNum').value.trim(),artist:$('#rmArtist').value.trim(),sideA:$('#rmA').value.trim(),sideB:$('#rmB').value.trim(),catalog:$('#rmCat').value.trim(),col};
+  if(editId){ Object.assign(records.find(r=>r.id===editId),data); toast('Opgeslagen'); }
+  else{ records.push({id:uid(),...data}); toast('Plaatje toegevoegd'); }
+  saveRecords(); closeModal(); renderTable(); refreshLight();
+};
+$('#rmDelete').onclick=()=>{ if(editId&&confirm('Verwijderen?')){ records=records.filter(r=>r.id!==editId); saveRecords(); closeModal(); renderTable(); refreshLight(); toast('Verwijderd'); } };
+$('#rmSearch').onclick=async()=>{
+  const term=($('#rmArtist').value+' '+$('#rmA').value).trim()||$('#rmA').value||$('#rmArtist').value;
+  if(!term){ toast('Vul eerst artiest of titel in'); return; }
+  const box=$('#rmResults'); box.innerHTML='<div class="hint" style="padding:8px">Zoeken…</div>';
+  try{ const r=await itunes(term);
+    if(!r.length){ box.innerHTML='<div class="hint" style="padding:8px">Niets gevonden.</div>'; return; }
+    box.innerHTML='';
+    r.forEach(x=>{ const div=document.createElement('div'); div.className='sr';
+      div.innerHTML=`<img src="${x.artworkUrl60||x.artworkUrl100||''}" alt=""><div class="srm"><b>${esc(x.trackName||'')}</b><span>${esc(x.artistName||'')}</span></div>${x.previewUrl?'<span style="color:var(--gold);font-size:.8rem">▶ preview</span>':''}`;
+      div.onclick=()=>{ $('#rmArtist').value=x.artistName||$('#rmArtist').value; if(!$('#rmA').value)$('#rmA').value=x.trackName||''; toast('Overgenomen'); if(x.previewUrl)openPlayer(x.previewUrl,x.trackName,x.artistName,x.artworkUrl100); };
+      box.appendChild(div);
+    });
+  }catch(e){ box.innerHTML='<div class="hint" style="padding:8px">Kon iTunes niet bereiken (offline?). Vul handmatig in.</div>'; }
+};
+
+/* =========================================================
+   WENSLIJST
+   ========================================================= */
+function renderWish(){
+  const box=$('#wishBody'); box.innerHTML='';
+  let list=wishlist.slice();
+  const qy=wishQuery.trim().toLowerCase();
+  if(qy) list=list.filter(w=>[w.artist,w.sideA,w.sideB,w.note].some(v=>(v||'').toLowerCase().includes(qy)));
+  const rank={hi:0,mid:1,lo:2}; list.sort((a,b)=>rank[a.prio]-rank[b.prio]);
+  if(!list.length){ box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="big">⭐</div>Je wenslijst is leeg. Voeg hierboven iets toe.</div>'; return; }
+  const plabel={hi:'Hoog',mid:'Middel',lo:'Laag'};
+  list.forEach(w=>{
+    const c=document.createElement('div'); c.className='wishcard';
+    c.innerHTML=`<span class="prio ${w.prio}">${plabel[w.prio]}</span>
+      <h4>${esc(w.sideA||'—')}</h4>
+      <div class="b">${esc(w.artist||'')}${w.sideB?' · b/w '+esc(w.sideB):''}</div>
+      ${w.note?`<div class="note">“${esc(w.note)}”</div>`:''}
+      <div class="wa">
+        <button class="btn sm" data-a="play">▶ Beluister</button>
+        <button class="btn sm primary" data-a="promote">In jukebox ↗</button>
+        <button class="iconbtn" data-a="del" title="Verwijderen">🗑</button>
+      </div>`;
+    c.querySelector('[data-a="play"]').onclick=()=>playRecord(w);
+    c.querySelector('[data-a="promote"]').onclick=()=>promote(w.id);
+    c.querySelector('[data-a="del"]').onclick=()=>{ wishlist=wishlist.filter(x=>x.id!==w.id); saveWish(); renderWish(); updateStats(); toast('Van wenslijst gehaald'); };
+    box.appendChild(c);
+  });
+}
+function nextFreeNum(){
+  const used=new Set(records.map(r=>parseInt(r.num)||0));
+  let n=101; while(used.has(n))n++; return String(n);
+}
+function promote(id){
+  const w=wishlist.find(x=>x.id===id); if(!w)return;
+  const num=nextFreeNum();
+  records.push({id:uid(),num,col:(parseInt(num)%2? 'L':'R'),artist:w.artist,sideA:w.sideA,sideB:w.sideB,catalog:''});
+  wishlist=wishlist.filter(x=>x.id!==id);
+  saveRecords(); saveWish(); renderWish(); renderTable(); refreshLight();
+  toast(`Toegevoegd als plaatje ${num} — vul cat.nr aan bij Plaatjes`);
+}
+$('#btnWAdd').onclick=()=>{
+  const a=$('#wArtist').value.trim(), sA=$('#wA').value.trim();
+  if(!a&&!sA){ toast('Vul minstens artiest of titel in'); return; }
+  wishlist.push({id:uid(),artist:a,sideA:sA,sideB:$('#wB').value.trim(),note:$('#wNote').value.trim(),prio:$('#wPrio').value});
+  $('#wArtist').value=$('#wA').value=$('#wB').value=$('#wNote').value='';
+  saveWish(); renderWish(); updateStats(); toast('Op de wenslijst gezet');
+};
+$('#wishSearch').addEventListener('input',e=>{ wishQuery=e.target.value; renderWish(); });
+
+/* =========================================================
+   AFDRUKKEN — jukebox-indeling met stagger + kniprijen
+   ========================================================= */
+function renderSheet(){
+  const sheet=$('#sheet'); if(!sheet)return; sheet.innerHTML=''; sheet.classList.remove('a4mode');
+  const d=design, gap=+($('#pGap')?.value ?? 3), showIx=$('#pIndex')?$('#pIndex').checked:true;
+  const jbOnly=$('#jbOnlyOpts'); if(jbOnly)jbOnly.style.display = (printMode==='jukebox')?'block':'none';
+  const stagRow=$('#stagRow'); if(stagRow)stagRow.style.display = (printMode==='jukebox' && design.autoStagger===false)?'flex':'none';
+  const help=$('#printHelp'); if(help)help.innerHTML = (printMode==='jukebox')
+    ? '<b>Jukebox-indeling:</b> zo ligt het op de jukebox zelf — de nummers in het midden, ◀ bij de linkerlabels en ▶ bij de rechter, met de linkerkolom een halve strook hoger. Dit is een <b>voorbeeld</b>; om echt te printen en te knippen gebruik je “A4 om uit te knippen”.'
+    : '<b>A4 om uit te knippen:</b> de labels worden zo groot mogelijk op echte A4-pagina’s gezet (ware mm-grootte), met stippellijnen om langs te knippen. Hoeveel er per vel passen hangt af van de labelgrootte die je bij <b>Ontwerp</b> koos.';
+  if(!records.length){ sheet.innerHTML='<div class="empty"><div class="big">🖨️</div>Geen plaatjes om te printen.</div>'; sheet.style.height='auto'; return; }
+
+  if(printMode==='cut'){
+    // A4-pagina's om uit te knippen
+    sheet.classList.add('a4mode'); sheet.style.height='auto'; sheet.style.width='auto';
+    const margin=8, pw=210-2*margin, ph=297-2*margin;
+    const cols=Math.max(1, Math.floor((pw+gap)/(d.wmm+gap)));
+    const rows=Math.max(1, Math.floor((ph+gap)/(d.hmm+gap)));
+    const per=Math.max(1, cols*rows), pages=Math.ceil(records.length/per);
+    const info=document.createElement('div'); info.className='noprint';
+    info.style.cssText='text-align:center;color:var(--muted);font-size:.86rem;margin:2px 0 16px';
+    info.innerHTML=`<b style="color:var(--gold)">${cols} × ${rows} = ${per}</b> labels per A4 · ${pages} pagina${pages>1?'\u2019s':''} voor ${records.length} labels · labelgrootte ${d.wmm}×${d.hmm} mm`;
+    sheet.appendChild(info);
+    let i=0;
+    while(i<records.length){
+      const page=document.createElement('div'); page.className='a4page';
+      const grid=document.createElement('div'); grid.className='a4grid';
+      grid.style.gridTemplateColumns=`repeat(${cols}, ${d.wmm}mm)`; grid.style.gap=gap+'mm';
+      for(let k=0;k<per && i<records.length;k++,i++){ const cell=document.createElement('div'); cell.className='a4cell'; cell.appendChild(makeStrip(records[i])); grid.appendChild(cell); }
+      page.appendChild(grid); sheet.appendChild(page);
+    }
+    return;
+  }
+
+  // jukebox layout via herbruikbare bouwer
+  const cont=buildJukebox(records,{gap,stagPct:+($('#pStag')?.value ?? 50),showIx});
+  sheet.appendChild(cont);
+}
+/* Bouwt de gestaggerde jukebox-indeling (labels + centrale nummer-index) en geeft het element terug.
+   opts: {gap, stagPct, showIx, clickable} */
+function buildJukebox(recs, opts){
+  const d=design, gap=opts.gap ?? 3, showIx=opts.showIx!==false, clickable=!!opts.clickable;
+  const stagPct = (d.autoStagger!==false) ? 50 : (opts.stagPct ?? 0);
+  const L=recs.filter(r=>r.col==='L'), R=recs.filter(r=>r.col==='R');
+  const h=d.hmm, step=h+gap, colGap=3, stagOffset=step*stagPct/100;
+  const ixW=showIx?26:5;
+  const cont=document.createElement('div'); cont.style.position='relative';
+  const leftX=0, ixX=d.wmm+colGap, rightX=d.wmm+colGap+ixW+colGap;
+  cont.style.width=(rightX+d.wmm)+'mm';
+  const leftBottom=L.length?L.length*step-gap:0, rightBottom=R.length?stagOffset+R.length*step-gap:0;
+  cont.style.height=Math.max(leftBottom,rightBottom,h)+'mm';
+  const place=(r,x,top)=>{ const s=makeStrip(r); s.style.position='absolute'; s.style.left=x+'mm'; s.style.top=top+'mm';
+    if(clickable){ s.style.cursor='pointer'; s.title='Klik om te draaien ▶'; s.onclick=()=>playRecord(r); } cont.appendChild(s); };
+  L.forEach((r,i)=>place(r,leftX,i*step));
+  R.forEach((r,j)=>place(r,rightX,stagOffset+j*step));
+  if(showIx){
+    const ixFS=(h*0.32).toFixed(2), lineH=(h*0.44), halfW=ixW/2;
+    const mk=(num,side,center)=>{ const e=document.createElement('div'); e.className='jbNum';
+      e.style.top=(center-lineH/2).toFixed(2)+'mm'; e.style.height=lineH+'mm'; e.style.fontSize=ixFS+'mm';
+      if(side==='L'){ e.style.left=ixX+'mm'; e.style.width=halfW+'mm'; e.style.justifyContent='flex-end'; e.style.paddingRight='1mm';
+        e.innerHTML=`<span class="ar">&#9664;</span>${esc(num||'—')}`; }
+      else { e.style.left=(ixX+halfW)+'mm'; e.style.width=halfW+'mm'; e.style.justifyContent='flex-start'; e.style.paddingLeft='1mm';
+        e.innerHTML=`${esc(num||'—')}<span class="ar">&#9654;</span>`; }
+      cont.appendChild(e);
+    };
+    L.forEach((r,i)=>mk(r.num,'L', i*step+h/2));
+    R.forEach((r,j)=>mk(r.num,'R', stagOffset+j*step+h/2));
+    const dv=document.createElement('div'); dv.style.cssText=`position:absolute;left:${(ixX+ixW/2)}mm;top:0;bottom:0;width:.35mm;background:#cbcbcb`; cont.appendChild(dv);
+  }
+  return cont;
+}
+$('#pGap')&&$('#pGap').addEventListener('input',e=>{ $('#vGap').textContent=e.target.value+' mm'; renderSheet(); });
+$('#pIndex')&&$('#pIndex').addEventListener('change',renderSheet);
+function stagLabel(v){ v=+v; if(v===0)return 'recht uitgelijnd'; if(v===50)return 'halve strook'; return v+'%'; }
+$('#pStag')&&$('#pStag').addEventListener('input',e=>{ $('#vStag').textContent=stagLabel(e.target.value); renderSheet(); });
+$$('#printMode button').forEach(b=>b.onclick=()=>{ $$('#printMode button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); printMode=b.dataset.m; renderSheet(); });
+$('#btnPrint').onclick=()=>{ renderSheet(); setTimeout(()=>window.print(),120); };
+$('#btnGoPrint').onclick=()=>go('print');
+
+/* =========================================================
+   iTunes preview (JSONP) + speler
+   ========================================================= */
+function itunes(term){
+  return new Promise((res,rej)=>{
+    const cb='itcb_'+Math.random().toString(36).slice(2);
+    const s=document.createElement('script');
+    const to=setTimeout(()=>{cleanup();rej(new Error('timeout'))},9000);
+    function cleanup(){clearTimeout(to);try{delete window[cb]}catch(e){}s.remove();}
+    window[cb]=data=>{cleanup();res((data&&data.results)||[])};
+    s.onerror=()=>{cleanup();rej(new Error('net'))};
+    s.src='https://itunes.apple.com/search?media=music&entity=song&limit=6&callback='+cb+'&term='+encodeURIComponent(term);
+    document.body.appendChild(s);
+  });
+}
+const audio=$('#audio'); let currentPlayingId=null, playingRec=null, isFallback=false, seeking=false, progTimer=null, autoAdvance=true;
+
+function advanceNext(){ if(!autoAdvance||!currentPlayingId)return;
+  const list=records.filter(r=>r.artist||r.sideA).sort((a,b)=>(parseInt(a.num)||0)-(parseInt(b.num)||0));
+  if(!list.length)return; const i=list.findIndex(r=>r.id===currentPlayingId);
+  const next = i<0 ? list[0] : list[(i+1)%list.length];
+  if(next) playRecord(next);
+}
+
+/* --- YouTube IFrame API (volledige nummers) --- */
+let ytPlayer=null, ytReady=false;
+(function loadYT(){ if(window.YT&&window.YT.Player){ initYT(); return; } const t=document.createElement('script'); t.src='https://www.youtube.com/iframe_api'; t.async=true; document.head.appendChild(t); })();
+window.onYouTubeIframeAPIReady=function(){ initYT(); };
+function initYT(){ if(ytPlayer)return; try{ ytPlayer=new YT.Player('ytPlayerDiv',{height:'46',width:'74',
+  playerVars:{autoplay:0,controls:0,disablekb:1,modestbranding:1,rel:0,playsinline:1,fs:0},
+  events:{ onReady:()=>{ ytReady=true; try{ytPlayer.setVolume(+($('#plVol').value||80));}catch(e){} },
+    onStateChange:onYtState, onError:()=>{ if(playingRec)fallbackItunes(playingRec); } } }); }catch(e){ ytReady=false; } }
+function onYtState(e){ const S=window.YT&&YT.PlayerState; if(!S)return;
+  if(e.data===S.PLAYING){
+    try{ if(ytPlayer.getPlaylistIndex && ytPlayer.getPlaylistIndex()>0){ advanceNext(); return; } }catch(err){}
+    $('#plToggle').textContent='❚❚'; startProg(); ytBoxShowVideo(true); }
+  else if(e.data===S.PAUSED){ $('#plToggle').textContent='▶'; }
+  else if(e.data===S.ENDED){ $('#plToggle').textContent='▶'; stopProg(); advanceNext(); } }
+function waitYT(ms){ return new Promise(res=>{ const t0=Date.now(); (function chk(){ if(ytReady||Date.now()-t0>ms)return res(); setTimeout(chk,120); })(); }); }
+
+function ytBoxShowVideo(v){ const img=$('#plArtImg'), yt=$('#ytPlayerDiv'); if(img)img.style.display=v?'none':'block'; if(yt)yt.style.display=v?'block':'none'; }
+function showPlayer(){ $('#player').classList.add('show'); }
+function isPlaying(){ if(isFallback)return !audio.paused && !!audio.src; try{ return ytReady&&ytPlayer&&ytPlayer.getPlayerState&&ytPlayer.getPlayerState()===1; }catch(e){ return false; } }
+
+/* fragment-speler (iTunes 30s) — als fallback of preview */
+function openPlayer(url,title,artist,art){ isFallback=true; ytBoxShowVideo(false); try{ if(ytPlayer&&ytPlayer.stopVideo)ytPlayer.stopVideo(); }catch(e){}
+  audio.src=url; audio.volume=(+($('#plVol').value||80))/100;
+  audio.play().then(()=>{ $('#plToggle').textContent='❚❚'; startProg(); }).catch(()=>{});
+  $('#plTitle').textContent=title||'—'; $('#plArtist').textContent=artist||''; if($('#plArtImg')){ $('#plArtImg').src=art||''; }
+  showPlayer(); }
+
+function stopMusic(){ try{ audio.pause(); audio.currentTime=0; }catch(e){} try{ if(ytPlayer&&ytPlayer.stopVideo)ytPlayer.stopVideo(); }catch(e){}
+  stopProg(); currentPlayingId=null; playingRec=null; $('#plToggle').textContent='▶'; $('#player').classList.remove('show'); }
+
+async function playRecord(rec){
+  if(currentPlayingId===rec.id && isPlaying()){ stopMusic(); return; }
+  const term=((rec.artist||'')+' '+(rec.sideA||'')).trim();
+  if(!term){ toast('Geen titel om te zoeken'); return; }
+  currentPlayingId=rec.id; playingRec=rec;
+  $('#plTitle').textContent=rec.sideA||term; $('#plArtist').textContent=rec.artist||''; showPlayer();
+  // artwork via iTunes (los, niet blokkerend)
+  itunes(term).then(r=>{ const hit=r.find(x=>x.artworkUrl100)||r[0]; if(hit&&$('#plArtImg'))$('#plArtImg').src=hit.artworkUrl100||hit.artworkUrl60||''; }).catch(()=>{});
+  if(!ytReady) await waitYT(2600);
+  if(ytReady && ytPlayer && ytPlayer.loadPlaylist){
+    isFallback=false; ytBoxShowVideo(true);
+    try{ ytPlayer.loadPlaylist({list:term, listType:'search', index:0}); try{ytPlayer.setVolume(+($('#plVol').value||80));}catch(e){} toast('▶ '+(rec.sideA||term)); }
+    catch(e){ fallbackItunes(rec); }
+  } else { fallbackItunes(rec); }
+}
+async function fallbackItunes(rec){ isFallback=true; ytBoxShowVideo(false);
+  const term=((rec.artist||'')+' '+(rec.sideA||'')).trim();
+  try{ const r=await itunes(term); const hit=r.find(x=>x.previewUrl)||r[0];
+    if(hit&&hit.previewUrl){ openPlayer(hit.previewUrl, rec.sideA||hit.trackName, rec.artist||hit.artistName, hit.artworkUrl100||hit.artworkUrl60); toast('▶ fragment (30s) — volledige versie niet beschikbaar'); }
+    else noPreview(term);
+  }catch(e){ noPreview(term); }
+}
+function noPreview(term){ toast('Geen fragment gevonden — YouTube geopend'); try{ window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(term),'_blank'); }catch(e){} }
+
+/* voortgang + tijd */
+function fmtT(s){ s=Math.max(0,Math.floor(s||0)); const m=Math.floor(s/60); return m+':'+String(s%60).padStart(2,'0'); }
+function startProg(){ stopProg(); progTimer=setInterval(updProg,350); updProg(); }
+function stopProg(){ if(progTimer){ clearInterval(progTimer); progTimer=null; } }
+function updProg(){ let cur=0,dur=0;
+  if(isFallback){ cur=audio.currentTime||0; dur=audio.duration||0; }
+  else { try{ if(ytReady&&ytPlayer&&ytPlayer.getDuration){ cur=ytPlayer.getCurrentTime()||0; dur=ytPlayer.getDuration()||0; } }catch(e){} }
+  $('#plCur').textContent=fmtT(cur); $('#plDur').textContent=dur?fmtT(dur):'--:--';
+  if(!seeking){ $('#plSeek').value = dur? Math.round(cur/dur*1000) : 0; }
+}
+const plSeek=$('#plSeek');
+plSeek.addEventListener('input',()=>{ seeking=true; });
+plSeek.addEventListener('change',()=>{ const frac=(+plSeek.value)/1000;
+  if(isFallback){ if(audio.duration)audio.currentTime=frac*audio.duration; }
+  else { try{ const d=ytPlayer.getDuration(); if(d)ytPlayer.seekTo(frac*d,true); }catch(e){} }
+  seeking=false; });
+const plVol=$('#plVol');
+plVol.addEventListener('input',()=>{ const v=+plVol.value; audio.volume=v/100; try{ if(ytReady&&ytPlayer)ytPlayer.setVolume(v); }catch(e){}
+  $('#plVolIco').textContent = v===0?'🔇':(v<50?'🔉':'🔊'); });
+
+$('#plToggle').onclick=()=>{
+  if(isFallback){ if(audio.paused){ audio.play(); $('#plToggle').textContent='❚❚'; startProg(); } else { audio.pause(); $('#plToggle').textContent='▶'; } }
+  else { try{ const st=ytPlayer.getPlayerState(); if(st===1){ ytPlayer.pauseVideo(); $('#plToggle').textContent='▶'; } else { ytPlayer.playVideo(); $('#plToggle').textContent='❚❚'; } }catch(e){} }
+};
+audio.onended=()=>{ $('#plToggle').textContent='▶'; stopProg(); advanceNext(); };
+audio.ontimeupdate=()=>{ if(isFallback&&!seeking)updProg(); };
+$('#plClose').onclick=stopMusic;
+$('#btnShuffle').onclick=()=>{ const pool=records.filter(r=>r.artist||r.sideA); if(!pool.length){toast('Geen plaatjes');return;} playRecord(pool[Math.floor(Math.random()*pool.length)]); };
+
+
+/* =========================================================
+   OVERZICHT — hele jukebox in één beeld (max 100 labels)
+   ========================================================= */
+function renderOverview(){
+  const board=$('#ovBoard'); if(!board)return; board.innerHTML='';
+  if(!records.length){ board.innerHTML='<div class="empty" style="width:100%"><div class="big">🗄️</div>Nog geen plaatjes om te tonen.</div>'; return; }
+  const per=+($('#ovPer')?.value||20), all=records.slice(0,100), mmpx=3.7795, targetW=300;
+  const panelW_mm=design.wmm*2+32;
+  const scale=Math.max(0.2,Math.min(0.62, targetW/(panelW_mm*mmpx)));
+  for(let i=0;i<all.length;i+=per){
+    const chunk=all.slice(i,i+per);
+    const cont=buildJukebox(chunk,{gap:2,stagPct:50,showIx:true,clickable:true});
+    cont.style.transformOrigin='top left'; cont.style.transform='scale('+scale+')';
+    const wrap=document.createElement('div'); wrap.style.position='relative'; wrap.appendChild(cont);
+    board.appendChild(wrap);
+    wrap.style.width=(cont.offsetWidth*scale)+'px'; wrap.style.height=(cont.offsetHeight*scale)+'px';
+  }
+}
+$('#ovPer')&&$('#ovPer').addEventListener('input',e=>{ $('#vPer').textContent=e.target.value; renderOverview(); });
+$('#ovStop')&&($('#ovStop').onclick=()=>{ stopMusic(); toast('Muziek uit'); });
+
+/* =========================================================
+   DELEN via WhatsApp / systeem
+   ========================================================= */
+async function shareTool(){
+  const msg='🎵 Hier is de jukebox! Tik op het bestand hieronder — hij opent vanzelf en je kunt meteen muziek kiezen. Alle nummers staan er al in.';
+  // 1) probeer het bestand zelf te delen (ontvanger krijgt de werkende tool)
+  try{
+    const res=await fetch(location.href); const blob=await res.blob();
+    const file=new File([blob],'jukebox-titelstroken.html',{type:'text/html'});
+    if(navigator.canShare && navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:'Jukebox Titelstroken',text:msg}); return; }
+  }catch(e){}
+  // 2) deel een link via het systeem-menu (incl. WhatsApp)
+  try{ if(navigator.share){ await navigator.share({title:'Jukebox Titelstroken',text:msg,url:location.href}); return; } }catch(e){}
+  // 3) open WhatsApp direct
+  try{ window.open('https://wa.me/?text='+encodeURIComponent(msg+' '+location.href),'_blank'); return; }catch(e){}
+  toast('Delen niet ondersteund op dit apparaat');
+}
+$('#btnShare')&&($('#btnShare').onclick=shareTool);
+$('#btnShareTop')&&($('#btnShareTop').onclick=shareTool);
+$('#btnIpadHelp')&&($('#btnIpadHelp').onclick=()=>$('#ipadModal').classList.add('open'));
+$('#ipadClose')&&($('#ipadClose').onclick=()=>$('#ipadModal').classList.remove('open'));
+$('#ipadOk')&&($('#ipadOk').onclick=()=>$('#ipadModal').classList.remove('open'));
+$('#ipadModal')&&$('#ipadModal').addEventListener('click',e=>{ if(e.target.id==='ipadModal')$('#ipadModal').classList.remove('open'); });
+/* installeren (werkt als de tool via https gehost wordt) */
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); deferredPrompt=e; const b=$('#btnInstall'); if(b)b.style.display='block'; });
+$('#btnInstall')&&($('#btnInstall').onclick=async()=>{ if(!deferredPrompt){ toast('Installeren kan alleen als de tool online (https) staat'); return; } deferredPrompt.prompt(); try{ await deferredPrompt.userChoice; }catch(e){} deferredPrompt=null; $('#btnInstall').style.display='none'; });
+window.addEventListener('appinstalled',()=>{ toast('Geïnstalleerd ✓'); });
+$('#btnLoadSeed')&&($('#btnLoadSeed').onclick=()=>{ if(confirm('De originele notitieboek-lijst laden? Dit vervangt de huidige plaatjes.')){ seed(); saveRecords(); saveWish(); renderAll(); toast('Notitieboek-lijst geladen'); } });
+
+/* =========================================================
+   BACK-UP / STATS / GENERATE
+   ========================================================= */
+function updateStats(){
+  const filled=records.filter(r=>r.artist||r.sideA||r.sideB).length;
+  $('#stFilled').textContent=filled; $('#stWish').textContent=wishlist.length;
+  const box=$('#statsBox'); if(!box)return;
+  const empty=records.length-filled, L=records.filter(r=>r.col==='L').length, R=records.filter(r=>r.col==='R').length;
+  const cell=(n,l)=>`<div style="background:var(--ink);border:1px solid var(--line-soft);border-radius:9px;padding:12px"><div style="font-family:var(--fm);font-size:1.4rem;font-weight:700;color:var(--gold)">${n}</div><div style="font-size:.72rem;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-top:2px">${l}</div></div>`;
+  box.innerHTML=cell(records.length,'posities')+cell(filled,'ingevuld')+cell(L+' / '+R,'links / rechts')+cell(wishlist.length,'op wenslijst');
+}
+$('#btnExport').onclick=()=>{
+  const data={version:1,exported:new Date().toISOString(),records,wishlist,design};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='jukebox-titelstroken.json'; a.click();
+  toast('Back-up gedownload');
+};
+$('#btnImport').onclick=()=>$('#fileImport').click();
+$('#fileImport').onchange=e=>{ const f=e.target.files[0]; if(!f)return;
+  const rd=new FileReader(); rd.onload=()=>{ try{ const d=JSON.parse(rd.result);
+    if(d.records)records=d.records; if(d.wishlist)wishlist=d.wishlist; if(d.design)design={...DEF_DESIGN,...d.design};
+    saveRecords(); saveWish(); saveDesign(); pushDesignToControls(); renderAll(); toast('Back-up geïmporteerd');
+  }catch(err){ toast('Ongeldig bestand'); } }; rd.readAsText(f); e.target.value=''; };
+$('#btnWipe').onclick=()=>{ if(confirm('Alles wissen? Dit verwijdert alle plaatjes en de wenslijst.')){ records=[];wishlist=[];design={...DEF_DESIGN}; saveRecords();saveWish();saveDesign(); pushDesignToControls(); renderAll(); toast('Alles gewist'); } };
+$('#btnGen').onclick=()=>{
+  let from=parseInt($('#genFrom').value), to=parseInt($('#genTo').value);
+  if(isNaN(from)||isNaN(to)||to<from){ toast('Vul een geldig bereik in'); return; }
+  if(to-from>200){ toast('Maximaal 200 tegelijk'); return; }
+  const used=new Set(records.map(r=>String(r.num)));
+  let added=0;
+  for(let n=from;n<=to;n++){ if(used.has(String(n)))continue; records.push({id:uid(),num:String(n),col:(n%2?'L':'R'),artist:'',sideA:'',sideB:'',catalog:''}); added++; }
+  saveRecords(); renderTable(); refreshLight(); toast(added+' lege posities aangemaakt');
+};
+
+/* =========================================================
+   NAV + init
+   ========================================================= */
+function go(v){ $$('#nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.v===v));
+  $$('.view').forEach(s=>s.classList.remove('active')); const el=$('#view-'+v); if(el)el.classList.add('active');
+  if(v==='print')renderSheet(); if(v==='overview')renderOverview(); if(v==='design'){fillPreviewPick();renderPreview();renderAllLabels();} window.scrollTo({top:0,behavior:'smooth'}); }
+$$('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+
+/* design control listeners */
+['dW','dH','dRT','dRM','dRB','dFS','dAL'].forEach(id=>$('#'+id).addEventListener('input',readDesign));
+['dFont'].forEach(id=>$('#'+id).addEventListener('change',readDesign));
+['dQuotes','dUpper','dCat','dCaps','dItalic','dBold'].forEach(id=>$('#'+id).addEventListener('change',readDesign));
+['cBg','cBanner','cInk','cBink','cAccent','cBord'].forEach(id=>$('#'+id).addEventListener('input',readDesign));
+/* kleuren omkeren: achtergrond ⇄ balk, titeltekst ⇄ balk-tekst */
+$('#btnInvert').onclick=()=>{ const t=design.bg; design.bg=design.banner; design.banner=t;
+  const t2=design.ink; design.ink=design.bink; design.bink=t2; design.theme='';
+  pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('Kleuren omgekeerd'); };
+$('#dAutoStag')&&($('#dAutoStag').onchange=()=>{ design.autoStagger=$('#dAutoStag').checked; saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); if($('#view-overview')&&$('#view-overview').classList.contains('active'))renderOverview(); });
+$('#btnLockStd')&&($('#btnLockStd').onclick=()=>{ store.set('jb_stdlabel', JSON.stringify(design)); toast('🔒 Standaardlabel vastgelegd'); });
+$('#btnUseStd')&&($('#btnUseStd').onclick=()=>{ try{ const s=store.get('jb_stdlabel'); if(!s){ toast('Nog geen standaard vastgelegd'); return; } design={...DEF_DESIGN,...JSON.parse(s)}; pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('↩ Terug naar standaardlabel'); }catch(e){ toast('Kon standaard niet laden'); } });
+$$('#shapeSeg button').forEach(b=>b.onclick=()=>{ $$('#shapeSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); design.shape=b.dataset.sh; saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); });
+$$('#themeSeg button').forEach(b=>b.onclick=()=>{ const t=b.dataset.th; design={...design,...THEMES[t],theme:t}; pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('Thema '+(THEME_LABELS[t]||t)+' toegepast'); });
+$('#previewPick').addEventListener('change',e=>{ previewId=e.target.value; renderPreview(); });
+/* ---- Live voorbeeld uitvergroten + luisteren ---- */
+function currentPreviewRec(){ return records.find(r=>r.id===previewId)||records[0]||null; }
+function openPreviewModal(){ const rec=currentPreviewRec(); const h=$('#pmHolder'); h.innerHTML='';
+  h.appendChild(makeStrip(rec||{artist:'Artiest',sideA:'A-kant titel',sideB:'B-kant titel',catalog:'LABEL 0000'}));
+  $('#pmTitle').textContent=rec?((rec.num?rec.num+' · ':'')+(rec.artist||'—')):'Voorbeeld';
+  $('#previewModal').classList.add('open'); }
+$('#previewStage').onclick=openPreviewModal;
+$('#pmClose').onclick=()=>$('#previewModal').classList.remove('open');
+$('#previewModal').addEventListener('click',e=>{ if(e.target.id==='previewModal') $('#previewModal').classList.remove('open'); });
+$('#pmPlay').onclick=()=>{ const rec=currentPreviewRec(); if(rec) playRecord(rec); else toast('Geen plaatje geselecteerd'); };
+
+/* ---- Eén losse label afdrukken ---- */
+function printStrip(rec){ const box=$('#printOne'); box.innerHTML='';
+  const wrap=document.createElement('div'); wrap.style.textAlign='center';
+  wrap.appendChild(makeStrip(rec));
+  const cap=document.createElement('div');
+  const arrow=rec.col==='L'?'\u25C0 ':'', arrowR=rec.col==='R'?' \u25B6':'';
+  cap.style.cssText='margin-top:4mm;font-family:Oswald,sans-serif;font-weight:700;font-size:6mm;color:#111';
+  cap.textContent=arrow+(rec.num||'')+arrowR+(rec.numB?'  /  '+(rec.col==='L'?'\u25C0 ':'')+rec.numB+(rec.col==='R'?' \u25B6':''):'');
+  wrap.appendChild(cap); box.appendChild(wrap);
+  document.body.classList.add('printone');
+  setTimeout(()=>{ window.print(); setTimeout(()=>document.body.classList.remove('printone'),300); },150); }
+$('#btnResetDesign').onclick=()=>{ design={...DEF_DESIGN}; pushDesignToControls(); saveDesign(); renderPreview(); renderAllLabels(); renderSheet(); toast('Standaardontwerp hersteld'); };
+
+/* toast */
+let toastT; function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2600); }
+
+function renderAll(){ pushDesignToControls(); fillPreviewPick(); renderPreview(); renderAllLabels(); renderTable(); renderWish(); renderSheet(); updateStats(); $('#vGap').textContent=($('#pGap').value)+' mm'; if($('#pStag'))$('#vStag').textContent=stagLabel($('#pStag').value); }
+
+/* boot */
+/* =========================================================
+   WURLITZER 1015 — bediening
+   ========================================================= */
+function jbLabel(r){ return (r.artist? r.artist+' — ':'')+(r.sideA||'—'); }
+function renderJukebox(){
+  const disp=$('#jbDisplay'); if(!disp)return; disp.innerHTML='';
+  const list=records.slice().sort((a,b)=>(parseInt(a.num)||0)-(parseInt(b.num)||0));
+  if(!list.length){ disp.innerHTML='<div style="color:#c9a86a;font-size:10px;text-align:center;padding:24px 8px">Nog geen plaatjes.<br>Voeg ze toe hieronder of via “Labels maken”.</div>'; return; }
+  list.forEach(r=>{
+    const el=document.createElement('div'); el.className='jb-strip'+(currentPlayingId===r.id?' playing':''); el.dataset.id=r.id;
+    el.innerHTML=`<span class="num">${esc(r.num||'—')}</span><span class="ttl">${esc(jbLabel(r))}</span><span class="ar">${r.col==='L'?'\u25C0':'\u25B6'}</span>`;
+    el.onclick=()=>{ playRecord(r); setTimeout(renderJukebox,60); };
+    disp.appendChild(el);
+  });
+}
+let jbBubblesDone=false;
+function setupBubbles(){
+  if(jbBubblesDone)return; jbBubblesDone=true;
+  const arch=$('#jbArchBub'); if(arch){ for(let i=0;i<11;i++){ const b=document.createElement('div'); b.className='bubble';
+    const dur=4.5+Math.random()*3.5; b.style.animationDuration=dur.toFixed(2)+'s'; b.style.animationDelay=(-Math.random()*dur).toFixed(2)+'s';
+    const s=(9+Math.random()*8).toFixed(1); b.style.width=b.style.height=s+'px'; arch.appendChild(b); } }
+  ['#jbPilL','#jbPilR'].forEach(sel=>{ const p=$(sel); if(!p)return; for(let i=0;i<7;i++){ const b=document.createElement('div'); b.className='bubble';
+    const dur=3+Math.random()*2.6; b.style.animationDuration=dur.toFixed(2)+'s'; b.style.animationDelay=(-Math.random()*dur).toFixed(2)+'s';
+    b.style.left=(20+Math.random()*60)+'%'; const s=(8+Math.random()*6).toFixed(1); b.style.width=b.style.height=s+'px'; p.appendChild(b); } });
+}
+function fitJukebox(){
+  const sc=$('#jbScaler'); if(!sc)return;
+  const scale=Math.max(0.3, Math.min((window.innerWidth-24)/600, (window.innerHeight-180)/980, 1.06));
+  sc.style.transformOrigin='top left'; sc.style.transform='scale('+scale+')';
+  sc.style.width=(600*scale)+'px'; sc.style.height=(980*scale)+'px';
+}
+function enterStudio(){ document.body.classList.remove('mode-jukebox'); document.body.classList.add('mode-studio'); go('design'); }
+function showJukebox(){ document.body.classList.add('mode-jukebox'); document.body.classList.remove('mode-studio'); setupBubbles(); renderJukebox(); fitJukebox(); window.scrollTo(0,0); }
+$('#jbAuto')&&($('#jbAuto').onchange=e=>{ autoAdvance=e.target.checked; toast(autoAdvance?'Doorspelen aan':'Doorspelen uit'); });
+$('#jbToStudio')&&($('#jbToStudio').onclick=enterStudio);
+$('#btnToJukebox')&&($('#btnToJukebox').onclick=showJukebox);
+/* groot leesbaar keuzescherm */
+function renderJbBig(q){ const box=$('#jbBigList'); if(!box)return; box.innerHTML='';
+  q=(q||'').trim().toLowerCase();
+  let list=records.slice().sort((a,b)=>(parseInt(a.num)||0)-(parseInt(b.num)||0));
+  if(q) list=list.filter(r=>[r.num,r.numB,r.artist,r.sideA,r.sideB].some(v=>(v||'').toLowerCase().includes(q)));
+  if(!list.length){ box.innerHTML='<div class="hint" style="padding:18px;text-align:center">Niets gevonden.</div>'; return; }
+  list.forEach(r=>{ const row=document.createElement('div'); row.className='jbBigRow'+(currentPlayingId===r.id?' playing':''); row.dataset.id=r.id;
+    row.innerHTML=`<div class="bn">${r.col==='L'?'\u25C0':''}${esc(r.num||'—')}${r.col==='R'?'\u25B6':''}</div><div class="bi"><b>${esc(r.artist||'—')}</b><span>A: ${esc(r.sideA||'—')}${r.sideB?'  ·  B: '+esc(r.sideB):''}</span></div><button class="bp">▶</button>`;
+    row.onclick=()=>{ playRecord(r); setTimeout(()=>renderJbBig($('#jbBigSearch').value),80); };
+    box.appendChild(row);
+  });
+}
+function openJbBig(){ renderJbBig(''); $('#jbBigSearch').value=''; $('#jbBigModal').classList.add('open'); setTimeout(()=>{try{$('#jbBigSearch').focus();}catch(e){}},60); }
+$('#jbZoom')&&($('#jbZoom').onclick=openJbBig);
+$('#jbDispZoom')&&($('#jbDispZoom').onclick=openJbBig);
+$('#jbBigClose')&&($('#jbBigClose').onclick=()=>$('#jbBigModal').classList.remove('open'));
+$('#jbBigModal')&&$('#jbBigModal').addEventListener('click',e=>{ if(e.target.id==='jbBigModal')$('#jbBigModal').classList.remove('open'); });
+$('#jbBigSearch')&&$('#jbBigSearch').addEventListener('input',e=>renderJbBig(e.target.value));
+window.addEventListener('resize',()=>{ if(document.body.classList.contains('mode-jukebox'))fitJukebox(); });
+
+/* nummer-toetsen */
+let jbDial='';
+function updDial(){ $('#jbDialShow').textContent = jbDial ? jbDial.padEnd(3,'·').split('').join(' ') : '— — —'; }
+$('#jbNumpad')&&$('#jbNumpad').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b||b.dataset.d==null)return; if(jbDial.length<3){ jbDial+=b.dataset.d; updDial(); } });
+$('#jbClear')&&($('#jbClear').onclick=()=>{ jbDial=''; updDial(); });
+$('#jbStop2')&&($('#jbStop2').onclick=stopMusic);
+$('#jbPlayNum')&&($('#jbPlayNum').onclick=()=>{
+  if(!jbDial){ toast('Tik eerst een nummer'); return; }
+  const n=jbDial.padStart(3,'0');
+  const r=records.find(x=>x.num===n||x.num===jbDial||x.numB===n||x.numB===jbDial);
+  if(r){ playRecord(r); setTimeout(renderJukebox,60); toast('Speelt '+n+' — '+(r.artist||r.sideA||'')); }
+  else toast('Nummer '+n+' staat (nog) niet in je jukebox');
+  jbDial=''; updDial();
+});
+
+/* nummer koppelen: zoeken → keuzelijst → toevoegen (vrij) of vervangen (bestaand) */
+function nextFreeNum(){ const used=usedNums(); for(const bank of [0,100,200,300,400,500,600,700,800,900]){ for(let s=1;s<=16;s++){ const n=String(bank+s).padStart(3,'0'); if(!used.has(n))return n; } } let i=1; while(used.has(String(i).padStart(3,'0'))&&i<999)i++; return String(i).padStart(3,'0'); }
+function usedNums(){ const s=new Set(); records.forEach(r=>{ if(r.num)s.add(String(r.num)); if(r.numB)s.add(String(r.numB)); }); return s; }
+let kpChosen=null;
+function openKoppel(prefill){ kpChosen=null; $('#kpResults').innerHTML=''; $('#kpAction').style.display='none';
+  $('#kpAdd').disabled=$('#kpRep').disabled=true; $('#kpQuery').value=prefill||'';
+  // vul bestaande-nummers keuzelijst
+  const sel=$('#kpExist'); sel.innerHTML='<option value="">—</option>';
+  records.slice().sort((a,b)=>(parseInt(a.num)||0)-(parseInt(b.num)||0)).forEach(r=>{ const o=document.createElement('option'); o.value=r.num; o.textContent=r.num+' — '+(r.artist||'')+(r.sideA?(' · '+r.sideA):''); sel.appendChild(o); });
+  $('#koppelModal').classList.add('open');
+  if(prefill) kpSearch();
+}
+function closeKoppel(){ $('#koppelModal').classList.remove('open'); }
+async function kpSearch(){
+  const term=($('#kpQuery').value||'').trim(); if(!term){ toast('Vul artiest + titel in'); return; }
+  const box=$('#kpResults'); box.innerHTML='<div class="hint" style="padding:8px">Zoeken…</div>';
+  try{ const r=await itunes(term);
+    if(!r.length){ box.innerHTML='<div class="hint" style="padding:8px">Niets gevonden.</div>'; return; }
+    box.innerHTML='';
+    r.forEach(x=>{ const div=document.createElement('div'); div.className='sr';
+      div.innerHTML=`<img src="${x.artworkUrl60||x.artworkUrl100||''}" alt=""><div class="srm"><b>${esc(x.trackName||'')}</b><span>${esc(x.artistName||'')}</span></div>`+
+        (x.previewUrl?'<button class="btn ghost sm kp-prev" style="flex:0 0 auto">▶</button>':'');
+      div.querySelector('.kp-prev')&&(div.querySelector('.kp-prev').onclick=(ev)=>{ ev.stopPropagation(); openPlayer(x.previewUrl,x.trackName,x.artistName,x.artworkUrl100); });
+      div.onclick=()=>{ kpChosen={artist:x.artistName||'',title:x.trackName||'',url:x.previewUrl||null,art:x.artworkUrl100||x.artworkUrl60||null};
+        [...box.children].forEach(c=>c.style.background=''); div.style.background='rgba(233,185,73,.14)';
+        $('#kpChosen').textContent=(kpChosen.artist?kpChosen.artist+' — ':'')+kpChosen.title;
+        $('#kpAction').style.display='block'; if(!$('#kpNum').value)$('#kpNum').value=nextFreeNum(); kpUpdateStatus();
+      };
+      box.appendChild(div);
+    });
+  }catch(e){ box.innerHTML='<div class="hint" style="padding:8px">Kon iTunes niet bereiken (offline?).</div>'; }
+}
+function kpUpdateStatus(){
+  const n=($('#kpNum').value||'').trim(); const nn=n? (n.length<3?n.padStart(3,'0'):n):'';
+  const st=$('#kpStatus'); const rec=records.find(r=>String(r.num)===nn);
+  if(!kpChosen||!nn){ $('#kpAdd').disabled=true; $('#kpRep').disabled=true; st.textContent=''; return; }
+  if(rec){ st.innerHTML='Nummer <b>'+nn+'</b> is bezet door <b>'+esc(rec.artist||'—')+'</b> — je kunt het <b>vervangen</b>.'; $('#kpAdd').disabled=true; $('#kpRep').disabled=false; }
+  else { st.innerHTML='Nummer <b>'+nn+'</b> is vrij — je kunt het <b>toevoegen</b>.'; $('#kpAdd').disabled=false; $('#kpRep').disabled=true; }
+}
+function kpApply(replace){
+  if(!kpChosen)return; let n=($('#kpNum').value||'').trim(); if(n.length<3)n=n.padStart(3,'0'); if(!n){ toast('Kies een nummer'); return; }
+  let rec=records.find(r=>String(r.num)===n);
+  if(replace){ if(!rec){ toast('Dat nummer bestaat nog niet'); return; } rec.artist=kpChosen.artist||rec.artist; rec.sideA=kpChosen.title||rec.sideA; toast('♻ '+n+' vervangen'); }
+  else { if(rec){ toast('Nummer '+n+' is al bezet — kies Vervangen'); return; }
+    rec={id:uid(),num:n,numB:String((+n||0)+1).padStart(3,'0'),col:(records.length%2?'R':'L'),artist:kpChosen.artist,sideA:kpChosen.title,sideB:'',catalog:''}; records.push(rec); toast('➕ '+n+' toegevoegd'); }
+  saveRecords(); renderJukebox(); renderTable(); updateStats(); fillPreviewPick();
+  currentPlayingId=rec.id; if(kpChosen.url)openPlayer(kpChosen.url,kpChosen.title,kpChosen.artist,kpChosen.art);
+  closeKoppel();
+}
+$('#jbAddBtn')&&($('#jbAddBtn').onclick=()=>openKoppel(($('#jbAddQ').value||'').trim()));
+$('#kpSearch')&&($('#kpSearch').onclick=kpSearch);
+$('#kpQuery')&&$('#kpQuery').addEventListener('keydown',e=>{ if(e.key==='Enter')kpSearch(); });
+$('#kpNum')&&$('#kpNum').addEventListener('input',kpUpdateStatus);
+$('#kpExist')&&($('#kpExist').onchange=e=>{ if(e.target.value){ $('#kpNum').value=e.target.value; kpUpdateStatus(); } });
+$('#kpAdd')&&($('#kpAdd').onclick=()=>kpApply(false));
+$('#kpRep')&&($('#kpRep').onclick=()=>kpApply(true));
+$('#kpClose')&&($('#kpClose').onclick=closeKoppel);
+$('#kpCancel')&&($('#kpCancel').onclick=closeKoppel);
+$('#koppelModal')&&$('#koppelModal').addEventListener('click',e=>{ if(e.target.id==='koppelModal')closeKoppel(); });
+
+load(); renderAll();
+setupBubbles(); renderJukebox(); fitJukebox();
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(()=>{renderPreview();renderAllLabels();renderSheet();});}
+/* service worker — alleen als de tool online (http/https) staat; als los bestand doet dit niks */
+if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){ try{ navigator.serviceWorker.register('sw.js').catch(()=>{}); }catch(e){} }
+</script>
+</body>
+</html>
