@@ -1,15 +1,22 @@
-/* Kleine service worker voor de Jukebox — laadt de app ook offline. */
-const CACHE='jukebox-v1';
-self.addEventListener('install',e=>{ self.skipWaiting();
-  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html'])).catch(()=>{})); });
-self.addEventListener('activate',e=>{ e.waitUntil((async()=>{
-  const keys=await caches.keys(); await Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)));
+/* Service worker voor de Jukebox — NETWERK EERST (altijd de nieuwste versie online),
+   met de cache alleen als terugval wanneer je offline bent. */
+const CACHE='jukebox-v3';
+self.addEventListener('install', e=>{ self.skipWaiting(); });
+self.addEventListener('activate', e=>{ e.waitUntil((async()=>{
+  const keys=await caches.keys();
+  await Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)));
   await self.clients.claim();
 })()); });
-self.addEventListener('fetch',e=>{
-  if(e.request.method!=='GET')return;
-  if(e.request.mode==='navigate'){ e.respondWith(fetch(e.request).catch(()=>caches.match('./index.html'))); return; }
-  e.respondWith(caches.match(e.request).then(r=>r|| fetch(e.request).then(resp=>{
-    try{ const cp=resp.clone(); caches.open(CACHE).then(c=>c.put(e.request,cp)); }catch(_){} return resp;
-  })).catch(()=>caches.match('./index.html')));
+self.addEventListener('fetch', e=>{
+  if(e.request.method!=='GET') return;
+  e.respondWith((async()=>{
+    try{
+      const fresh = await fetch(e.request, {cache:'no-store'});
+      try{ const c=await caches.open(CACHE); c.put(e.request, fresh.clone()); }catch(_){}
+      return fresh;
+    }catch(err){
+      const cached = await caches.match(e.request);
+      return cached || caches.match('./index.html');
+    }
+  })());
 });
